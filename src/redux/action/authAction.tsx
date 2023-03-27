@@ -1,0 +1,3 @@
+export const AUTH_TYPE = {
+    ONBOARDING_DONE: 'ONBOARDING_DONE',
+}
