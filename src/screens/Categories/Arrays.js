@@ -24,17 +24,13 @@
   {id:4,name:'Fresh Peas',url:require('./image11.jpg')}
   ]*/
   export const category=[
-    {id:1,name:'vegetable',url:require('../../images/vegetable.png'),goto:"vegetablesPage"},
-    {id:2,name:'fruit',url:require('../../images/Fruit.png'),goto:"FruitsPage"},
-    {id:3,name:'Drink',url:require('../../images/Drink.png'),goto:"Register"},
-    {id:4,name:'milk',url:require('../../images/Milk.png'),goto:"Login"},
-   {id:5,name:'oil',url:require('../../images/oil.png'),goto:"Menu"},
-    {id:6,name:'Cake',url:require('../../images/Cake.png'),goto:"Login"},
-    {id:7,name:'Juice',url:require('../../images/juice.png'),goto:"Register"},
-    {id:8,name:'Icecream',url:require('../../images/ice-cream.png'),goto:"Login"},
-    {id:7,name:'Juice',url:require('../../images/juice.png'),goto:"Register"},
-    {id:8,name:'Icecream',url:require('../../images/ice-cream.png'),goto:"Login"},
-    {id:7,name:'Juice',url:require('../../images/juice.png'),goto:"Register"},
-    {id:8,name:'Icecream',url:require('../../images/ice-cream.png'),goto:"Login"}
+    {id:1,name:'Vegetables',url:require('../../images/vegetable.png'),goto:"vegetablesPage"},
+    {id:2,name:'Fruits',url:require('../../images/Fruit.png'),goto:"FruitsPage"},
+    {id:3,name:'Drinks',url:require('../../images/Drink.png'),goto:"NewCategory"},
+    {id:4,name:'Milk',url:require('../../images/Milk.png'),goto:"NewCategory"},
+    {id:5,name:'Oil',url:require('../../images/oil.png'),goto:"NewCategory"},
+    {id:6,name:'Cake',url:require('../../images/Cake.png'),goto:"NewCategory"},
+    {id:7,name:'Juice',url:require('../../images/juice.png'),goto:"NewCategory"},
+    {id:8,name:'Icecream',url:require('../../images/ice-cream.png'),goto:"NewCategory"},
   ]
   

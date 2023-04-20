@@ -23,6 +23,7 @@ import Register from '../screens/RegistrationPage/Register';
 import Onboarding from '../screens/OnboardingPage/Onboarding';
 import Delivery from '../screens/DeliveryPage/Delivery';
 import BottomNavBar from '../screens/BottomNavBar/BottomNavBar';
+import NewCategory from '../screens/Categories/NewCategory';
 
 
 // import SignInScreen from '../screens/auth/SignIn';
@@ -38,7 +39,7 @@ const Stack = createNativeStackNavigator();
 
 const AppRouter = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{headerShown:false}}>
       <Stack.Screen name="NavigationPage" component={NavigationPage}></Stack.Screen>
       <Stack.Screen name="LoginScreen" component={LoginScreen}></Stack.Screen>
       <Stack.Screen name="SpleshScreen" component={SpleshScreen}></Stack.Screen>
@@ -63,6 +64,7 @@ const AppRouter = () => {
       <Stack.Screen name="BottomSheetComponent" component={BottomSheetComoponent}></Stack.Screen>
       <Stack.Screen name="Delivery" component={Delivery}></Stack.Screen>
       <Stack.Screen name="BottomNavbar" component={BottomNavBar}></Stack.Screen>
+      <Stack.Screen name="NewCategory" component={NewCategory}></Stack.Screen>
       
     </Stack.Navigator>
   );

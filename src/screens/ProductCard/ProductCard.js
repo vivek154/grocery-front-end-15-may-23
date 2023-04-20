@@ -2,9 +2,18 @@ import { Image, StyleSheet, Text, View,Dimensions} from 'react-native'
 import React from 'react';
 import Mybutton from '../Mybutton'
 const width=Dimensions.get('window').width;
-const url= "../../images/cabbage.jpg"
+
+let Source =  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUdKHdrEpIGniBkcg0yrlilj6A093qJqLDppKi9sJH&s"
 
 const ProductCard = (props) => {
+
+  const {item}=props;
+  const {name,price,discount,description,imageUrl}=item
+
+  console.log("imageUrl",imageUrl)
+
+  
+
   const handlePress=()=>{
     console.log("Added to cart");
   }
@@ -14,20 +23,20 @@ const ProductCard = (props) => {
     <View style={styles.container}>
       <View style={styles.top_view_container}>
         <View style={styles.discount_container}>
-            <Text style={{color:"white",fontWeight:"bold",fontSize:12}}>{props.item.discount}% off</Text>
+            <Text style={{color:"white",fontWeight:"bold",fontSize:12}}>{discount}% off</Text>
         </View>
         <View><Text style={{fontWeight:"bold",fontSize:12}}>1KG</Text></View>
       </View>
       <View style={styles.image_container}>
-        <Image source={require(url)} style={styles.image}></Image>
+        <Image source={{uri:imageUrl?imageUrl:Source}} style={styles.image}></Image>
       </View>
       <View style={styles.title_container}>
-        <Text style={{fontWeight:"bold",fontSize:11,color:"#000000"}}>{props.item.name}</Text>
-        <Text style={{fontSize:10}}>{props.item.description}</Text>
+        <Text style={{fontWeight:"bold",fontSize:11,color:"#000000"}}>{name}</Text>
+        <Text style={{fontSize:10}}>{description}</Text>
       </View>
       <View style={styles.footer}>
         <View>
-            <Text style={{fontWeight:"800",fontSize:10,color:"#000000"}}>Rs. {props.item.price} /-</Text>
+            <Text style={{fontWeight:"800",fontSize:10,color:"#000000"}}>Rs. {price} /-</Text>
             
         </View>
         
@@ -82,8 +91,8 @@ const styles = StyleSheet.create({
         alignSelf:"center"
     },
     image:{
-      maxWidth:percentage(50,containerWH.width),
-      maxHeight:percentage(50,containerWH.width),
+      width:percentage(50,containerWH.width),
+      height:percentage(50,containerWH.width),
       resizeMode:"contain",
       alignSelf:"center"
     },

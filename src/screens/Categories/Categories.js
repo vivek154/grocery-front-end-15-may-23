@@ -2,7 +2,7 @@
 /* eslint-disable react/react-in-jsx-scope */
 
 
-import { View,Text, StyleSheet,Image,Dimensions} from "react-native"
+import { View,Text, StyleSheet,Image,Dimensions,Pressable} from "react-native"
 const width=Dimensions.get("window").width
 const Categories=({item,navigation})=>
 {
@@ -10,8 +10,10 @@ const Categories=({item,navigation})=>
     
          <View style={styles.view}>
          <View>
-            <Image style={styles.img} source={item.url}></Image>
-            <Text onPress={()=>navigation.navigate(item.goto)}>{item.name}</Text>
+            <Pressable onPress={()=>navigation.navigate(item.goto,{item})}>
+               <Image style={styles.img} source={item.url}></Image>
+               <Text>{item.name}</Text>
+            </Pressable>
          </View>
          </View>
     
