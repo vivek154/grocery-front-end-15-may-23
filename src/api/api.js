@@ -50,3 +50,11 @@ export const getAllProducts = ()=>{
   const url= `${API_URL}products/all`
   return authAxiosInstance.get(url)
 }
+
+export const getmycart=()=>
+{
+  const url=`${API_URL}cart/get-cart`
+  return authAxiosInstance.get(url);
+}
+
+

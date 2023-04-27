@@ -4,11 +4,32 @@ import PageHeader from '../PageHeader/PageHeader'
 import MyCartCard from './MycartCard/MyCartCard'
 import Mybutton from '../Mybutton'
 import {data} from "./MycartCard/data"
+import { useState ,useEffect} from 'react';
 import DeleteIcon from "../../svg/delete.svg"
+import { getmycart } from '../../api/api'
 const MyCartPage = ({navigation}) => {
     function showDeliveryOptions(){
         navigation.navigate("Delivery")
     }
+    const [data,setdata] = useState([]);
+
+    console.log("data",data);
+
+    const makeApiRequest = async()=>{
+      try{
+        let response = await getmycart();
+        console.log(response.data);
+        setdata(response.data);
+        
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
+    useEffect(()=>{
+      makeApiRequest()
+    },[])
+
   return (
     <>
         <View style={{backgroundColor:"white",height:"100%"}}>
