@@ -14,7 +14,7 @@ const Mybutton = ({onPress,btnTxt,txtColor,myButton,width}) => {
       borderRadius:20,
       padding:10,
       minWidth:30,
-    }
+    } 
   }
   if(!onPress){
     handlePress=()=>{
@@ -28,6 +28,7 @@ const Mybutton = ({onPress,btnTxt,txtColor,myButton,width}) => {
    
   return (
     
+
         <Pressable style={[myButton,{width:width}]}
          onPress={onPress}>
             <Text style={{color:(txtColor?txtColor:"black"),

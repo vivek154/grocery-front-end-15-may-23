@@ -9,7 +9,7 @@ const MyCartCard = (props) => {
 
     <View style={{flexDirection:"row",gap:20}}>
         <View>
-            <Image source={props.item.url} style={styles.image}></Image>
+            <Image source={{uri:props.item.image}} style={styles.image}></Image>
         </View>
       
         <View style={styles.middleBox}>
