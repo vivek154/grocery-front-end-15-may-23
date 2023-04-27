@@ -19,6 +19,7 @@ const HomeHeader = (props) => {
       setShowResults(true);
       makeApiRequest(newText);
     }
+
   }
 
   function showNotifications(){

@@ -10,13 +10,13 @@ const MultiSlider = ({images}) => {
         return(
             <View key={index}style={styles.imageContainer}>
       
-                <Image style={{width:width3,height:width3,marginRight:5,borderRadius:8}} source={item.url1} ></Image>
+                <Image style={{width:width3,height:width3,marginRight:5,borderRadius:8}} source={{uri:"https://www.bigbasket.com/media/uploads/p/l/60000655_9-coca-cola-soft-drink-original-taste.jpg?tr=w-640,q=80"}} ></Image>
             
             
-                <Image style={{width:width3,height:width3,marginRight:5,borderRadius:8}} source={item.url2} ></Image>
+                <Image style={{width:width3,height:width3,marginRight:5,borderRadius:8}} source={{uri:"https://www.bigbasket.com/media/uploads/p/l/60000655_9-coca-cola-soft-drink-original-taste.jpg?tr=w-640,q=80"}} ></Image>
               
               
-                <Image style={{width:width3,height:width3,borderRadius:8,marginRight:5}} source={item.url3} ></Image>
+                <Image style={{width:width3,height:width3,borderRadius:8,marginRight:5}} source={{uri:"https://www.bigbasket.com/media/uploads/p/l/60000655_9-coca-cola-soft-drink-original-taste.jpg?tr=w-640,q=80"}} ></Image>
               
             </View>
         )

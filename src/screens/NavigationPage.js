@@ -1,12 +1,13 @@
 import { StyleSheet, Text, View,ScrollView,Button} from 'react-native'
 import React from 'react'
-import BottomSheetComponent from './BottomSheet/BottomSheetComponent'
+
 
 const NavigationPage = ({navigation}) => {
   return (
     <ScrollView>
+        <Button title='Onboarding Page' onPress={()=>{navigation.navigate("Onboarding") }}></Button>
         <Button title='Login Screen' onPress={()=>{navigation.navigate("LoginScreen") }}></Button>
-        <Button title='Bottom Sheet' onPress={()=>{navigation.navigate("BottomSheetComponent") }}></Button>
+        
         <Button title='OrderInfo' onPress={()=>{navigation.navigate("OrderInfo") }}></Button>
         <Button title='Vegetables' onPress={()=>{navigation.navigate("vegetablesPage") }}></Button>
         <Button title='Fruits' onPress={()=>{navigation.navigate("FruitsPage") }}></Button>

@@ -43,9 +43,9 @@ const LoginScreen = ({navigation}) => {
         <View style={styles.container}>
         <Image style={styles.imgApple} source={require("../../images/apple.jpg")}></Image>
         <View style={styles.container}>
-            <Text style={{alignSelf:"flex-start",marginLeft:20,fontWeight:"bold",fontSize:30}}>Login</Text>  
+            <Text style={{alignSelf:"flex-start",marginLeft:20,fontWeight:"bold",fontSize:30,color:"#000"}}>Login</Text>  
             <TextInput style={styles.ipMobNo} placeholder='Enter Mobile no' keyboardType='numeric'onChangeText={setMobNo} value={mobNo} maxLength={10}></TextInput>
-            <Mybutton handlePress={handlePress} btnTxt="GET OTP" txtColor="#ffffff" myButton={styles.myButton}></Mybutton>
+            <Mybutton handlePress={handlePress} btnTxt="GET OTP" txtColor="#ffffff" myButton={styles.myButton} width={300}></Mybutton>
             <Text style={{color:"#ff9900",textDecorationLine:"underline",marginTop:10}} onPress={()=> Linking.openURL("/")}>Forget Password?</Text>
             <Text style={{marginTop:40}}>Don't have an account 
             <Text style={{color:"#ff9900"}} onPress={showRegistration}> Register?</Text>
@@ -92,7 +92,9 @@ const styles = StyleSheet.create({
         borderRadius:20,
         padding:10,
         width:300,
-        marginTop:15
+        marginTop:15,
+        fontWeight:"bold",
+        fontSize:17
         
     }
   });

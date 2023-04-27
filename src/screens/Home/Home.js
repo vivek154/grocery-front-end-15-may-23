@@ -46,7 +46,8 @@ export default function Home(props) {
     const makeApiRequest= async(keyword)=>{
         console.log("keyword",keyword)
         let response = await getSearchResults(keyword);
-        if(response.data){
+        console.log(response)
+        if(response.data!==undefined){
             setMatchedProducts(response.data);
         }
     }
@@ -69,7 +70,7 @@ export default function Home(props) {
                 makeApiRequest={makeApiRequest}></HomeHeader>
             </View>
 
-        {   !showSearchResults &&
+        {  (searchKeyWord=="")&&
                 <ScrollView style={{maxHeight:"63%",padding:10,top:180}}>
                 
 
@@ -113,7 +114,7 @@ export default function Home(props) {
             </ScrollView>
         }
         {
-            showSearchResults &&  
+            !(searchKeyWord=="") &&  
             <ScrollView style={{maxHeight:"63%",padding:10,top:180}}> 
                 <SearchResults matchedProducts={matchedProducts}></SearchResults>
             </ScrollView>

@@ -19,7 +19,7 @@ const BottomNavBar = ({navigation}) => {
     navigation.navigate("SearchPage");
   }
   function showProductList(){
-    navigation.navigate("BottomSheetComponent");
+    navigation.navigate("ProductList");
   }
   function showMyCart(){
     navigation.navigate("MyCartPage");

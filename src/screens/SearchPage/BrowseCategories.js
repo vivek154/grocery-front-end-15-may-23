@@ -1,23 +1,25 @@
 
-import {View,Text} from 'react-native';
+import {View,Text,Pressable} from 'react-native';
 import Arrow from '../../svg/ArrowRight.svg'
-const BrowseCategories=({item})=>
-{
+const BrowseCategories=(props)=>{
 
-    
+    const {item,navigation}=props
+
     return  (
-        <View>
-            <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',marginHorizontal:20}}>
-               <Text style={{ color:'black',fontWeight:'bold',margin:10,justifyContent:'flex-start'}}>{item.name}</Text>
+        
+            <Pressable style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',
+            marginHorizontal:20,height:30,marginVertical:5}} 
+            onPress={()=>{ navigation.navigate("NewCategory",{item})}}>
+               
+               <Text style={{ color:'black',fontWeight:'bold',justifyContent:'flex-start',textTransform:"capitalize"}}
+               >{item.name}</Text>
                
                <Arrow ></Arrow>
               
-            </View>
+            </Pressable>
          
-            <View>
-
-            </View>
-        </View>
+           
+        
     )
 }
 export default BrowseCategories;

@@ -12,12 +12,14 @@ const NewCategory = props => {
   const {navigation, route} = props;
   const {name}=route.params.item
   const categoryName=name;
+  console.log("new category params",route.params)
 
   const [products,setProducts] = useState([]);
 
     const makeApiRequest = async()=>{
       try{
         let categoryId= (await getCategoryId(categoryName)).data.id
+        console.log("categoryId",categoryId)
         
         let response = await getCategoryProducts(categoryId);
         setProducts(response.data);
@@ -31,10 +33,10 @@ const NewCategory = props => {
     },[])
 
   return (
-<>
+< >
     <PageHeadBar title={categoryName} navigation={navigation}></PageHeadBar> 
-    <ScrollView style={{backgroundColor:"white",marginVertical:4}}>
-      <View style={{flex:1,paddingBottom:60,flexDirection:"row",flexWrap:"wrap",justifyContent:"center",columnGap:10,rowGap:10}}>
+    <ScrollView contentContainerStyle={{justifyContent:"center",backgroundColor:"white",marginVertical:10,flexDirection:"row",flexWrap:"wrap",columnGap:10,rowGap:10}}>
+      
       
         {
             products.map((item)=>(
@@ -43,7 +45,7 @@ const NewCategory = props => {
               </View>
             )) 
         }
-      </View> 
+       <View style={{height:60,width:"100%"}}></View>
     </ScrollView>
     <BottomNavBar navigation={navigation}></BottomNavBar>
   </>
@@ -53,4 +55,6 @@ const NewCategory = props => {
 
 export default NewCategory;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+
+});

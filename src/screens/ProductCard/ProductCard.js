@@ -10,7 +10,7 @@ const ProductCard = (props) => {
   const {item}=props;
   const {name,price,discount,description,imageUrl}=item
 
-  console.log("imageUrl",imageUrl)
+ 
 
   
 

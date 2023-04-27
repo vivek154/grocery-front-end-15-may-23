@@ -4,9 +4,9 @@ import ProductCard from '../ProductCard/ProductCard'
 
 const SearchResults = (props) => {
   return (
-    <View style={{flex:1}}>
+
         
-      <View style={{flex:1,paddingBottom:60,flexDirection:"row",flexWrap:"wrap",justifyContent:"center",columnGap:10,rowGap:10}}>
+      <View style={{flex:1,paddingTop:5,paddingBottom:60,flexDirection:"row",flexWrap:"wrap",justifyContent:"center",columnGap:10,rowGap:10}}>
       
         {
             props.matchedProducts.map((item)=>(
@@ -17,7 +17,7 @@ const SearchResults = (props) => {
         }
       </View> 
     
-    </View>
+    
   )
 }
 

@@ -4,7 +4,7 @@ import LoginScreen from '../screens/LoginScreen/LoginScreen';
 import Home from '../screens/Home/Home';
 import Vegetables from '../screens/VegetablesPage/Vegetables';
 import Fruits from '../screens/FruitsPage/Fruits';
-import BottomSheetComoponent from '../screens/BottomSheet/BottomSheetComponent';
+
 import OrderInfo from '../screens/OrderInfoPage/OrderInfo';
 import MyCartPage from '../screens/MyCartPage/MyCartPage';
 import SavePage from '../screens/SavePage/SavePage';
@@ -20,10 +20,11 @@ import Grocery from '../screens/GroceryPage/Grocery';
 import ProductList from '../screens/ProductList/ProductList';
 import SearchPage from '../screens/SearchPage/SearchPage';
 import Register from '../screens/RegistrationPage/Register';
-import Onboarding from '../screens/OnboardingPage/Onboarding';
+import OnboardingPage from '../screens/OnboardingPage/OnboardingPage';
 import Delivery from '../screens/DeliveryPage/Delivery';
 import BottomNavBar from '../screens/BottomNavBar/BottomNavBar';
 import NewCategory from '../screens/Categories/NewCategory';
+
 
 
 // import SignInScreen from '../screens/auth/SignIn';
@@ -40,11 +41,12 @@ const Stack = createNativeStackNavigator();
 const AppRouter = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown:false}}>
+      
       <Stack.Screen name="NavigationPage" component={NavigationPage}></Stack.Screen>
       <Stack.Screen name="LoginScreen" component={LoginScreen}></Stack.Screen>
+      <Stack.Screen name='OnboardingScreen' component={OnboardingPage}></Stack.Screen>
       <Stack.Screen name="SpleshScreen" component={SpleshScreen}></Stack.Screen>
       <Stack.Screen name="Guarantees" component={Guarantees}></Stack.Screen>
-      <Stack.Screen name="Onboarding" component={Onboarding}></Stack.Screen>
       <Stack.Screen name="OtpConfirmScreen" component={OtpConfirmScreen}></Stack.Screen>
       <Stack.Screen name="Register" component={Register}></Stack.Screen>
       <Stack.Screen name="Home" component={Home}></Stack.Screen>
@@ -61,10 +63,11 @@ const AppRouter = () => {
       <Stack.Screen name="PaymentOptions" component={PaymentOptions}></Stack.Screen>
       <Stack.Screen name="MyProfile" component={MyProfile}></Stack.Screen>
       <Stack.Screen name="OffersPage" component={OffersArray}></Stack.Screen>
-      <Stack.Screen name="BottomSheetComponent" component={BottomSheetComoponent}></Stack.Screen>
+      <Stack.Screen name="ProductList" component={ProductList}></Stack.Screen>
       <Stack.Screen name="Delivery" component={Delivery}></Stack.Screen>
       <Stack.Screen name="BottomNavbar" component={BottomNavBar}></Stack.Screen>
       <Stack.Screen name="NewCategory" component={NewCategory}></Stack.Screen>
+      
       
     </Stack.Navigator>
   );

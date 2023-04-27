@@ -6,6 +6,7 @@ import OnBoardingScreen from './src/screens/OnBoardingScreen';
 import {AUTH_TYPE} from './src/redux/action/authAction';
 import AppRouter from './src/routes/AppRouter'
 import { Store } from './src/redux/Store';
+import OnboardingPage from './src/screens/OnboardingPage/OnboardingPage';
 
 const App = () => {
   const {showOnBoardingScreen} = useSelector(state => state.auth);
@@ -17,10 +18,13 @@ const App = () => {
     <GestureHandlerRootView style={{flex: 1}}>
       <SafeAreaProvider>
         <NavigationContainer>
-          {!showOnBoardingScreen && (
+          {/*!showOnBoardingScreen && (
             <OnBoardingScreen onBoardingDone={handleOnBoardingDone} />
-          )}
-          {showOnBoardingScreen && <AppRouter />}
+          )*/}
+          {/*!showOnBoardingScreen && (
+            <OnboardingPage onBoardingDone={handleOnBoardingDone}  />
+          )*/}
+          {<AppRouter />}
         </NavigationContainer>
       </SafeAreaProvider>
     </GestureHandlerRootView>

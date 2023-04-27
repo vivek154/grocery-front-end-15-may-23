@@ -1,7 +1,9 @@
-import { View, Text,Pressable} from 'react-native'
-import React from 'react'
+import { View, Text,Pressable,StyleSheet} from 'react-native'
+import React,{useState} from 'react'
 
-const Mybutton = ({onPress,btnTxt,txtColor,myButton}) => {
+const Mybutton = ({onPress,btnTxt,txtColor,myButton,width,bgColorB4Pressed,bgColorAfterPressed}) => {
+  const [bgColor,setBgColor]=useState(bgColorB4Pressed? bgColorB4Pressed :myButton.bgColor)
+
 
   if (!myButton){
    myButton={
@@ -19,23 +21,41 @@ const Mybutton = ({onPress,btnTxt,txtColor,myButton}) => {
       return null;
     }
   }
+  function changeColor(){
+    if(bgColor===bgColorB4Pressed){
+      setBgColor(bgColorAfterPressed)
+    }
+    else if(bgColor===bgColorAfterPressed){
+      setBgColor(bgColorB4Pressed)
+    } 
+  }
 
     function clickhandle(){
         handlePress();
     }
    // console.log(myButton)
   return (
-    <View style={myButton}>
-        <Pressable style={{alignItems:"center"}} onPress={onPress}>
-            <Text style={{color:(txtColor?txtColor:"black"),fontSize:(myButton.fontSize?myButton.fontSize:10),
-            alignItems:"center",fontWeight:(myButton.fontWeight?myButton.fontWeight:"100")}}>
+    
+        <Pressable style={[myButton,{width:width},{backgroundColor:bgColor}]}
+         onPress={() =>{
+          console.log("+++++++++++++btn pressed++++++++++++")
+          changeColor()
+          onPress()}}>
+            <Text style={{color:(txtColor?txtColor:"black"),
+              fontSize:(myButton.fontSize?myButton.fontSize:10),
+              alignSelf:"center",
+              fontWeight:(myButton.fontWeight?myButton.fontWeight:"100"),
+              textTransform:"capitalize"}}>
+
               {btnTxt?btnTxt:"Button"}
+
             </Text>
         </Pressable>
-    </View>
+  
   )
 }
 
 
 
 export default Mybutton
+
