@@ -14,7 +14,7 @@ const Mybutton = ({onPress,btnTxt,txtColor,myButton,width,bgColorB4Pressed,bgCol
       borderRadius:20,
       padding:10,
       minWidth:30,
-    }
+    } 
   }
   if(!onPress){
     handlePress=()=>{
@@ -40,7 +40,7 @@ const Mybutton = ({onPress,btnTxt,txtColor,myButton,width,bgColorB4Pressed,bgCol
          onPress={() =>{
           console.log("+++++++++++++btn pressed++++++++++++")
           changeColor()
-          onPress()}}>
+          onPress}}>
             <Text style={{color:(txtColor?txtColor:"black"),
               fontSize:(myButton.fontSize?myButton.fontSize:10),
               alignSelf:"center",
