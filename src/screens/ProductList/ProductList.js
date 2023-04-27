@@ -100,23 +100,38 @@ const ProductList = ({navigation}) => {
             <View style={styles.btnContainer}>
             {
               categories.map((item,index)=>{
-                return <Mybutton key={index} btnTxt={item.name} txtColor="#ffffff"
-                           myButton={styles.myButton} 
-                          onPress={() => handleFilterBtnPress(item)} width={100}></Mybutton>
+                return <Mybutton 
+                key={index} 
+                btnTxt={item.name} 
+                txtColor="#ffffff"
+                bgColorB4Pressed="#C4C4C4"
+                bgColorAfterPressed="#FF5403"
+                myButton={styles.myButton} 
+                onPress={() => handleFilterBtnPress(item)} width={100}></Mybutton>
               })
             }
             </View>
+
             <View style={styles.bigBtnContainer}>
 
-              <Mybutton btnTxt="Apply Filter" 
-              txtColor="#ffffff" width={250}
-               myButton={styles.bigButtons}
-               onPress={applyFilters}></Mybutton>
-
-              <Mybutton btnTxt="Clear All" 
-              txtColor="#ffffff" width={250} 
+              <Mybutton 
+              btnTxt="Apply Filter" 
+              txtColor="#ffffff" 
+              bgColorB4Pressed="#C4C4C4"
+              bgColorAfterPressed="#FF5403"
+              width={250}
               myButton={styles.bigButtons}
-              onPress={clearFilters}></Mybutton>
+              onPress={applyFilters}></Mybutton>
+
+              <Mybutton 
+              btnTxt="Clear All" 
+              txtColor="#ffffff" 
+              width={250}
+              bgColorB4Pressed="#C4C4C4"
+              bgColorAfterPressed="#FF5403" 
+              myButton={styles.bigButtons}
+              onPress={clearFilters}
+              ></Mybutton>
             </View>
             
           </View>
