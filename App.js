@@ -2,7 +2,6 @@ import {Provider, useDispatch, useSelector} from 'react-redux';
 import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import OnBoardingScreen from './src/screens/OnBoardingScreen';
 import {AUTH_TYPE} from './src/redux/action/authAction';
 import AppRouter from './src/routes/AppRouter'
 import { Store } from './src/redux/Store';
@@ -18,12 +17,10 @@ const App = () => {
     <GestureHandlerRootView style={{flex: 1}}>
       <SafeAreaProvider>
         <NavigationContainer>
-          {/*!showOnBoardingScreen && (
-            <OnBoardingScreen onBoardingDone={handleOnBoardingDone} />
-          )*/}
-          {/*!showOnBoardingScreen && (
+
+          {!showOnBoardingScreen && (
             <OnboardingPage onBoardingDone={handleOnBoardingDone}  />
-          )*/}
+          )}
           {<AppRouter />}
         </NavigationContainer>
       </SafeAreaProvider>
