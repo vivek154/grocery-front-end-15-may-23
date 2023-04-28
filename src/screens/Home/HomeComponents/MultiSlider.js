@@ -10,13 +10,13 @@ const MultiSlider = ({images}) => {
         return(
             <View key={index}style={styles.imageContainer}>
       
-                <Image style={{width:width3,height:width3,marginRight:5,borderRadius:8}} source={{uri:"https://www.bigbasket.com/media/uploads/p/l/60000655_9-coca-cola-soft-drink-original-taste.jpg?tr=w-640,q=80"}} ></Image>
+                <Image style={{width:width3,height:width3,marginRight:5,borderRadius:8}} source={{uri:"https://www.eatrightbasket.com/wp-content/uploads/2019/02/SS_Veg_26.jpg"}} ></Image>
             
             
-                <Image style={{width:width3,height:width3,marginRight:5,borderRadius:8}} source={{uri:"https://www.bigbasket.com/media/uploads/p/l/60000655_9-coca-cola-soft-drink-original-taste.jpg?tr=w-640,q=80"}} ></Image>
+                <Image style={{width:width3,height:width3,marginRight:5,borderRadius:8}} source={{uri:"https://t4.ftcdn.net/jpg/03/27/96/23/360_F_327962332_6mb5jQLnTOjhYeXML7v45Hc5eED2GYOD.jpg"}} ></Image>
               
               
-                <Image style={{width:width3,height:width3,borderRadius:8,marginRight:5}} source={{uri:"https://www.bigbasket.com/media/uploads/p/l/60000655_9-coca-cola-soft-drink-original-taste.jpg?tr=w-640,q=80"}} ></Image>
+                <Image style={{width:width3,height:width3,borderRadius:8,marginRight:5}} source={{uri:"https://www.komalasvegemart.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/2/4/247-2475312_ladies-finger-india-kg-hd-png-download.png"}} ></Image>
               
             </View>
         )
