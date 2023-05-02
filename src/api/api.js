@@ -46,6 +46,7 @@ export const getTopSearches = ()=>{
   const url= `${API_URL}categories/most-searched`
   return authAxiosInstance.get(url)
 }
+
 export const getAllProducts = ()=>{
   const url= `${API_URL}products/all`
   return authAxiosInstance.get(url)
@@ -53,8 +54,10 @@ export const getAllProducts = ()=>{
 
 export const getmycart=()=>
 {
-  const url=`${API_URL}cart/get-cart`
-  return authAxiosInstance.get(url);
+  const url=`${API_URL}cart/get-usercart`
+  return authAxiosInstance.post(url);
 }
+
+
 
 
