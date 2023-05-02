@@ -1,14 +1,13 @@
 
 import {View,Text,FlatList,TouchableOpacity,Dimensions,Image,ScrollView,Pressable} from 'react-native';
 import React,{useState} from 'react';
-import { useDispatch } from 'react-redux';
 import SlidingComponent from './SlidingComponent';
 
 
 
 
 const OnboardingPage=({onBoardingDone})=>
-{   const dispatch= useDispatch()
+{   
     
     const width=Dimensions.get('window').width;
     const height=Dimensions.get('window').height;

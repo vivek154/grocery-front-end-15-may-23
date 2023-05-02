@@ -1,14 +1,17 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const ProfileCard = () => {
+const ProfileCard = (props) => {
+  const {userData}=props
+  const {email,phoneNumber,fullName}=userData
+  
   return (
     <View style={styles.container}>
       <View style={styles.profilePicContainer}></View>
       <View style={styles.middleBox}>
-        <Text style={{color:"black",fontWeight:"bold",fontSize:18}}>John Doe</Text>
-        <Text>john@gmail.com</Text>
-        <Text>+1123456789</Text>
+        <Text style={{color:"black",fontWeight:"bold",fontSize:18}}>{fullName?fullName:'no data'}</Text>
+        <Text>{email?email:"no data"}</Text>
+        <Text>{phoneNumber}</Text>
       </View>
       <Text style={{color:"#ff5403",alignSelf:"flex-start",marginTop:10}}>Edit</Text>
     </View>
