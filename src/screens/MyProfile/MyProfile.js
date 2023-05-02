@@ -8,13 +8,17 @@ import Mybutton from '../Mybutton'
 import data from "./data"
 import ProfileActionCard from './ProfileActionCard'
 import BottomNavBar from '../BottomNavBar/BottomNavBar'
+import { useSelector } from 'react-redux'
 const MyProfile = ({navigation}) => {
+
+    const {userData}= useSelector(state=>state?.auth)
+
   return (
     <>
         
         <View style={{backgroundColor:"white",minHeight:"100%"}}>
             <PageHeader text="My Profile"></PageHeader>
-            <ProfileCard></ProfileCard>
+            <ProfileCard userData={userData}></ProfileCard>
             <View style={{flexDirection:"row",alignItems:"center",justifyContent:"space-between",paddingHorizontal:"8%",marginVertical:10}}>
                 <View style={{flexDirection:"row",justifyContent:"center",alignItems:"center",gap:10}}>
                     <LocationIcon></LocationIcon>

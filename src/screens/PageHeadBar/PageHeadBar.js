@@ -15,7 +15,7 @@ const PageHeadBar = ({title,navigation}) => {
     navigation.navigate("MyProfile")
   }
   function showNotificationPage(){
-    navigation.navigate("MyProfile")
+    navigation.navigate("MainNotification")
   }
   return (
     <View style={styles.container}>

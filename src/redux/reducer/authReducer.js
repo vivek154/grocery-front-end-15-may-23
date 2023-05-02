@@ -5,12 +5,17 @@ const initialState = {
     showOnBoardingScreen: false,
 }
 
-const authReducer = (state = initialState, action: any) => {
+const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case AUTH_TYPE.ONBOARDING_DONE: {
             return {
                 ...state,
                 showOnBoardingScreen: true
+            }
+        }
+        case AUTH_TYPE.RECEIVED_USER_DATA: {
+            return {
+                ...state,userData:action.payload
             }
         }
         default:

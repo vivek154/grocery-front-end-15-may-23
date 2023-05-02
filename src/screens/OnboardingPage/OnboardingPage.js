@@ -1,14 +1,13 @@
 
 import {View,Text,FlatList,TouchableOpacity,Dimensions,Image,ScrollView,Pressable} from 'react-native';
 import React,{useState} from 'react';
-import { useDispatch } from 'react-redux';
 import SlidingComponent from './SlidingComponent';
-import { AUTH_TYPE } from '../../redux/action/authAction';
 
 
 
-const OnboardingPage=({navigation})=>
-{   const dispatch= useDispatch()
+
+const OnboardingPage=({onBoardingDone})=>
+{   
     
     const width=Dimensions.get('window').width;
     const height=Dimensions.get('window').height;
@@ -87,7 +86,7 @@ const OnboardingPage=({navigation})=>
 
 
           { (currenIndex==3)&& 
-          <Pressable style={{justifyContent:'center',alignItems:'center'}} onPress={()=>{navigation.navigate("LoginScreen")}}>
+          <Pressable style={{justifyContent:'center',alignItems:'center'}} onPress={()=>{onBoardingDone()}}>
             
             <Text style={{width:90,height:40,borderWidth:1,borderRadius:20,backgroundColor:'black',
             color:'white',padding:10,paddingLeft:28}}>Next</Text>
@@ -95,7 +94,7 @@ const OnboardingPage=({navigation})=>
             </Pressable>}
            
            <Text style={{color:'black',fontWeight:'bold',alignItems:'center',marginTop:5}}
-           onPress={()=>{navigation.navigate("LoginScreen")}}>Skip</Text>
+           onPress={()=>{onBoardingDone()}}>Skip</Text>
           
           
        </View>
