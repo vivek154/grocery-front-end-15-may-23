@@ -54,13 +54,13 @@ export default function Home(props) {
 
 
     function showAllVegetables(){
-        navigation.navigate("vegetablesPage");
+        navigation.navigate("NewCategory",{item:{name:"vegetables"}});
     }
     function showAllFruits(){
-        navigation.navigate("FruitsPage");
+        navigation.navigate("NewCategory",{item:{name:"fruits"}});
     }
     function showAllGrocery(){
-        navigation.navigate("GroceryPage");
+        navigation.navigate("NewCategory",{item:{name:"grocery"}});
     }
     return (
         <>

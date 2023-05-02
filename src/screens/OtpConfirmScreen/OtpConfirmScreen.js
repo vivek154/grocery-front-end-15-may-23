@@ -3,30 +3,40 @@ import React,{useState} from 'react'
 import { CodeField,Cursor,useBlurOnFulfill,useClearByFocusCell } from 'react-native-confirmation-code-field'
 import ArrowOrangeLeft from "../../svg/ArrowOrangeLeft.svg"
 import { otpVerify } from '../../api/api'
-
+import { useDispatch } from 'react-redux'
+import { AUTH_TYPE } from '../../redux/action/authAction'
 const CELL_COUNT=6;
 
 const OtpConfirmScreen = ({navigation,route}) => {
     console.log("route.params");
     console.log(route.params);
     
-    const [value,setValue]=useState('XXXXXX');
+    const [value,setValue]=useState('123456');
     const ref=useBlurOnFulfill({value,cellCount:CELL_COUNT})
     const [props,getCellOnLayoutHandler]=useClearByFocusCell({value,setValue})
+    const dispatch = useDispatch()
+
+    const storeUserData =(userData)=>{
+      dispatch({type:AUTH_TYPE.RECEIVED_USER_DATA,payload:userData})
+    }
 
     const verifyOTP= async()=>{
-      console.log("value");
-      console.log(value);
+
       let payload=
       {
-        phoneNumber:route.params.phoneNumber,
-        verificationKey:route.params.key,
+        phoneNumber:route.params?.phoneNumber,
+        verificationKey:route.params?.key,
         otp:value,
       }
 
       try{
         let res= await otpVerify(payload)
-        console.log(res.data.data)
+        if(res && res.data){
+          console.log("***** received user data **** ",res.data.data.user)
+          let userData=res.data.data.user
+          storeUserData(userData)
+          navigation.navigate("Home")
+        }
       }
       catch(error){
         console.log(error)
@@ -45,7 +55,7 @@ const OtpConfirmScreen = ({navigation,route}) => {
         <Text style={styles.title}>Your Number</Text>
         <View style={{marginVertical:10}}>
             <Text style={{color:"#000"}}>Enter the OTP code that we have</Text>
-            <Text style={{color:"#000"}}>sent by  text  to   +91123456789</Text>
+            <Text style={{color:"#000"}}>sent by  text  to  {route.params?.phoneNumber}</Text>
         </View>
     </View>
 

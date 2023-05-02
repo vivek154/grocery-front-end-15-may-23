@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
       marginLeft:40,
       marginRight:50,
       borderRadius:29,
+      color:"black"
       
       
   

@@ -1,24 +1,21 @@
 import { Image, StyleSheet, Text, View,Dimensions} from 'react-native'
 import React from 'react';
 import Mybutton from '../Mybutton'
+import { useSelector } from 'react-redux';
 const width=Dimensions.get('window').width;
 
 let Source =  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUdKHdrEpIGniBkcg0yrlilj6A093qJqLDppKi9sJH&s"
 
 const ProductCard = (props) => {
-
+  const {userData}= useSelector(state=>state?.auth)
+  console.log("userData" , userData)
   const {item}=props;
   const {name,price,discount,description,imageUrl}=item
-
- 
-
-  
 
   const handlePress=()=>{
     console.log("Added to cart");
   }
 
-  
   return (
     <View style={styles.container}>
       <View style={styles.top_view_container}>
