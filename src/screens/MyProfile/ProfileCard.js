@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, } from 'react-native'
 import React from 'react'
 
 const ProfileCard = (props) => {
-  const {userData}=props
+  const {userData,navigation}=props
   const {email,phoneNumber,fullName}=userData
   
   return (
@@ -13,7 +13,9 @@ const ProfileCard = (props) => {
         <Text>{email?email:"no data"}</Text>
         <Text>{phoneNumber}</Text>
       </View>
-      <Text style={{color:"#ff5403",alignSelf:"flex-start",marginTop:10}}>Edit</Text>
+
+      <Text style={{color:"#ff5403",alignSelf:"flex-start",marginTop:10}}
+      onPress={()=>navigation.navigate("EditProfilePage")}>Edit</Text>
     </View>
   )
 }

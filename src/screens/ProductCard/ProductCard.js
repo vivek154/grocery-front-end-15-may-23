@@ -4,11 +4,12 @@ import Mybutton from '../Mybutton'
 import { useSelector } from 'react-redux';
 const width=Dimensions.get('window').width;
 
-let Source =  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUdKHdrEpIGniBkcg0yrlilj6A093qJqLDppKi9sJH&s"
 
 const ProductCard = (props) => {
   const {userData}= useSelector(state=>state?.auth)
   console.log("userData" , userData)
+  const userId=userData.id;
+  console.log(userId)
   const {item}=props;
   const {name,price,discount,description,imageUrl}=item
 
@@ -25,7 +26,7 @@ const ProductCard = (props) => {
         <View><Text style={{fontWeight:"bold",fontSize:12}}>1KG</Text></View>
       </View>
       <View style={styles.image_container}>
-        <Image source={{uri:imageUrl?imageUrl:Source}} style={styles.image}></Image>
+        <Image source={{uri:imageUrl?imageUrl:""}} style={styles.image}></Image>
       </View>
       <View style={styles.title_container}>
         <Text style={{fontWeight:"bold",fontSize:11,color:"#000000"}}>{name}</Text>
