@@ -3,22 +3,29 @@ import React from 'react'
 import PageHeader from '../PageHeader/PageHeader'
 import MyCartCard from './MycartCard/MyCartCard'
 import Mybutton from '../Mybutton'
-import {data} from "./MycartCard/data"
+
 import { useState ,useEffect} from 'react';
 import DeleteIcon from "../../svg/delete.svg"
 import { getmycart } from '../../api/api'
+import { useSelector } from 'react-redux'
+
 const MyCartPage = ({navigation}) => {
     function showDeliveryOptions(){
         navigation.navigate("Delivery")
     }
     const [data,setdata] = useState([]);
 
-    console.log("data",data);
+   console.log("data",data);
+
+   const {userData}=useSelector(state=>state?.auth)
+   console.log("userData" , userData)
+ 
+   console.log("userDataId",userData.id);
 
     const makeApiRequest = async()=>{
       try{
-        let response = await getmycart();
-        console.log(response.data);
+        let response = await getmycart(userData.id);
+        console.log("get my cart response ",response.data);
         setdata(response.data);
         
       }
@@ -40,7 +47,7 @@ const MyCartPage = ({navigation}) => {
             <ScrollView style={{maxHeight:"70%"}}>
                <View >
                     {data.map((item,index)=>{
-                        return <MyCartCard key={index} item={item} SVGIcon={DeleteIcon}></MyCartCard>
+                      return <MyCartCard key={index} item={item} SVGIcon={DeleteIcon}></MyCartCard>
                     })}
                 </View> 
 
@@ -52,7 +59,7 @@ const MyCartPage = ({navigation}) => {
                         <Text style={{fontWeight:"bold",color:"#C4C4C4"}}>Total Price</Text>
                     </View>
                     <View>
-                        <Mybutton btnTxt="Buy Now "txtColor="white" myButton={styles.myButton} onPress={showDeliveryOptions}></Mybutton>
+                        <Mybutton btnTxt="Buy Now "txtColor="white" myButton={styles.myButton} onPress={showDeliveryOptions} data={data}></Mybutton>
                     </View>
             </View>
             <Text>test changes</Text>
