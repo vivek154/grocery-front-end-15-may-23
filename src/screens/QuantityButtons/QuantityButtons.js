@@ -1,17 +1,24 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
+import React, { useState } from 'react'
+import { postmycart } from '../../api/api';
+
+
 
 const QuantityButtons = () => {
+
+    const   [count,setcount]=useState(0);
+
+    postmycart({quantity:count})
   return (
     <View style={styles.container}>
-        <View style={[styles.buttons,{borderColor:"#C4C4C4"}]}>
-            <Text style={{color:"#C4C4C4"}}>-</Text>
-        </View >
+        <Pressable style={[styles.buttons,{borderColor:"#C4C4C4"}]} onPress={()=>console.log("Hellow")}>
+            <Text style={{color:"#C4C4C4"}} onPress={()=>setcount(count-1)}>-</Text>
+        </Pressable >
 
-            <Text style={{color:"black"}}>1Kg</Text>
+            <Text style={{color:"black"}}>{count}</Text>
 
         <View style={[styles.buttons]}>
-            <Text style={{color:"black"}}>+</Text>
+            <Text style={{color:"black"}} onPress={()=>setcount(count+1)}>+</Text>
         </View>
     </View>
   )
