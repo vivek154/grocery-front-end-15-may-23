@@ -1,28 +1,58 @@
-import { StyleSheet, Text, View,Image} from 'react-native'
+import { StyleSheet, Text, View,Image, Pressable} from 'react-native'
 import React from 'react'
 //import DeleteIcon from "./images/delete.svg"
 import QuantityButtons from '../../QuantityButtons/QuantityButtons'
+import { deletemycart, getmycart, postmycart } from '../../../api/api'
+import { useSelector } from 'react-redux'
 const MyCartCard = (props) => {
+   // const  selector=useSelector();
+    const {userData}= useSelector(state=>state?.auth)
+    console.log("userData" , userData)
+  
+    //console.log("userDataId",userData.id);
+    let userid={
+      id:userData.id
+    }
+    console.log("userid",userid)
+
     const SVGIcon=props.SVGIcon
+   const {item,data}=props;
+    const {id,userId,name,price,imageUrl}=item
+    console.log(userId);
+    console.log(id)
+    console.log("data",data);
+   
+  const handledelete=(productId)=>
+  {                                                                                                 
+    deletemycart(productId)
+
+
+  }
+   
+     
   return (
     <View style={styles.container}>
 
     <View style={{flexDirection:"row",gap:20}}>
         <View>
-            <Image source={{uri:props.item.image}} style={styles.image}></Image>
+            <Image source={{uri:imageUrl}} style={styles.image}></Image>
         </View>
       
         <View style={styles.middleBox}>
-          <Text style={{fontWeight:"bold",color:"black",fontSize:15}}>{props.item.name}</Text>
+          <Text style={{fontWeight:"bold",color:"black",fontSize:15}}>{name}</Text>
           
-          <Text style={styles.text}>$10 <Text style={{color:"#656565"}}>$20</Text></Text>
+          <Text style={styles.text}>Price:{price}<Text style={{color:"#656565",width:70}}>
 
-          <QuantityButtons></QuantityButtons>
+          </Text>{}</Text>
+
+       
+         <QuantityButtons></QuantityButtons>
         </View>
     </View>
         <View style={styles.endRightBox}>
           <View style={styles.quantityContainer}>
-              <SVGIcon></SVGIcon>
+
+          <Pressable   onPress={()=>handledelete(id)} ><SVGIcon></SVGIcon></Pressable> 
           </View>
         </View>
     </View>
@@ -37,8 +67,8 @@ const styles = StyleSheet.create({
         justifyContent:"space-between",
         alignSelf:"center",
         backgroundColor:"#ffffff",
-        maxHeight:"15%",
-        minWidth:"85%",
+        maxHeight:"80%",
+        minWidth:"80%",
         padding:10,
         elevation:5,
         borderRadius:10,
@@ -56,6 +86,7 @@ const styles = StyleSheet.create({
         alignItems:"flex-start",
         flexWrap:"wrap",
         marginHorizontal:10,
+        width:120,
         
     },
     endRightBox:{
