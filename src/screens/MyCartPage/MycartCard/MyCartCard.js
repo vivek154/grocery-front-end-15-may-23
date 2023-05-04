@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
         alignItems:"flex-start",
         flexWrap:"wrap",
         marginHorizontal:10,
+        width:120,
         
     },
     endRightBox:{
