@@ -5,6 +5,7 @@ import ArrowOrangeLeft from "../../svg/ArrowOrangeLeft.svg"
 import { otpVerify } from '../../api/api'
 import { useDispatch } from 'react-redux'
 import { AUTH_TYPE } from '../../redux/action/authAction'
+import { setSession } from '../../api/authAxios'
 const CELL_COUNT=6;
 
 const OtpConfirmScreen = ({navigation,route}) => {
@@ -31,10 +32,11 @@ const OtpConfirmScreen = ({navigation,route}) => {
 
       try{
         let res= await otpVerify(payload)
-        if(res && res.data){
+        if(res){
           console.log("***** received user data **** ",res.data.data.user)
-          let userData=res.data.data.user
-          storeUserData(userData)
+          const{user,accessToken,refreshToken}=res.data.data
+          storeUserData(user)
+          setSession(accessToken,refreshToken)
           navigation.navigate("Home")
         }
       }

@@ -24,6 +24,7 @@ import OnboardingPage from '../screens/OnboardingPage/OnboardingPage';
 import Delivery from '../screens/DeliveryPage/Delivery';
 import BottomNavBar from '../screens/BottomNavBar/BottomNavBar';
 import NewCategory from '../screens/Categories/NewCategory';
+import EditProfile from '../screens/EditProfile/EditProfile';
 
 
 
@@ -66,6 +67,7 @@ const AppRouter = () => {
       <Stack.Screen name="BottomNavbar" component={BottomNavBar}></Stack.Screen>
       <Stack.Screen name="NewCategory" component={NewCategory}></Stack.Screen>
       <Stack.Screen name="NavigationPage" component={NavigationPage}></Stack.Screen>
+      <Stack.Screen name="EditProfilePage" component={EditProfile}></Stack.Screen>
       
     </Stack.Navigator>
   );

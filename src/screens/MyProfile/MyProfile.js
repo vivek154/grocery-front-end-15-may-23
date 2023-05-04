@@ -18,7 +18,7 @@ const MyProfile = ({navigation}) => {
         
         <View style={{backgroundColor:"white",minHeight:"100%"}}>
             <PageHeader text="My Profile"></PageHeader>
-            <ProfileCard userData={userData}></ProfileCard>
+            <ProfileCard userData={userData} navigation={navigation}></ProfileCard>
             <View style={{flexDirection:"row",alignItems:"center",justifyContent:"space-between",paddingHorizontal:"8%",marginVertical:10}}>
                 <View style={{flexDirection:"row",justifyContent:"center",alignItems:"center",gap:10}}>
                     <LocationIcon></LocationIcon>

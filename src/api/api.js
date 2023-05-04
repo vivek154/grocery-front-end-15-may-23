@@ -90,6 +90,12 @@ export const deletemycart=(productId)=>
   
 }
 
+export const updateUserProfileData=(userData)=>{
+  console.log("payload post update",userData)
+  const url=`${API_URL}users/update-user`
+  return authAxiosInstance.post(url,userData)
+}
+
 
 
 
