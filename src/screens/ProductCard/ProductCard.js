@@ -20,9 +20,6 @@ const ProductCard = (props) => {
   const { item } = props;
   const { userId, id, name, price, discount, description, imageUrl } = item
 
-
-
-
   const handlePress = (productId) => {
     const userId=userData.id
     console.log(productId,"Added to cart",userId);
@@ -48,7 +45,7 @@ const ProductCard = (props) => {
         <View style={styles.discount_container}>
           <Text style={{ color: "white", fontWeight: "bold", fontSize: 12 }}>{discount}% off</Text>
         </View>
-        <View><Text style={{ fontWeight: "bold", fontSize: 12 }}>1KG</Text></View>
+        <View><Text style={{ fontWeight: "bold", fontSize: 12,color:"#000" }}>1KG</Text></View>
       </View>
       <View style={styles.image_container}>
       
@@ -58,7 +55,7 @@ const ProductCard = (props) => {
       </View>
       <View style={styles.title_container}>
         <Text style={{ fontWeight: "bold", fontSize: 11, color: "#000000" }}>{name}</Text>
-        <Text style={{ fontSize: 10 }}>{userId}</Text>
+        <Text style={{ fontSize: 10,color:"#000"}}>{description}</Text>
       </View>
       <View style={styles.footer}>
         <View>

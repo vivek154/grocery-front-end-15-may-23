@@ -21,7 +21,7 @@ const Notifications=({ele})=> {
                 <Text style={{color:"black"}}>lorem inspum dolor sitl lsjflsjflj </Text>
               </View >
               <View style={{alignSelf:"flex-start"}}>
-                <Text style={{alignSelf:'flex-end'}}>{ele.time}</Text>
+                <Text style={{alignSelf:'flex-end',color:"black"}}>{ele.time}</Text>
               </View>
           </View>
           

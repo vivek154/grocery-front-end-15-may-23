@@ -56,7 +56,7 @@ const CustomButton2=()=>{
     return(
         <Pressable style={{backgroundColor:"white",flexDirection:"row",justifyContent:"center",gap:10
         ,height:35,borderWidth:1,borderRadius:30,width:"45%",alignItems:"center"}}>
-            <Text>Sort By</Text>
+            <Text style={{color:"#000"}}>Sort By</Text>
             <ArrowDownIcon></ArrowDownIcon>
         </Pressable>
     )

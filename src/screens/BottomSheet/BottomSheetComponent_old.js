@@ -30,7 +30,7 @@ const BottomSheetComponent = () => {
         enablePanDownToClose={true}>
           
           <View style={styles.contentContainer}>
-            <Text>Search Filter</Text>
+            <Text style={{color:"#000"}}>Search Filter</Text>
             <View style={styles.btnContainer}>
             {
               array.map((item)=>{

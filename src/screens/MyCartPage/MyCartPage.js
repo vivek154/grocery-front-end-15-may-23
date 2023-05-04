@@ -62,7 +62,7 @@ const MyCartPage = ({navigation}) => {
                         <Mybutton btnTxt="Buy Now "txtColor="white" myButton={styles.myButton} onPress={showDeliveryOptions} data={data}></Mybutton>
                     </View>
             </View>
-            <Text>test changes</Text>
+            
 
         </View>
     </>        

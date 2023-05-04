@@ -7,6 +7,7 @@ import {
   ScrollView,
   Linking,
   StatusBar,
+  ActivityIndicator
 } from 'react-native';
 import React, {useState} from 'react';
 import Mybutton from '../Mybutton';
@@ -18,17 +19,16 @@ const LoginScreen = ({navigation}) => {
   }
 
   const [mobNo, setMobNo] = useState('');
+  const [showActivityIndicator,setShowActivityIndicator] = useState(false)
 
-  const handlePress = async () => {
-   
+  const handleGetOtp = async () => {
+    setShowActivityIndicator(true)
     let postData = {phoneNumber: String(mobNo), roleId: 2};
-    console.log(typeof mobileLogin);
-    console.log(postData);
+    
     try {
       let res = await mobileLogin(postData);
-      console.log(res.data.data);
-      console.log(typeof res.data.data);
       if (res && res.data) {
+        setShowActivityIndicator(false)
         let key = res.data.data;
         navigation.navigate('OtpConfirmScreen', {
           key: key,
@@ -36,6 +36,7 @@ const LoginScreen = ({navigation}) => {
         });
       }
     } catch (error) {
+      setShowActivityIndicator(false)
       console.log(error);
     }
   };
@@ -62,12 +63,20 @@ const LoginScreen = ({navigation}) => {
           keyboardType="numeric"
           onChangeText={setMobNo}
           value={mobNo}></TextInput>
-        <Mybutton
-          onPress={handlePress}
-          btnTxt="GET OTP"
-          txtColor="#ffffff"
-          myButton={styles.myButton}
-          width={300}></Mybutton>
+        
+          { 
+            !showActivityIndicator && 
+            <Mybutton
+            onPress={handleGetOtp}
+            btnTxt="GET OTP"
+            txtColor="#ffffff"
+            myButton={styles.myButton}
+            width={300}></Mybutton>
+          }
+          {
+            showActivityIndicator &&
+            <ActivityIndicator></ActivityIndicator>
+          }
         <Text
           style={{
             color: '#ff9900',

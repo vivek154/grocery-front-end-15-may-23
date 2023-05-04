@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View,ScrollView } from 'react-native'
+import { StyleSheet, Text, View,ScrollView,ActivityIndicator } from 'react-native'
 import React,{useState,useEffect}from 'react'
 
 import PageHeadBar from '../PageHeadBar/PageHeadBar'
@@ -15,7 +15,7 @@ const NewCategory = props => {
   console.log("new category params",route.params)
 
   const [products,setProducts] = useState([]);
-
+  const [showActivityIndicator,setShowActivityIndicator]=useState(true)
     const makeApiRequest = async()=>{
       try{
         let categoryId= (await getCategoryId(categoryName)).data.id
@@ -23,6 +23,7 @@ const NewCategory = props => {
         
         let response = await getCategoryProducts(categoryId);
         setProducts(response.data);
+        setShowActivityIndicator(false)
       }
       catch(err){
         console.log(err);
@@ -34,19 +35,26 @@ const NewCategory = props => {
 
   return (
 < >
-    <PageHeadBar title={categoryName} navigation={navigation}></PageHeadBar> 
-    <ScrollView contentContainerStyle={{justifyContent:"center",backgroundColor:"white",marginVertical:10,flexDirection:"row",flexWrap:"wrap",columnGap:10,rowGap:10}}>
-      
-      
-        {
-            products.map((item)=>(
-              <View key={item.id} >
-                  <ProductCard item={item}></ProductCard>
-              </View>
-            )) 
-        }
-       <View style={{height:60,width:"100%"}}></View>
-    </ScrollView>
+    <PageHeadBar title={categoryName} navigation={navigation}></PageHeadBar>
+    
+     
+  
+      <ScrollView contentContainerStyle={{justifyContent:"center",backgroundColor:"white",marginVertical:10,flexDirection:"row",flexWrap:"wrap",columnGap:10,rowGap:10}}>
+        
+          {
+            showActivityIndicator && <ActivityIndicator></ActivityIndicator>
+          }
+          {   
+              !showActivityIndicator &&
+              products.map((item)=>(
+                <View key={item.id} >
+                    <ProductCard item={item}></ProductCard>
+                </View>
+              )) 
+          }
+        <View style={{height:60,width:"100%"}}></View>
+      </ScrollView>
+    
     <BottomNavBar navigation={navigation}></BottomNavBar>
   </>
   )

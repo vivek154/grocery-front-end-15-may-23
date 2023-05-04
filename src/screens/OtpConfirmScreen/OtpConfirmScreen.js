@@ -9,8 +9,8 @@ import { setSession } from '../../api/authAxios'
 const CELL_COUNT=6;
 
 const OtpConfirmScreen = ({navigation,route}) => {
-    console.log("route.params");
-    console.log(route.params);
+    // console.log("route.params");
+    // console.log(route.params,"params");
     
     const [value,setValue]=useState('123456');
     const ref=useBlurOnFulfill({value,cellCount:CELL_COUNT})
@@ -29,9 +29,11 @@ const OtpConfirmScreen = ({navigation,route}) => {
         verificationKey:route.params?.key,
         otp:value,
       }
+      console.log(payload,"payload");
 
       try{
         let res= await otpVerify(payload)
+        console.log(res,"resres");
         if(res){
           console.log("***** received user data **** ",res.data.data.user)
           const{user,accessToken,refreshToken}=res.data.data
@@ -39,6 +41,7 @@ const OtpConfirmScreen = ({navigation,route}) => {
           setSession(accessToken,refreshToken)
           navigation.navigate("Home")
         }
+        else navigation.navigate("Home") // temporary to bypass authentication
       }
       catch(error){
         console.log(error)

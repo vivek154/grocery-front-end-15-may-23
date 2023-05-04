@@ -15,10 +15,10 @@ const Offers=({item})=>
 
         <View style={{flex:1,justifyContent:"space-around",flexDirection:'column',alignItems:"flex-start"}}>
          <Text style={{fontWeight:'bold',color:'black'}} >Fresh Apple</Text>
-         <Text>This is apple this apple</Text>
-         <Text style={{fontWeight:'bold',color:'black'}} >$10 <Text style={{fontWeight:'bold'}}>$20</Text></Text>
+         <Text style={{color:"#000"}}>This is apple this apple</Text>
+         <Text style={{fontWeight:'bold',color:'black'}} >$10 <Text style={{fontWeight:'bold',color:"#000"}}>$20</Text></Text>
          <Pressable style={{borderWidth:2,width:110,borderRadius:20,height:30,padding:5,paddingLeft:10,alignSelf:"flex-end",marginRight:10}}>
-            <Text>Add to Cart</Text>
+            <Text style={{color:"#000"}}>Add to Cart</Text>
          </Pressable>
         </View>
 

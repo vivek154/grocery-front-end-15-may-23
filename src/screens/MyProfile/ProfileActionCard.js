@@ -10,7 +10,7 @@ const ProfileActionCard = ({LeftSvg,optionName}) => {
             <View style={{width:50,height:40,justifyContent:"center",alignItems:"center"}}>
                 <LeftSvg></LeftSvg>
             </View>
-            <Text>{optionName}</Text>
+            <Text style={{color:"#000"}}>{optionName}</Text>
         </View>
         <View>
             <DownArrowSvg></DownArrowSvg>

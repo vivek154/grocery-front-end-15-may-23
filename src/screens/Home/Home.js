@@ -70,7 +70,7 @@ export default function Home(props) {
                 makeApiRequest={makeApiRequest}></HomeHeader>
             </View>
 
-        {  (searchKeyWord=="")&&
+        {  (searchKeyWord=="")&&(!showSearchResults)&&
                 <ScrollView style={{maxHeight:"63%",padding:10,top:180}}>
                 
 

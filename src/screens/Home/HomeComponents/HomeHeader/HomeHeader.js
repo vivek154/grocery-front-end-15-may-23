@@ -59,7 +59,7 @@ const HomeHeader = (props) => {
 
               <SearchIcon width={0.063*width} height={0.063*width} style={{marginLeft:0.02*width}}></SearchIcon>
               <TextInput placeholder='Search Your Keyword' placeholderTextColor="white" style={styles.searchBar} selectionColor={"white"} 
-              onChangeText={(newText)=> handleInputChange(newText)} value={searchKeyWord}></TextInput>
+              onChangeText={(newText)=> handleInputChange(newText)} ></TextInput>
             </View>
         </View>
       </View>
@@ -74,7 +74,7 @@ const HomeHeader = (props) => {
       backgroundColor:"#ff5403",
       color:"#ffffff",
       minWidth:"100%",
-      minHeight:(width/2),
+      height:180,
       borderBottomLeftRadius:(0.1*width),
       borderBottomRightRadius:(0.1*width),
       justifyContent:"center",
