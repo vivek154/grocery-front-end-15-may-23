@@ -58,7 +58,7 @@ const ProductCard = (props) => {
       </View>
       <View style={styles.title_container}>
         <Text style={{ fontWeight: "bold", fontSize: 11, color: "#000000" }}>{name}</Text>
-        <Text style={{ fontSize: 10 }}>{userId}</Text>
+        <Text style={{ fontSize: 10 }}>{description}</Text>
       </View>
       <View style={styles.footer}>
         <View>

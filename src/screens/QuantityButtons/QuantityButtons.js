@@ -4,22 +4,42 @@ import { postmycart } from '../../api/api';
 
 
 
-const QuantityButtons = () => {
+const QuantityButtons = ({count,increment,decrement}) => {
 
-    const   [count,setcount]=useState(0);
+   /* const   [count,setcount]=useState(0);
 
-    postmycart({quantity:count})
+    console.log("price",props.price);
+
+    let a=props.price;
+    console.log("a",a);
+
+    const [price,totalprice]=useState(a);
+   console.log(price);
+const dec=()=>{
+    if(count > 0){
+    setcount(count-1)
+    totalprice((a)*count);
+   
+    }
+}
+
+const inc=()=>
+{
+    setcount(count+1) 
+    totalprice((a)*count);
+}
+
+*/
+
   return (
     <View style={styles.container}>
-        <Pressable style={[styles.buttons,{borderColor:"#C4C4C4"}]} onPress={()=>console.log("Hellow")}>
-            <Text style={{color:"#C4C4C4"}} onPress={()=>setcount(count-1)}>-</Text>
+        <Pressable style={[styles.buttons,{borderColor:"#C4C4C4"}]} >
+            <Text style={{color:"#C4C4C4"}} onPress={decrement}>-</Text>
         </Pressable >
-
             <Text style={{color:"black"}}>{count}</Text>
-
         <View style={[styles.buttons]}>
-            <Text style={{color:"black"}} onPress={()=>setcount(count+1)}>+</Text>
-        </View>
+            <Text style={{color:"black"}} onPress={increment}>+</Text>
+        </View> 
     </View>
   )
 }
