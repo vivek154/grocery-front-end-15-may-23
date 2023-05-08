@@ -18,11 +18,12 @@ const SingleSlider = ({images}) => {
                 style={{
                     flex: 1,
                     justifyContent: 'center',
-                    backgroundColor:"white"
+                    backgroundColor:"white",
+                    
                 }}>
                     
 
-                <Image style={{width:width,height:(width/2),resizeMode:"contain"}} source={item.url}></Image>
+                <Image style={{width:width-20,height:(width/3)-20,resizeMode:"contain",borderWidth:1,overflow:"hidden"}} source={item.url}></Image>
             </View>
             
         );

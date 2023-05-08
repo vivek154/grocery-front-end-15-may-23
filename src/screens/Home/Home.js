@@ -61,7 +61,7 @@ const Home = props => {
   }
 
   return (
-    <View style={{flex: 1, borderWidth: 1, backgroundColor: 'white'}}>
+    <View style={{flex: 1,backgroundColor: 'white'}}>
       <View style={styles.headerContainer}>
         <HomeHeader
           navigation={navigation}
@@ -76,8 +76,9 @@ const Home = props => {
         <ScrollView fadingEdgeLength={20}>
           {searchKeyWord == '' && !showSearchResults && (
             <View>
-              <SingleSlider images={single_slider_images}></SingleSlider>
-
+              <View>
+                <SingleSlider images={single_slider_images}></SingleSlider>
+              </View>
               <View
                 style={{
                   flexDirection: 'row',
@@ -154,16 +155,16 @@ const styles = StyleSheet.create({
     flex: 0.23,
     //borderWidth: 1,
     backgroundColor: 'white',
-    elevation:20
   },
   bodyContainer: {
     flex: 0.7,
     backgroundColor: 'white',
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
     //paddingVertical:38
   },
   footerContainer: {
     flex: 0.07,
     backgroundColor: 'white',
+    paddingHorizontal:10
   },
 });
