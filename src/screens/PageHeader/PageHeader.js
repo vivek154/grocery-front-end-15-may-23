@@ -4,8 +4,9 @@ import ArrowSVG from "../../svg/Arrow.svg"
 const PageHeader = (props) => {
   return (
     <View style={styles.container}>
+    
         <View style={styles.titleContainer}>
-            <ArrowSVG></ArrowSVG>
+        <ArrowSVG></ArrowSVG>
             <Text style={styles.text}>{props.text}</Text>
         </View>
     </View>
@@ -21,7 +22,6 @@ const styles = StyleSheet.create({
         backgroundColor:"#FF5403",
         borderBottomRightRadius:40,
         borderBottomLeftRadius:40,
-        
     },
     titleContainer:{
         flexDirection:"row",
