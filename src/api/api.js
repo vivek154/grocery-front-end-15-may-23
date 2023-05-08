@@ -77,10 +77,7 @@ export const updateUserProfileData = (userData) => {
   return authAxiosInstance.post(url, userData)
 }
 
-export const pingCherrype=()=>{
-  const url=API_URL
-  return authAxiosInstance.get(url)
-}
+
 
 
 

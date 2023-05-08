@@ -1,3 +1,4 @@
+
 import {
   StyleSheet,
   Text,
@@ -11,7 +12,7 @@ import {
 } from 'react-native';
 
 import Mybutton from '../Mybutton';
-import {mobileLogin, pingCherrype} from '../../api/api';
+import {mobileLogin} from '../../api/api';
 import {useState} from 'react';
 
 const LoginScreen = ({navigation}) => {
@@ -33,14 +34,7 @@ const LoginScreen = ({navigation}) => {
     let postData = {phoneNumber: String(mobNo), roleId: 2};
 
     try {
-      console.log('====================================');
-      console.log("in try block");
-      console.log('====================================');
       let res = await mobileLogin(postData);
-      
-      console.log('====================================');
-      console.log(res, postData,"resres");
-      console.log('====================================');
       if (res && res.data) {
         setShowActivityIndicator(false);
         let key = res.data.data;
