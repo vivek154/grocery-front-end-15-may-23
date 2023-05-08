@@ -30,7 +30,7 @@ const MyProfile = ({navigation}) => {
                 <ScrollView style={{maxHeight:"70%"}}>
                { data.map((item,index)=>{
                     return(
-                        <ProfileActionCard key={index} optionName={item.option} LeftSvg={item.SVG}></ProfileActionCard>
+                        <ProfileActionCard key={index} optionName={item.option} LeftSvg={item.SVG} navigation={navigation}></ProfileActionCard>
                     )
                 })}
                 </ScrollView>

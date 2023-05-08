@@ -13,9 +13,7 @@ const ProductCard = (props) => {
   console.log("userData", userData)
 
   console.log("userDataId", userData.id);
-  /* let userid={
-     id:userData.id
-   }*/
+ 
   
   const { item } = props;
   const { userId, id, name, price, discount, description, imageUrl } = item
@@ -23,19 +21,9 @@ const ProductCard = (props) => {
   const handlePress = (productId) => {
     const userId=userData.id
     console.log(productId,"Added to cart",userId);
-    // let productid = {
-    //   productId: productId,
-    // }
-    // let userid = {
-    //   userId: userData.id
-    // }
 
     getmycart(userId);
     postmycart(productId,userId)
-
-
-    // console.log(productid, userd);
-
 
   }
 

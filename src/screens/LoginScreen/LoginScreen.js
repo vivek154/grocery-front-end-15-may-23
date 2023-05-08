@@ -7,28 +7,35 @@ import {
   ScrollView,
   Linking,
   StatusBar,
-  ActivityIndicator
+  ActivityIndicator,
 } from 'react-native';
-import React, {useState} from 'react';
+
 import Mybutton from '../Mybutton';
 import {mobileLogin} from '../../api/api';
+import {useState} from 'react';
 
 const LoginScreen = ({navigation}) => {
   function showRegistration() {
     navigation.navigate('Register');
   }
 
+  const validatePhoneNumber = phNo => {
+    const reg = /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$/;
+    return reg.test(phNo);
+  };
+
   const [mobNo, setMobNo] = useState('');
-  const [showActivityIndicator,setShowActivityIndicator] = useState(false)
+  const [isValid, setIsValid] = useState(true);
+  const [showActivityIndicator, setShowActivityIndicator] = useState(false);
 
   const handleGetOtp = async () => {
-    setShowActivityIndicator(true)
+    setShowActivityIndicator(true);
     let postData = {phoneNumber: String(mobNo), roleId: 2};
-    
+
     try {
       let res = await mobileLogin(postData);
       if (res && res.data) {
-        setShowActivityIndicator(false)
+        setShowActivityIndicator(false);
         let key = res.data.data;
         navigation.navigate('OtpConfirmScreen', {
           key: key,
@@ -36,7 +43,7 @@ const LoginScreen = ({navigation}) => {
         });
       }
     } catch (error) {
-      setShowActivityIndicator(false)
+      setShowActivityIndicator(false);
       console.log(error);
     }
   };
@@ -61,22 +68,32 @@ const LoginScreen = ({navigation}) => {
           style={styles.ipMobNo}
           placeholder="Enter Mobile no"
           keyboardType="numeric"
-          onChangeText={setMobNo}
+          onChangeText={newText => setMobNo(newText)}
           value={mobNo}></TextInput>
-        
-          { 
-            !showActivityIndicator && 
-            <Mybutton
-            onPress={handleGetOtp}
+        {!isValid && (
+          <View style={{justifyContent: 'center'}}>
+            <Text style={{color:'red'}}> * Entered mobile number is invalid</Text>
+          </View>
+        )}
+
+        {!showActivityIndicator && (
+          <Mybutton
+            onPress={() => {
+              if (validatePhoneNumber(mobNo)) {
+                handleGetOtp();
+              }
+              else {
+                setIsValid(false)
+                setTimeout(()=>setIsValid(true),2000)
+              }
+            }}
             btnTxt="GET OTP"
             txtColor="#ffffff"
             myButton={styles.myButton}
             width={300}></Mybutton>
-          }
-          {
-            showActivityIndicator &&
-            <ActivityIndicator></ActivityIndicator>
-          }
+        )}
+
+        {showActivityIndicator && <ActivityIndicator></ActivityIndicator>}
         <Text
           style={{
             color: '#ff9900',

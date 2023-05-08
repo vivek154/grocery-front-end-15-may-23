@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     BottomNavBar:{
         flexDirection:"row",
         alignItems:"center",
-        justifyContent:"space-evenly",
+        justifyContent:"space-between",
         minHeight:(0.15*width),
         minWidth:"100%",
         borderTopRightRadius:(0.25*0.15*width),
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         bottom:0,
         elevation:1,
         backgroundColor:"white",
-        
+        paddingHorizontal:20
       },
       iconsContainer:{
         flexDirection:"column",
