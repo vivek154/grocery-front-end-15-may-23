@@ -23,6 +23,14 @@ const authReducer = (state = initialState, action) => {
                 ...state,userData:action.payload
             }
         }
+        case AUTH_TYPE.GET_MY_CART_DATA:{
+            return {
+                ...state,myCart:action.payload
+            }
+        }
+        case AUTH_TYPE.DELETE_FROM_MY_CART:{
+            return action.payload
+        }
         default:
             return state;
     }

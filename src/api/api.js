@@ -4,7 +4,7 @@ import authAxiosInstance from './authAxios';
 
 export const mobileLogin = payload => {
   const url = `${API_URL}auth/otp/init`;
-  return authAxiosInstance.post(url, payload);
+  return authAxiosInstance.post(url,payload);
 };
 
 export const otpVerify = payload => {
@@ -53,48 +53,31 @@ export const getAllProducts = () => {
   return authAxiosInstance.get(url)
 }
 
-/*export const getmycart=()=>
-{
-  const url=`${API_URL}cart/get-usercart`
-  return authAxiosInstance.post(url);
-}*/
-
-
 export const getmycart = (userid) => {
   console.log("user Id get my cart ", userid)
   const url = `${API_URL}cart/get-usercart`
-  return authAxiosInstance.post(url, { userId: userid });
+  let response = authAxiosInstance.post(url, { userId: userid });
+  console.log ("******* response from cart ******",response)
+  return response
 }
-
-/*export const getmycart=async(Id)=>
-{
-  const url=`${API_URL}cart/get-usercart`;
-  return await authAxiosInstance.post(url,Id);
-}
-*/
-
-export const postmycart = (productId,userId) => {
+export const postmycart = (productId, userId, count) => {
   const url = `${API_URL}cart/add-cart`
-  return authAxiosInstance.post(url,{userId:userId,productId:productId,quantity:5})
+  return authAxiosInstance.post(url, { userId: userId, productId: productId, count: count })
 }
 
-export const deletemycart=(productId)=>
-{
-
-  console.log(productId);
- // const url=`${API_URL}cart/deletecart/${id}`
-  //return authAxiosInstance.delete(url,id);
-  const url=`${API_URL}cart/deletecart/${productId}`
-  return authAxiosInstance.delete(url,productId)
-
-  
+export const deletemycart = (productId, userId) => {
+  console.log('------------------------',productId,userId);
+  const url = `${API_URL}cart/deletecart`
+  return authAxiosInstance.post(url, { productId, userId });
 }
 
-export const updateUserProfileData=(userData)=>{
-  console.log("payload post update",userData)
-  const url=`${API_URL}users/update-user`
-  return authAxiosInstance.post(url,userData)
+export const updateUserProfileData = (userData) => {
+  console.log("payload post update", userData)
+  const url = `${API_URL}users/update-user`
+  return authAxiosInstance.post(url, userData)
 }
+
+
 
 
 

@@ -3,17 +3,19 @@ import React from 'react'
 import PageHeader from '../PageHeader/PageHeader'
 import MyCartCard from './MycartCard/MyCartCard'
 import Mybutton from '../Mybutton'
-
+import { AUTH_TYPE } from '../../redux/action/authAction'
 import { useState ,useEffect} from 'react';
 import DeleteIcon from "../../svg/delete.svg"
 import { getmycart } from '../../api/api'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { Store } from '../../redux/Store'
 
 const MyCartPage = ({navigation}) => {
     function showDeliveryOptions(){
         navigation.navigate("Delivery")
     }
     const [data,setdata] = useState([]);
+    const dispatch=useDispatch();
 
    console.log("data",data);
 
@@ -26,6 +28,8 @@ const MyCartPage = ({navigation}) => {
       try{
         let response = await getmycart(userData.id);
         console.log("get my cart response ",response.data);
+        
+        dispatch({type:AUTH_TYPE.GET_MY_CART_DATA,payload:response.data})
         setdata(response.data);
         
       }
@@ -39,15 +43,15 @@ const MyCartPage = ({navigation}) => {
 
   return (
     <>
-        <View style={{backgroundColor:"white",height:"100%"}}>
-            <View>
+       
+            <View >
                 <PageHeader text="My Cart"></PageHeader>
             </View>
-            
+            <View style={{backgroundColor:"white",height:"100%"}}>
             <ScrollView style={{maxHeight:"70%"}}>
                <View >
                     {data.map((item,index)=>{
-                      return <MyCartCard key={index} item={item} SVGIcon={DeleteIcon}></MyCartCard>
+                      return <MyCartCard key={index} item={item} SVGIcon={DeleteIcon} makeApiRequest={makeApiRequest}></MyCartCard>
                     })}
                 </View> 
 
@@ -82,7 +86,6 @@ const styles = StyleSheet.create({
         width:150
       },
     billContainer:{
-       
         flexDirection:"row",
         justifyContent:"space-between",
         alignItems:"center",
