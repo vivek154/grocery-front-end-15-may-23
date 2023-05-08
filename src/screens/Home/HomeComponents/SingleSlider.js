@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Dimensions, Image } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
 import ReCarousel from 'react-native-reanimated-carousel';
+import Carousel from 'react-native-reanimated-carousel';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 
@@ -17,11 +18,12 @@ const SingleSlider = ({images}) => {
                 style={{
                     flex: 1,
                     justifyContent: 'center',
-                    backgroundColor:"white"
+                    backgroundColor:"white",
+                    
                 }}>
                     
 
-                <Image style={{width:width,height:(width/2),resizeMode:"contain"}} source={item.url}></Image>
+                <Image style={{width:width-20,height:(width/3)-20,resizeMode:"contain",borderWidth:1,overflow:"hidden"}} source={item.url}></Image>
             </View>
             
         );
@@ -30,6 +32,7 @@ const SingleSlider = ({images}) => {
     <GestureHandlerRootView style={{flex:1}}>
         <View style={{ flex: 1}}>
             <ReCarousel
+                
                 loop
                 width={width}
                 height={width / 2}
@@ -48,7 +51,6 @@ const SingleSlider = ({images}) => {
                 }}
                 customConfig={()=>{return{type:'positive',viewCount:1}}}
                 
-
             />
         </View>
     </GestureHandlerRootView>

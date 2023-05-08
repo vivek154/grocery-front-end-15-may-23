@@ -13,7 +13,7 @@ const Register=(props)=>
      
 </View>
 <View>
-          <Text style={{alignSelf:'flex-start',marginLeft:60, fontWeight:"bold", fontSize:30 }}>Register</Text>
+          <Text style={{alignSelf:'flex-start',marginLeft:60, fontWeight:"bold", fontSize:30,color:"#000"}}>Register</Text>
           <TextInput style={styles.input} placeholder="Your Name " ></TextInput>
           <TextInput style={styles.input} placeholder="Email "></TextInput>
           <TextInput style={styles.input} placeholder="Mobile number " ></TextInput>
@@ -21,7 +21,7 @@ const Register=(props)=>
           <Pressable style={styles.pressable}>
           <Text style={styles.text} onPress={()=>props.navigation.navigate('Home')}>Submit</Text>
           </Pressable>
-          <Text style={{marginLeft:100,marginBottom:50}} onPress={()=>props.navigation.navigate('LoginScreen')}> Have an account <Text style={{color:"red"}}>Login</Text></Text>
+          <Text style={{marginLeft:100,marginBottom:50,color:"#000"}} onPress={()=>props.navigation.navigate('LoginScreen')}> Have an account <Text style={{color:"red"}}>Login</Text></Text>
         
          
           <StatusBar style="auto" />

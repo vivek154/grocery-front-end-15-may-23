@@ -3,7 +3,7 @@ import React from 'react'
 
 import Carousel from 'react-native-reanimated-carousel'
 const width=Dimensions.get('window').width;
-const width3=(width-40)/3;
+const width3=(width/3);
 const MultiSlider = ({images}) => {
     const _renderItem=({item,index})=>{
         
@@ -50,10 +50,11 @@ const styles=StyleSheet.create({
   imageContainer:{
     flex:1,
     gap:3,
-    justifyContent:"center",
+    justifyContent:"space-between",
     flexDirection:"row",
-    overflow:"hidden",
+    marginVertical:10,
     alignItems:"center",
     alignSelf:"center",
+
   }
 })

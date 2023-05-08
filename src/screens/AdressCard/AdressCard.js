@@ -12,15 +12,15 @@ const AdressCard = () => {
       <View style={styles.adressContainer}>
          <View style={styles.svgContainer}>
           <LocationSVG></LocationSVG>
-          <Text>H/7 shiv flat Jivrajpark Ahmedabad</Text>
+          <Text style={{color:"#000"}}>H/7 shiv flat Jivrajpark Ahmedabad</Text>
          </View>
          <View style={styles.svgContainer}>
           <ProfileIconSvg></ProfileIconSvg>
-          <Text>John Doe</Text>
+          <Text style={{color:"#000"}}>John Doe</Text>
          </View>
          <View style={styles.svgContainer}>
           <CallIconSvg></CallIconSvg>
-            <Text>1234567899</Text>
+            <Text style={{color:"#000"}}>1234567899</Text>
          </View>
       </View>
     </View>

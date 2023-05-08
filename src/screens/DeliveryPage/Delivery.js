@@ -41,7 +41,7 @@ const Delivery = (props) => {
                                 <View style={{}}>
                                     <Image style={{ resizeMode: 'contain' }} source={require('../../images/visa.png')}></Image>
                                 </View>
-                                <Text style={{ marginLeft: 13 }}>Visa Card</Text>
+                                <Text style={{ marginLeft: 13,color:"#000" }}>Visa Card</Text>
 
 
 
@@ -57,7 +57,7 @@ const Delivery = (props) => {
                                 <View style={{}}>
                                     <Image style={{ resizeMode: 'contain' }} source={require('../../images/mastercard.png')}></Image>
                                 </View>
-                                <Text style={{ marginLeft: 13 }}>Credit Card</Text>
+                                <Text style={{ marginLeft: 13,color:"#000" }}>Credit Card</Text>
 
 
                             </View>
@@ -71,7 +71,7 @@ const Delivery = (props) => {
                                 <View style={{}}>
                                     <Image style={{ resizeMode: 'contain' }} source={require('../../images/paypal.png')}></Image>
                                 </View>
-                                <Text style={{ marginLeft: 13 }}>Paypal     </Text>
+                                <Text style={{ marginLeft: 13,color:"#000" }}>Paypal     </Text>
 
 
                             </View>
@@ -87,7 +87,7 @@ const Delivery = (props) => {
                                 <View style={{}}>
                                     <Image style={{ resizeMode: 'contain' }} source={require('../../images/gpay.png')}></Image>
                                 </View>
-                                <Text style={{ marginLeft: 13 }}>Google Pay</Text>
+                                <Text style={{ marginLeft: 13,color:"#000"}}>Google Pay</Text>
 
 
                             </View>
@@ -97,7 +97,7 @@ const Delivery = (props) => {
                         <View style={{ flex: 1, width: 300, borderWidth: 1, marginTop: 5, marginBottom: 12, justifyContent: 'center', borderColor: 'grey', backgroundColor: 'grey', marginLeft: 20, marginRight: 10 }}></View>
                     </View>
                     <Pressable style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} onPress={showPaymentOptions}>
-                        <Text style={{ width: 200, height: 34, borderRadius: 50, backgroundColor: "#FF5403", padding: 6, paddingLeft: 80, color: 'white' }}>Confirm</Text>
+                        <Text style={{color:"#000", width: 200, height: 34, borderRadius: 50, backgroundColor: "#FF5403", padding: 6, paddingLeft: 80, color: 'white' }}>Confirm</Text>
                     </Pressable>
                 </View>
                 <View style={{height:70}}>

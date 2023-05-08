@@ -22,7 +22,7 @@ const MyProfile = ({navigation}) => {
             <View style={{flexDirection:"row",alignItems:"center",justifyContent:"space-between",paddingHorizontal:"8%",marginVertical:10}}>
                 <View style={{flexDirection:"row",justifyContent:"center",alignItems:"center",gap:10}}>
                     <LocationIcon></LocationIcon>
-                    <Text>Adress</Text>
+                    <Text style={{color:"#000"}}>Adress</Text>
                 </View>
                 <Mybutton myButton={styles.myButton} btnTxt="Change" txtColor="#C4C4C4"></Mybutton>
             </View>
@@ -30,7 +30,7 @@ const MyProfile = ({navigation}) => {
                 <ScrollView style={{maxHeight:"70%"}}>
                { data.map((item,index)=>{
                     return(
-                        <ProfileActionCard key={index} optionName={item.option} LeftSvg={item.SVG}></ProfileActionCard>
+                        <ProfileActionCard key={index} optionName={item.option} LeftSvg={item.SVG} navigation={navigation}></ProfileActionCard>
                     )
                 })}
                 </ScrollView>
