@@ -39,8 +39,6 @@ const SearchPage = (props) => {
         }
   }
 
-  
-
   const handleChangeInput=(newText)=>{
     
     setSearchKeyWord(newText);
@@ -77,7 +75,7 @@ const SearchPage = (props) => {
   
 
   return (
-    <>
+    <View style={{height:"100%"}}>
         <View style={styles.container}>
           <View style={styles.titleContainer}>
             <ArrowIcon></ArrowIcon>
@@ -86,15 +84,14 @@ const SearchPage = (props) => {
           <View
             style={{
               flexDirection: 'row',
-              marginVertical: 15,
+              marginVertical:5,
               height: 37,
               alignItems: 'center',
               paddingHorizontal: 5,
               borderWidth: 1,
               borderColor: 'white',
               borderRadius: 25,
-              width: '86%',
-              alignSelf: 'center',
+              width: '100%',
               color: 'white',
             }}>
             <SearchIcon></SearchIcon>
@@ -109,14 +106,14 @@ const SearchPage = (props) => {
         </View>
 
         { !showSearchResults &&
-          <View style={{paddingHorizontal:10}}>
+          <View style={{paddingHorizontal:20,flex:0.7}}>
 
-          <Text style={{marginTop: 30, fontWeight: 'bold', color: 'black'}}>
+          <Text style={{marginTop: 30, fontSize:18, fontWeight: 'bold', color: 'black'}}>
             Top Searches
           </Text>
 
           <View style={styles.buttonContainer}>
-
+              
                 {
                   (topSearches.length > 0) && topSearches.map((category)=>{
                     return <Mybutton key={category.id} myButton={styles.myButton} width={buttonWidth} btnTxt={category.name}
@@ -124,17 +121,15 @@ const SearchPage = (props) => {
                   })
                 }
               
-
-              
           </View>
           <View>
-            <Text style={{fontWeight: 'bold', color: 'black', marginTop: 20}}>
+            <Text style={{fontWeight: 'bold',fontSize:18, color: 'black'}}>
               Browse Catagories
             </Text>
           </View>
 
-          <View style={{marginTop:10}}>
-            <ScrollView>
+          <View style={{flex:0.8,marginVertical:10}}>
+            <ScrollView style={{marginBottom:10}}>
             {allCategories.map((item, index) => {
               return (
                 
@@ -153,27 +148,33 @@ const SearchPage = (props) => {
             </ScrollView>
         }
       
-      <BottomNavBar navigation={navigation}></BottomNavBar>
-    </>
+    <View style={{flex:0.07}}>
+        <BottomNavBar navigation={navigation}></BottomNavBar>
+      </View>
+      
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    minHeight: '12%',
+    flex:0.23,
+    //height:'23%',
+    flexDirection:"column",
+    alignItems:"center",
+    gap:20,
+    paddingHorizontal:20,
     backgroundColor: '#FF5403',
     borderBottomRightRadius: 40,
     borderBottomLeftRadius: 40,
   },
   titleContainer: {
     flexDirection: 'row',
-    maxWidth: '50%',
+    width: '100%',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    width: '60%',
-    marginTop: '15%',
-    marginHorizontal: 20,
+    marginTop: '7%',
     gap: 10,
   },
   text: {
@@ -182,11 +183,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   buttonContainer:{
-    
+    //height:"10%",
+    flex:0.2,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
-    marginTop: 10,
+    justifyContent:"space-between",
   },
   myButton:{
     backgroundColor:"#C4C4C4",

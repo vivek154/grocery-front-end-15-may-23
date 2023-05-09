@@ -23,7 +23,7 @@ const SingleSlider = ({images}) => {
                 }}>
                     
 
-                <Image style={{width:width-20,height:(width/3)-20,resizeMode:"contain",borderWidth:1,overflow:"hidden"}} source={item.url}></Image>
+                <Image style={{width:width-20,height:((width-20)/2),resizeMode:"contain",borderWidth:1,overflow:"hidden"}} source={item.url}></Image>
             </View>
             
         );

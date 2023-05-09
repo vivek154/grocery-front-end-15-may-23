@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View, ScrollView} from 'react-native';
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import HomeHeader from './HomeComponents/HomeHeader/HomeHeader';
 import BottomNavBar from '../BottomNavBar/BottomNavBar';
 import SingleSlider from './HomeComponents/SingleSlider';
@@ -39,7 +39,6 @@ const Home = props => {
   const [matchedProducts, setMatchedProducts] = useState([]);
   const [searchKeyWord, setSearchKeyWord] = useState('');
   const [showSearchResults, setShowResults] = useState(false);
-  const inputRef = useRef(null);
 
   const makeApiRequest = async keyword => {
     console.log('keyword', keyword);
@@ -61,20 +60,18 @@ const Home = props => {
   }
 
   return (
-    <View style={{flex: 1,backgroundColor: 'white'}}>
+    <View style={{flex: 1, backgroundColor: 'white'}}>
       <View style={styles.headerContainer}>
         <HomeHeader
           navigation={navigation}
           searchKeyWord={searchKeyWord}
           setSearchKeyWord={setSearchKeyWord}
           setShowResults={setShowResults}
-          makeApiRequest={makeApiRequest}
-          inputRef={inputRef}></HomeHeader>
+          makeApiRequest={makeApiRequest}></HomeHeader>
       </View>
-
-      <View style={styles.bodyContainer}>
-        <ScrollView fadingEdgeLength={20}>
-          {searchKeyWord == '' && !showSearchResults && (
+      {searchKeyWord == '' && !showSearchResults && (
+        <View style={styles.bodyContainer}>
+          <ScrollView fadingEdgeLength={20}>
             <View>
               <View>
                 <SingleSlider images={single_slider_images}></SingleSlider>
@@ -134,12 +131,17 @@ const Home = props => {
 
               <SingleSlider images={single_slider_images}></SingleSlider>
             </View>
-          )}
-          {!(searchKeyWord == '') && (
+          </ScrollView>
+        </View>
+      )}
+
+      {!(searchKeyWord == '') && (
+        <View style={{flex: 0.7, marginTop: 30}}>
+          <ScrollView>
             <SearchResults matchedProducts={matchedProducts}></SearchResults>
-          )}
-        </ScrollView>
-      </View>
+          </ScrollView>
+        </View>
+      )}
 
       <View style={styles.footerContainer}>
         <BottomNavBar navigation={navigation}></BottomNavBar>
@@ -165,6 +167,5 @@ const styles = StyleSheet.create({
   footerContainer: {
     flex: 0.07,
     backgroundColor: 'white',
-    paddingHorizontal:10
   },
 });

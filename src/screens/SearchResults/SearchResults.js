@@ -6,7 +6,7 @@ const SearchResults = (props) => {
   return (
 
         
-      <View style={{flex:1,paddingTop:5,paddingBottom:60,flexDirection:"row",flexWrap:"wrap",justifyContent:"center",columnGap:10,rowGap:10}}>
+      <View style={{borderWidth:1,flex:1,paddingTop:5,paddingBottom:60,flexDirection:"row",flexWrap:"wrap",justifyContent:"center",columnGap:10,rowGap:10}}>
       
         {
             props.matchedProducts.map((item)=>(
