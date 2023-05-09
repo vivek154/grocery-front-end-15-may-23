@@ -10,15 +10,18 @@ import LocationGreySvg from "../../svg/locationGrey.svg"
 const data=[
     {
         option:"My Orders",
-        SVG:ClockSvg
+        SVG:ClockSvg,
+        goto:"MyCartPage",
     },
     {
         option:"Wallet",
         SVG:WalletSvg,
+        goto:"PaymentOptions",
     },
     {
         option:"My Payments",
         SVG:AtmCardSvg,
+        goto:"PaymentOptions",
     },
     {
         option:"My Ratings & Reviews",
@@ -27,14 +30,18 @@ const data=[
     {
         option:"Notifications",
         SVG:NotificationSvg,
+        goto:"MainNotification",
     },
     {
         option:"Customer Service",
         SVG:HeadphoneSvg,
+        goto:"MainNotification",
     },
     {
         option:"My Delivery Adress",
         SVG:LocationGreySvg,
+        goto:"Delivery"
+
     },
 
 ]

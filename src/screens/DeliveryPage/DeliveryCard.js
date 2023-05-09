@@ -6,11 +6,13 @@ const DeliveryCard = ({navigation}) => {
   return (
     
     <View>
+   
     <View>
-  
       <PageHeader text="Delivery"></PageHeader>
-      <Text style={{color:"black",fontWeight:"bold",marginLeft:10,marginVertical:10}}>Where</Text>
-    </View>
+      </View>
+
+      <Text style={{color:"black",fontWeight:"bold",marginLeft:18,marginVertical:10}}>Where</Text>
+
     <View style={styles.container}>
       <Image source={require("../../images/apple.jpg")} style={styles.image}></Image>
       
@@ -42,7 +44,9 @@ const styles = StyleSheet.create({
         padding:10,
         elevation:5,
         borderRadius:10,
-        width:"100%",
+        maxwidth:"90%",
+        minWidth:"70%",
+      
         marginVertical:10
     },
     image:{

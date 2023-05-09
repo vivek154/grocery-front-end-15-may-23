@@ -26,16 +26,9 @@ const styles=StyleSheet.create({
        backgroundColor:'white',
        alignItems:'center',
        elevation:1,
-      
        minWidth:(width/2.5),
-
        minHeight:(width/2.5),
        borderRadius:12,
-
-       
-       
-    
-
     },
     img :{
        // alignItems:'center',

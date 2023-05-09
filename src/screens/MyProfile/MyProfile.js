@@ -1,3 +1,4 @@
+
 import {StyleSheet, Text, View, ScrollView, Pressable} from 'react-native';
 import React from 'react';
 import PageHeader from '../PageHeader/PageHeader';
@@ -13,10 +14,12 @@ import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
+
 const MyProfile = ({navigation}) => {
   const {userData} = useSelector(state => state?.auth);
 
   return (
+
     <View style={{backgroundColor: 'white', minHeight: '100%'}}>
       <View style={styles.headerContainer}>
         <PageHeader text="My Profile"></PageHeader>
@@ -77,6 +80,7 @@ const MyProfile = ({navigation}) => {
     </View>
   );
 };
+
 
 export default MyProfile;
 

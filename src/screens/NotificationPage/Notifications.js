@@ -2,13 +2,14 @@ import { View ,Text, StyleSheet, ScrollView} from "react-native";
 import { create } from "react-test-renderer";
 import Notification from '../../svg/BellWhiteIcon.svg';
 import { FlipInEasyY } from "react-native-reanimated";
+import { responsiveWidth,responsiveHeight } from "react-native-responsive-dimensions";
 
 const Notifications=({ele})=> {
     return (
         <>
         
         <ScrollView style={{}}>
-          
+        
           <View style={styles.view}>
             
               <View style={{backgroundColor:'#DEDEDE',width:35,height:35,justifyContent:"center",alignItems:"center",borderRadius:17.5}}>
@@ -26,6 +27,7 @@ const Notifications=({ele})=> {
           </View>
           
           </ScrollView>
+          <View style={{height:responsiveHeight(1)}}></View>
         </>
     )
 }
@@ -37,8 +39,9 @@ const styles=StyleSheet.create({
        justifyContent:"space-between",
        alignItems:"center",
        minHeight:80,
+        borderRadius:4,
        marginHorizontal:15,
-       elevation:2,
+       elevation:4,
        padding:8
     }
 })
