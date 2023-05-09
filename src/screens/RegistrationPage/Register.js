@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 const Register = props => {
+  const {navigation}=props
   const [formValue, setFormValue] = useState({
     fullName: '',
     email: '',
@@ -74,7 +75,7 @@ const Register = props => {
             <Text
               style={styles.text}
               onPress={()=>{
-                validate()
+                navigation.navigate("Home")
               }}>
               Submit
             </Text>
