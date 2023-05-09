@@ -44,7 +44,7 @@ const MyCartPage = ({navigation}) => {
   return (
     <>
        
-            <View >
+            <View style={{backgroundColor:'white'}}> 
                 <PageHeader text="My Cart"></PageHeader>
             </View>
             <View style={{backgroundColor:"white",height:"100%"}}>
