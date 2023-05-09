@@ -12,6 +12,7 @@ import {
   Keyboard,
 } from 'react-native';
 const width = Dimensions.get('screen').width;
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import BurgerIcon from '../../../../svg/BurgerIcon.svg';
 import BellWhiteIcon from '../../../../svg/BellWhiteIcon.svg';
 import BasketWhiteIcon from '../../../../svg/BasketWhiteIcon.svg';
@@ -49,7 +50,7 @@ const HomeHeader = props => {
     navigation.navigate('MyProfile');
   }
   return (
-    <View style={{width: '100%'}}>
+    <View style={{width: '100%',height:hp("18%")}}>
       <View style={styles.header}>
         <View
           style={{
@@ -104,8 +105,6 @@ const HomeHeader = props => {
             height={0.063 * width}
             style={{marginLeft: 0.02 * width}}></SearchIcon>
           <TextInput
-            
-          
             placeholder="Search Your Keyword"
             placeholderTextColor="white"
             style={styles.searchBar}

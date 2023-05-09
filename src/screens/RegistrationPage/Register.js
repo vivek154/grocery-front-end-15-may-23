@@ -10,6 +10,15 @@ import {
   ScrollView,
 } from 'react-native';
 
+const EMAIL_REGEX = /^([\w-\\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+const PHONE_REGEX = /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$/;
+const PASSWORD_REGEX =/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
+//The string must contain at least 1 lowercase alphabetical character
+//The string must contain at least 1 uppercase alphabetical character
+//The string must contain at least 1 numeric character
+//The string must contain at least one special character,
+//The string must be eight characters or longer
+
 const Register = props => {
   const {navigation}=props
   const [formValue, setFormValue] = useState({
@@ -18,9 +27,52 @@ const Register = props => {
     phoneNumber: '',
     password: '',
   });
+
+  const [errorMsg,setErrorMsg]=useState({
+    fullName:"",
+    email:"",
+    phoneNumber:"",
+    password:""
+  })
+  console.log("***error msg***",errorMsg)
+  const validateInputData=()=>{
+    let validationFormValues={
+      fullName:"",
+      email:"",
+      phoneNumber:"",
+      password:""
+    }
+    let isValid = true
+    if(formValue.fullName==""){
+      validationFormValues.fullName="Enter valid name"
+      console.log("false name")
+      isValid = false
+    }
+    if(formValue.email==""|| !EMAIL_REGEX.test(formValue.email)){
+      validationFormValues.email="Enter valid email"
+      console.log("false mail")
+      isValid=false
+    }
+    if(formValue.phoneNumber=="" || !PHONE_REGEX.test(formValue.phoneNumber)){
+      validationFormValues.phoneNumber="Enter valid phone Number"
+      console.log("false number")
+      isValid=false
+    }
+    if(formValue.password=="" || !PASSWORD_REGEX.test(formValue.password)){
+      validationFormValues.password="Enter valid password"
+      console.log("false password")
+      isValid=false
+    }
+
+    if(!isValid){
+      setErrorMsg(validationFormValues)
+    }
+    
+    return isValid
+  }
   return (
-    <View style={{backgroundColor: 'white'}}>
-      <ScrollView>
+    <View style={{backgroundColor: 'white',flex:1}}>
+      
         <View style={{backgroundColor: 'white'}}>
           <Image
             style={styles.image}
@@ -46,7 +98,7 @@ const Register = props => {
             onChangeText={(newText)=>setFormValue({
               ...formValue,fullName:newText
             })}></TextInput>
-
+          {(errorMsg.fullName) && <Text color="#ff0000">blabla</Text>}
           <TextInput
             style={styles.input}
             placeholder="Email "
@@ -54,7 +106,7 @@ const Register = props => {
             onChangeText={(newText)=>setFormValue({
               ...formValue,email:newText
             })}></TextInput>
-
+          {(errorMsg.email) && <Text color="#ff0000">blabla</Text>}
           <TextInput
             value={formValue.phoneNumber}
             style={styles.input}
@@ -62,7 +114,7 @@ const Register = props => {
             onChangeText={(newText)=>setFormValue({
               ...formValue,phoneNumber:newText
             })}></TextInput>
-
+          {(errorMsg.phoneNumber) && <Text color="#ff0000">blabla</Text>}
           <TextInput
             value={formValue.password}
             style={styles.input}
@@ -70,12 +122,16 @@ const Register = props => {
             onChangeText={(newText)=>setFormValue({
               ...formValue,password:newText
             })}></TextInput>
-
+          {(errorMsg.password) && <Text color="#ff0000">blabla</Text>}
           <Pressable style={styles.pressable}>
             <Text
               style={styles.text}
               onPress={()=>{
-                navigation.navigate("Home")
+                //navigation.navigate("Home")
+                console.log(validateInputData())
+                if(validateInputData()){
+                  navigation.navigate("Home")
+                }
               }}>
               Submit
             </Text>
@@ -89,7 +145,7 @@ const Register = props => {
 
           <StatusBar style="auto" />
         </View>
-      </ScrollView>
+      
     </View>
   );
 };

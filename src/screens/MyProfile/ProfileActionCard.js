@@ -27,15 +27,8 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         justifyContent:"space-between",
         alignItems:'center',
-        marginHorizontal:"5%",
-        padding:5,
-        
-        width:responsiveScreenWidth(90),
-       
-        borderRadius:4,
-        
-       
-        rowGap:4
-        
+        paddingVertical:5,
+        elevation:1
+
     }
 })

@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, } from 'react-native'
 import React from 'react'
-
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 const ProfileCard = (props) => {
   const {userData,navigation}=props
   const {email,phoneNumber,fullName}=userData
@@ -27,8 +27,6 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         justifyContent:"space-between",
         alignItems:"center",
-        marginHorizontal:30,
-        marginVertical:10,
     },
     profilePicContainer:{
         borderWidth:4,

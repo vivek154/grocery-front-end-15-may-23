@@ -1,5 +1,5 @@
-import {View, Text, StyleSheet, TextInput, ScrollView} from 'react-native';
-
+import {View, Text, StyleSheet, TextInput, ScrollView,KeyboardAvoidingView} from 'react-native';
+import { widthPercentageToDP as wp,heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import SearchIcon from '../../svg/SearchIcon.svg';
 import ArrowIcon from '../../svg/Arrow.svg';
 
@@ -75,7 +75,7 @@ const SearchPage = (props) => {
   
 
   return (
-    <View style={{height:"100%"}}>
+    <View style={{flex:1}}>
         <View style={styles.container}>
           <View style={styles.titleContainer}>
             <ArrowIcon></ArrowIcon>
@@ -84,11 +84,11 @@ const SearchPage = (props) => {
           <View
             style={{
               flexDirection: 'row',
-              marginVertical:5,
-              height: 37,
+              marginVertical:0,
+              height: 40,
               alignItems: 'center',
               paddingHorizontal: 5,
-              borderWidth: 1,
+              borderWidth: 2,
               borderColor: 'white',
               borderRadius: 25,
               width: '100%',
@@ -106,7 +106,7 @@ const SearchPage = (props) => {
         </View>
 
         { !showSearchResults &&
-          <View style={{paddingHorizontal:20,flex:0.7}}>
+          <View style={{paddingHorizontal:20,height:hp("75%")}}>
 
           <Text style={{marginTop: 30, fontSize:18, fontWeight: 'bold', color: 'black'}}>
             Top Searches
@@ -128,7 +128,7 @@ const SearchPage = (props) => {
             </Text>
           </View>
 
-          <View style={{flex:0.8,marginVertical:10}}>
+          <View style={{flex:0.8,marginVertical:5}}>
             <ScrollView style={{marginBottom:10}}>
             {allCategories.map((item, index) => {
               return (
@@ -143,12 +143,12 @@ const SearchPage = (props) => {
         }
         {
           showSearchResults &&
-            <ScrollView style={{flex:1,padding:10,marginVertical:15}}> 
+            <ScrollView fadingEdgeLength={20} style={{flex:1,padding:10,marginVertical:15}}> 
               <SearchResults matchedProducts={matchedProducts}></SearchResults>
             </ScrollView>
         }
       
-    <View style={{flex:0.07}}>
+    <View style={{height:hp('7%')}}>
         <BottomNavBar navigation={navigation}></BottomNavBar>
       </View>
       
@@ -159,22 +159,22 @@ const SearchPage = (props) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    flex:0.23,
+    //flex:0.18,
     //height:'23%',
     flexDirection:"column",
-    alignItems:"center",
-    gap:20,
+    justifyContent:"center",
+    gap:10,
     paddingHorizontal:20,
     backgroundColor: '#FF5403',
     borderBottomRightRadius: 40,
     borderBottomLeftRadius: 40,
+    height:hp('18%')
   },
   titleContainer: {
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    marginTop: '7%',
     gap: 10,
   },
   text: {
