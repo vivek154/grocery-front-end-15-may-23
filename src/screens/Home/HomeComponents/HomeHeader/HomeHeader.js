@@ -24,7 +24,6 @@ const HomeHeader = props => {
     setSearchKeyWord,
     setShowResults,
     makeApiRequest,
-    inputRef
   } = props;
 
   const handleInputChange = newText => {
@@ -50,13 +49,13 @@ const HomeHeader = props => {
     navigation.navigate('MyProfile');
   }
   return (
-    <View style={{width: '100%',position:"absolute"}}>
+    <View style={{width: '100%'}}>
       <View style={styles.header}>
         <View
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
-            width: '85%',
+            width: '100%',
             marginVertical:10,
             alignSelf: 'center',
           }}>
@@ -94,7 +93,7 @@ const HomeHeader = props => {
             alignItems: 'center',
             borderWidth: 2,
             borderColor: 'white',
-            width: '75%',
+            width: '100%',
             height: 40,
             alignSelf: 'center',
             borderRadius: 30,
@@ -105,8 +104,8 @@ const HomeHeader = props => {
             height={0.063 * width}
             style={{marginLeft: 0.02 * width}}></SearchIcon>
           <TextInput
-            ref={inputRef}
-            onFocus={()=> setShowResults(true)}
+            
+          
             placeholder="Search Your Keyword"
             placeholderTextColor="white"
             style={styles.searchBar}
@@ -128,6 +127,7 @@ const styles = StyleSheet.create({
     paddingBottom:20,
     borderBottomLeftRadius: 0.1 * width,
     borderBottomRightRadius: 0.1 * width,
+    paddingHorizontal:20
   },
   container: {
     flex: 1,
