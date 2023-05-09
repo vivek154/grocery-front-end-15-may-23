@@ -8,6 +8,7 @@ import Mybutton from '../Mybutton'
 import data from "./data"
 import ProfileActionCard from './ProfileActionCard'
 import BottomNavBar from '../BottomNavBar/BottomNavBar'
+import { responsiveHeight, responsiveScreenHeight } from "react-native-responsive-dimensions";
 import { useSelector } from 'react-redux'
 const MyProfile = ({navigation}) => {
 
@@ -16,28 +17,51 @@ const MyProfile = ({navigation}) => {
   return (
     <>
         
-        <View style={{backgroundColor:"white",minHeight:"100%"}}>
-            <PageHeader text="My Profile"></PageHeader>
-            <ProfileCard userData={userData} navigation={navigation}></ProfileCard>
+        <View style={{backgroundColor:"white",minHeight:"100%",flex:1}}>
+           <View >
+            
+             <PageHeader text="My Profile"></PageHeader>
+            
+            
+          
+            <View>
+             <ProfileCard userData={userData} navigation={navigation}></ProfileCard>
+          
             <View style={{flexDirection:"row",alignItems:"center",justifyContent:"space-between",paddingHorizontal:"8%",marginVertical:10}}>
-                <View style={{flexDirection:"row",justifyContent:"center",alignItems:"center",gap:10}}>
+                 <View style={{flexDirection:"row",justifyContent:"center",alignItems:"center",gap:10,}}>
                     <LocationIcon></LocationIcon>
                     <Text style={{color:"#000"}}>Adress</Text>
-                </View>
+                 </View>
                 <Mybutton myButton={styles.myButton} btnTxt="Change" txtColor="#C4C4C4"></Mybutton>
             </View>
-            <View style={{flexDirection:"column",gap:5}}>
-                <ScrollView style={{maxHeight:"70%"}}>
+            </View>
+        </View> 
+         
+            <View style={{flexDirection:"column",gap:3,flex:0.75}}>
+       
+            <ScrollView  style={{}}>
                { data.map((item,index)=>{
                     return(
-                        <ProfileActionCard key={index} optionName={item.option} LeftSvg={item.SVG} navigation={navigation}></ProfileActionCard>
+                        <ProfileActionCard key={index} item={item} optionName={item.option} LeftSvg={item.SVG} navigation={navigation}></ProfileActionCard>
                     )
                 })}
+             
+                   
                 </ScrollView>
-            </View>
+                </View>
+               
+               
+                <BottomNavBar navigation={navigation}></BottomNavBar>
+           
+         
+          
+      
+      
         </View>
-        <BottomNavBar navigation={navigation}></BottomNavBar>
+       {/* <View style={{height:responsiveHeight(10)}}></View>*/}
+     
     </>
+ 
   )
 }
 

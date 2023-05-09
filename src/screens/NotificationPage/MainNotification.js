@@ -1,6 +1,8 @@
 import { View ,Text,ScrollView} from "react-native"
 
 import Notifications from "./Notifications"
+import PageHeader from "../PageHeader/PageHeader"
+import PageHeadBar from "../PageHeadBar/PageHeadBar"
 
 const MainNotification=()=>
 {
@@ -19,9 +21,15 @@ const MainNotification=()=>
     ]
     return (
         <>
+        <PageHeader text="Notifications"></PageHeader>
+       
         <ScrollView>
+        <View style={{flexDirection:'row',justifyContent:'space-between',margin:10}}>
+            <Text style={{marginLeft:18,fontWeight:'bold',color:"black"}}>Today</Text>
+            <Text style={{color:"#FF5403"}}>View All</Text>
+        </View>
         <View>
-        <View style={{rowGap:10}}>
+        <View style={{rowGap:7}}>
              {
                 notificationarr.map((ele,index)=>
                 {
