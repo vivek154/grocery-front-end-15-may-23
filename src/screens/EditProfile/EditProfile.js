@@ -41,23 +41,24 @@ const EditProfile = (props) => {
   return (
     <View style={styles.container}>
         
-            <Text> Name</Text>
+            <Text style={styles.lable}> Name</Text>
+
             <TextInput value={name} placeholder='' onChangeText={setName} style={styles.textInput}></TextInput>
         
 
         
-            <Text>Email</Text>
+            <Text style={styles.lable}>Email</Text>
             <TextInput value={email} placeholder='' onChangeText={setEmail} style={styles.textInput}></TextInput>
         
 
         
             
-            <Text>Phone Number</Text>
+            <Text style={styles.lable}>Phone Number</Text>
             <TextInput value={phoneNumber} placeholder='' onChangeText={setPhoneNumber} style={styles.textInput}></TextInput>
         
 
         
-            <Text>Adress</Text>
+            <Text style={styles.lable}>Adress</Text>
             <TextInput value={adress} placeholder='' onChangeText={setAdress} style={styles.textInput}></TextInput>
         
             <View style={{justifyContent:"center",alignItems:"center",marginVertical:15}}>
@@ -78,6 +79,9 @@ const styles = StyleSheet.create({
     textInput:{
         borderWidth:1,
         borderColor:"#000",
+        color:"#000"
+    },
+    lable:{
         color:"#000"
     }
 })

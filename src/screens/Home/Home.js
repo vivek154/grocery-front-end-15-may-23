@@ -1,12 +1,12 @@
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
-import React, {useState} from 'react';
+import {StyleSheet, Text, View, ScrollView, Keyboard} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import HomeHeader from './HomeComponents/HomeHeader/HomeHeader';
 import BottomNavBar from '../BottomNavBar/BottomNavBar';
 import SingleSlider from './HomeComponents/SingleSlider';
 import MultiSlider from './HomeComponents/MultiSlider';
 import SearchResults from '../SearchResults/SearchResults';
 import {getSearchResults} from '../../api/api';
-
+import { widthPercentageToDP as wp,heightPercentageToDP as hp } from 'react-native-responsive-screen';
 const single_slider_images = [
   {id: 1, url: require('../../images/Images-multi/img1.jpg')},
   {id: 2, url: require('../../images/Images-multi/img2.jpg')},
@@ -39,7 +39,9 @@ const Home = props => {
   const [matchedProducts, setMatchedProducts] = useState([]);
   const [searchKeyWord, setSearchKeyWord] = useState('');
   const [showSearchResults, setShowResults] = useState(false);
+  
 
+ 
   const makeApiRequest = async keyword => {
     console.log('keyword', keyword);
     let response = await getSearchResults(keyword);
@@ -71,6 +73,7 @@ const Home = props => {
       </View>
       {searchKeyWord == '' && !showSearchResults && (
         <View style={styles.bodyContainer}>
+          
           <ScrollView fadingEdgeLength={20}>
             <View>
               <View>
@@ -136,8 +139,8 @@ const Home = props => {
       )}
 
       {!(searchKeyWord == '') && (
-        <View style={{flex: 0.7, marginTop: 30}}>
-          <ScrollView>
+        <View style={{height:hp("75%"), marginTop: 0}}>
+          <ScrollView fadingEdgeLength={20}>
             <SearchResults matchedProducts={matchedProducts}></SearchResults>
           </ScrollView>
         </View>
@@ -154,18 +157,22 @@ export default Home;
 
 const styles = StyleSheet.create({
   headerContainer: {
-    flex: 0.23,
+    height:hp("22%"),
+    //flex: 0.18,
     //borderWidth: 1,
     backgroundColor: 'white',
+
   },
   bodyContainer: {
-    flex: 0.7,
+    //flex: 0.75,
+    height:hp("66%"),
     backgroundColor: 'white',
     paddingHorizontal: 20,
     //paddingVertical:38
   },
   footerContainer: {
-    flex: 0.07,
+    //flex: 0.07,
+    height:hp("12%"),
     backgroundColor: 'white',
   },
 });

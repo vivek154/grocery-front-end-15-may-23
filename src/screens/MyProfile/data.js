@@ -5,7 +5,7 @@ import AtmCardSvg from "../../svg/atmcard.svg"
 import NotificationSvg from "../../svg/Notification.svg"
 import HeadphoneSvg from "../../svg/headphone.svg"
 import LocationGreySvg from "../../svg/locationGrey.svg"
-import LogoutSvg from "../../svg/logoutIcon.svg"
+
 
 const data=[
     {
@@ -35,10 +35,6 @@ const data=[
     {
         option:"My Delivery Adress",
         SVG:LocationGreySvg,
-    },
-    {
-        option:"Logout",
-        SVG:LogoutSvg,
     },
 
 ]
