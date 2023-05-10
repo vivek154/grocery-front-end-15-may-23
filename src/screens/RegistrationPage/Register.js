@@ -11,6 +11,7 @@ import {
   KeyboardAvoidingView,
   
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -82,8 +83,9 @@ const Register = props => {
     return isValid;
   };
   return (
-    <KeyboardAvoidingView style={{backgroundColor: 'white', flex: 1}} behavior="height">
-      <View style={styles.imageContainer}>
+    <View style={{backgroundColor: 'white', flex: 1}}>
+       <KeyboardAwareScrollView>  
+        <View style={styles.imageContainer}>
         <Image
           style={styles.image}
           source={require('../../images/image3.jpg')}
@@ -193,7 +195,9 @@ const Register = props => {
           Have an account <Text style={{color: 'red'}}>Login</Text>
         </Text>
       </View>
-    </KeyboardAvoidingView>
+</KeyboardAwareScrollView> 
+ 
+    </View>
   );
 };
 export default Register;

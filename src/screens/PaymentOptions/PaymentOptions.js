@@ -31,8 +31,8 @@ const PaymentOptions=()=>
         <View style={{flex:1,flexDirection:'row',}}>
             <View style={{ width:27,height:27,borderWidth:1,borderRadius:20,marginRight:'40%'}}></View>
             </View>
-            <View >
-            <Text style={{alignSelf:'center' ,marginLeft:10,color:"black"}}>Home </Text>
+            <View style>
+            <Text style={{alignSelf:'center' ,marginLeft:10,color:"black",}}>Home </Text>
             <Text style={{color:"black"}}>H/7 shiv flat jivrajpark Ahemadabad</Text>
             </View>
             </TouchableOpacity>
@@ -190,7 +190,7 @@ const PaymentOptions=()=>
                                      
                                 <View style={{ width: 27, height: 27, borderWidth: 1, borderRadius: 20,  }}></View>
                                 <View style={{}}>
-                                    <Image style={{ resizeMode: 'contain',marginLeft:8 }} source={require('../../images/airtel.png')}></Image>
+                                    <Image style={{ resizeMode: 'contain',marginLeft:8 }} source={require('../../images/bi_cash.png')}></Image>
                                 </View>
                                 <Text style={{ marginLeft: 13,color:"#000",marginLeft:6 }}>Cash on Delivery</Text>
 
