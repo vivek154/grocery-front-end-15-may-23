@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 //import DeleteIcon from "./images/delete.svg"
 import QuantityButtons from '../../QuantityButtons/QuantityButtons'
 import { deletemycart, getmycart, postmycart } from '../../../api/api'
@@ -12,27 +12,31 @@ const MyCartCard = (props) => {
   const state = useSelector(state => state)
   const dispatch = useDispatch();
 
-  console.log("userData", userData)
+  //console.log("userData", userData)
   let userid = {
     id: userData.id
   }
   const SVGIcon = props.SVGIcon
-  const { item, data } = props;
+  const { item, data,setTotalPrice} = props;
   const { id, userId, name, price, imageUrl, productId } = item;
 
   const [count, setcount] = useState(1);
-  const [initialprice, totalprice] = useState(price);
+ 
+ 
+  useEffect(()=>{
+    setTotalPrice((prevValue)=> (prevValue+ (count*price)))
+  },[])
 
   const decrement = () => {
-    if (count > 0) {
+    if (count > 1) {
       setcount(count - 1)
-      totalprice((price) * count);
+      setTotalPrice((prevValue)=> (prevValue-(price)))
     }
   }
 
   const increment = () => {
     setcount(count + 1)
-    totalprice((price) * count);
+    setTotalPrice((prevValue)=> (prevValue+(price)))
   }
 
   console.log(id)
@@ -58,7 +62,7 @@ const MyCartCard = (props) => {
 
         <View style={styles.middleBox}>
           <Text style={{ fontWeight: "bold", color: "black", fontSize: 15 }}>{name}</Text>
-          <Text style={styles.text}>Price:{initialprice}<Text style={{ color: "#656565", width: 70 }}>
+          <Text style={styles.text}>Price:{price*count}<Text style={{ color: "#656565", width: 70 }}>
           </Text>{ }</Text>
           <QuantityButtons count={count} increment={increment} decrement={decrement} ></QuantityButtons>
         </View>
