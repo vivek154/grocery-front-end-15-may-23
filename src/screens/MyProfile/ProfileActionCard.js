@@ -11,9 +11,9 @@ const ProfileActionCard = ({LeftSvg,optionName,navigation,item}) => {
             <View style={{width:50,height:40,justifyContent:"center",alignItems:"center"}}>
                 <LeftSvg></LeftSvg>
             </View>
-            <Text style={{color:"#000"}} onPress={()=>navigation.navigate(item.goto)}>{optionName}</Text>
+            <Text style={{color:"#000"}} onPress={()=>navigation.navigate(item.goto)} >{optionName}</Text>
         </View>
-        <View>
+        <View style={{marginRight:27}}>
             <DownArrowSvg></DownArrowSvg>
         </View>
     </View>

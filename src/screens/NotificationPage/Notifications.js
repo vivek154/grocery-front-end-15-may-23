@@ -3,7 +3,6 @@ import { create } from "react-test-renderer";
 import Notification from '../../svg/BellWhiteIcon.svg';
 import { FlipInEasyY } from "react-native-reanimated";
 
-
 const Notifications=({ele})=> {
     return (
         <>
@@ -27,7 +26,7 @@ const Notifications=({ele})=> {
           </View>
           
           </ScrollView>
-          <View style={{height:responsiveHeight(1)}}></View>
+        
         </>
     )
 }
