@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View, Dimensions } from 'react-native'
-import React from 'react';
+import React, { useState } from 'react';
 import Mybutton from '../Mybutton'
 import { useSelector } from 'react-redux';
 import { getmycart, postmycart } from '../../api/api';
@@ -9,6 +9,8 @@ const width = Dimensions.get('window').width;
 let Source = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUdKHdrEpIGniBkcg0yrlilj6A093qJqLDppKi9sJH&s"
 
 const ProductCard = (props) => {
+
+  const[addedToCartFlag,setAddedToCartFlag]=useState(false)
   const { userData } = useSelector(state => state?.auth)
   console.log("userData", userData)
 
@@ -19,12 +21,12 @@ const ProductCard = (props) => {
   const { userId, id, name, price, discount, description, imageUrl } = item
 
   const handlePress = (productId) => {
+    setAddedToCartFlag(true)
     const userId=userData.id
     console.log(productId,"Added to cart",userId);
 
     getmycart(userId);
     postmycart(productId,userId)
-
   }
 
   return (
@@ -51,7 +53,12 @@ const ProductCard = (props) => {
 
         </View>
 
-        <Mybutton onPress={() => handlePress(id)} myButton={styles.myButton} btnTxt="Add To Cart" txtColor="#ff9900" txtSize={7}></Mybutton>
+        { !addedToCartFlag &&
+          <Mybutton onPress={() => handlePress(id)} myButton={styles.myButton} btnTxt="Add To Cart" txtColor="#ff9900" txtSize={7}></Mybutton>}
+        {
+          addedToCartFlag &&
+          <Text style={{color: "black"}}> Added to cart</Text>
+        }
 
       </View>
     </View>
