@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import DownArrowSvg from "../../svg/downArrow.svg"
-import { responsiveScreenHeight, responsiveScreenWidth } from 'react-native-responsive-dimensions'
+
 
 
 const ProfileActionCard = ({LeftSvg,optionName,navigation,item}) => {
@@ -11,7 +11,7 @@ const ProfileActionCard = ({LeftSvg,optionName,navigation,item}) => {
             <View style={{width:50,height:40,justifyContent:"center",alignItems:"center"}}>
                 <LeftSvg></LeftSvg>
             </View>
-            <Text style={{color:"#000"}} onPress={()=>navigation.navigate(item.goto)}>{optionName}</Text>
+            <Text style={{color:"#000"}} onPress={()=>navigation.navigate(item.goto)} >{optionName}</Text>
         </View>
         <View>
             <DownArrowSvg></DownArrowSvg>

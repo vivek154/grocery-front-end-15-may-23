@@ -26,6 +26,7 @@ const data=[
     {
         option:"My Ratings & Reviews",
         SVG:StarSvg,
+        goto:"MainNotification"
     },
     {
         option:"Notifications",

@@ -63,13 +63,14 @@ const MyProfile = ({navigation}) => {
                         key={index}
                         optionName={item.option}
                         LeftSvg={item.SVG}
-                        navigation={navigation}></ProfileActionCard>
+                        navigation={navigation}
+                         item={item}></ProfileActionCard>
                     );
                     })}
                 </ScrollView>
                 <Pressable style={{height:50,flexDirection:"row",alignItems:"center",gap:30,paddingHorizontal:10,marginVertical:5}}>
                     <LogoutIcon></LogoutIcon>
-                    <Text style={{color:"red",fontSize:15}}>Logout</Text>        
+                    <Text style={{color:"red",fontSize:15}} onPress={()=>navigation.navigate('LoginScreen')}>Logout</Text>        
                 </Pressable>
             </View>
       </View>

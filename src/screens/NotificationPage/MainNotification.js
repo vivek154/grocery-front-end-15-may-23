@@ -29,7 +29,7 @@ const MainNotification=()=>
             <Text style={{color:"#FF5403"}}>View All</Text>
         </View>
         <View>
-        <View style={{rowGap:7}}>
+        <View style={{rowGap:7,marginBottom:10,}}>
              {
                 notificationarr.map((ele,index)=>
                 {
