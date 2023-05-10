@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, SafeAreaView, Pressable} from 'react-native';
+import {StyleSheet, Text, View, SafeAreaView, Pressable,ActivityIndicator} from 'react-native';
 import React, {useState} from 'react';
 import {
   CodeField,
@@ -20,6 +20,7 @@ const OtpConfirmScreen = ({navigation, route}) => {
     value,
     setValue,
   });
+  const[showActivityIndicator,setShowActivityIndicator]=useState(false)
   const dispatch = useDispatch();
 
   const storeUserData = userData => {
@@ -27,6 +28,7 @@ const OtpConfirmScreen = ({navigation, route}) => {
   };
 
   const verifyOTP = async () => {
+    setShowActivityIndicator(true)
     let payload = {
       phoneNumber: route.params?.phoneNumber,
       verificationKey: route.params?.key,
@@ -38,6 +40,7 @@ const OtpConfirmScreen = ({navigation, route}) => {
       let res = await otpVerify(payload);
 
       if (res) {
+        setShowActivityIndicator(false)
         const {user, accessToken, refreshToken} = res.data.data;
         storeUserData(user);
         setSession(accessToken, refreshToken);
@@ -83,19 +86,21 @@ const OtpConfirmScreen = ({navigation, route}) => {
             </Text>
           )}
         />
+        <View>
+          {!showActivityIndicator &&<Pressable
+            style={{
+              backgroundColor: '#ff0543',
+              justifyContent: 'center',
+              alignItems: 'center',
+              paddingVertical: 6,
+              borderRadius: 10,
+            }}
+            onPress={verifyOTP}>
+            <Text style={{fontSize: 25, color: 'white'}}>Submit</Text>
+          </Pressable>}
 
-        <Pressable
-          style={{
-            backgroundColor: '#ff0543',
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingVertical: 6,
-            borderRadius: 10,
-          }}
-          onPress={verifyOTP}>
-          <Text style={{fontSize: 25, color: 'white'}}>Submit</Text>
-        </Pressable>
-
+          {showActivityIndicator && <ActivityIndicator></ActivityIndicator>}
+        </View>
         <Text
           style={{
             marginVertical: 20,
