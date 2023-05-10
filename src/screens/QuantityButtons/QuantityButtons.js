@@ -33,13 +33,13 @@ const inc=()=>
 
   return (
     <View style={styles.container}>
-        <Pressable style={[styles.buttons,{borderColor:"#C4C4C4"}]} >
-            <Text style={{color:"#C4C4C4"}} onPress={decrement}>-</Text>
+        <Pressable style={[styles.buttons,{borderColor:"#C4C4C4"}]} onPress={decrement}>
+            <Text style={{color:"#C4C4C4"}} >-</Text>
         </Pressable >
             <Text style={{color:"black"}}>{count}</Text>
-        <View style={[styles.buttons]}>
-            <Text style={{color:"black"}} onPress={increment}>+</Text>
-        </View> 
+        <Pressable style={[styles.buttons]} onPress={increment}>
+            <Text style={{color:"black"}} >+</Text>
+        </Pressable> 
     </View>
   )
 }

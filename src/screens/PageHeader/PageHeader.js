@@ -7,7 +7,7 @@ const PageHeader = (props) => {
     <View style={styles.container}>
     
         <View style={styles.titleContainer}>
-        <ArrowSVG></ArrowSVG>
+            <ArrowSVG></ArrowSVG>
             <Text style={styles.text}>{props.text}</Text>
         </View>
     </View>
@@ -18,18 +18,19 @@ export default PageHeader
 
 const styles = StyleSheet.create({
     container:{
-        height:hp("18%"),
+        height:hp("13%"),
         width:"100%",
         backgroundColor:"#FF5403",
         borderBottomRightRadius:40,
         borderBottomLeftRadius:40,
+        justifyContent:"center"
     },
     titleContainer:{
         flexDirection:"row",
         justifyContent:"flex-start",
         gap:10,
         alignItems:"center",
-        marginVertical:"15%",
+        marginVertical:0,
         marginHorizontal:20,
         height:40
     },

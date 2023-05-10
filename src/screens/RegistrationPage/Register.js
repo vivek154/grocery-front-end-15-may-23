@@ -9,6 +9,7 @@ import {
   Pressable,
   ScrollView,
 } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -80,7 +81,8 @@ const Register = props => {
   };
   return (
     <View style={{backgroundColor: 'white', flex: 1}}>
-      <View style={styles.imageContainer}>
+       <KeyboardAwareScrollView>  
+        <View style={styles.imageContainer}>
         <Image
           style={styles.image}
           source={require('../../images/image3.jpg')}
@@ -187,6 +189,8 @@ const Register = props => {
           Have an account <Text style={{color: 'red'}}>Login</Text>
         </Text>
       </View>
+</KeyboardAwareScrollView> 
+ 
     </View>
   );
 };
