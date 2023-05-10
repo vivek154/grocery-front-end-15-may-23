@@ -98,7 +98,14 @@ const Register = props => {
             onChangeText={(newText)=>setFormValue({
               ...formValue,fullName:newText
             })}></TextInput>
-          {(errorMsg.fullName) && <Text color="#ff0000">blabla</Text>}
+            
+            
+          {
+            (errorMsg.fullName) && 
+            <View>
+              <Text color="#ff0000">{errorMsg.fullName}</Text>
+            </View>
+          }
           <TextInput
             style={styles.input}
             placeholder="Email "
@@ -106,7 +113,14 @@ const Register = props => {
             onChangeText={(newText)=>setFormValue({
               ...formValue,email:newText
             })}></TextInput>
-          {(errorMsg.email) && <Text color="#ff0000">blabla</Text>}
+          {
+            (errorMsg.email) && 
+            <View>
+              <Text color="#ff0000">{errorMsg.email}</Text>
+            </View>
+          }
+          
+          
           <TextInput
             value={formValue.phoneNumber}
             style={styles.input}
@@ -114,7 +128,12 @@ const Register = props => {
             onChangeText={(newText)=>setFormValue({
               ...formValue,phoneNumber:newText
             })}></TextInput>
-          {(errorMsg.phoneNumber) && <Text color="#ff0000">blabla</Text>}
+          {
+            (errorMsg.phoneNumber) && 
+            <View>
+              <Text color="#ff0000">{errorMsg.phoneNumber}</Text>
+            </View>
+          }
           <TextInput
             value={formValue.password}
             style={styles.input}
@@ -122,7 +141,12 @@ const Register = props => {
             onChangeText={(newText)=>setFormValue({
               ...formValue,password:newText
             })}></TextInput>
-          {(errorMsg.password) && <Text color="#ff0000">blabla</Text>}
+          {
+            (errorMsg.password) &&
+            <View>
+               <Text color="#ff0000">{errorMsg.password}</Text>
+            </View>
+          }
           <Pressable style={styles.pressable}>
             <Text
               style={styles.text}
@@ -139,7 +163,7 @@ const Register = props => {
           <Text
             style={{marginLeft: 100, marginBottom: 50, color: '#000'}}
             onPress={() => props.navigation.navigate('LoginScreen')}>
-            {' '}
+            
             Have an account <Text style={{color: 'red'}}>Login</Text>
           </Text>
 

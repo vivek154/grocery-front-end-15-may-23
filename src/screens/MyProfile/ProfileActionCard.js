@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import DownArrowSvg from "../../svg/downArrow.svg"
-import { responsiveScreenHeight, responsiveScreenWidth } from 'react-native-responsive-dimensions'
+
 
 
 const ProfileActionCard = ({LeftSvg,optionName,navigation,item}) => {
