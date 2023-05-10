@@ -2,7 +2,7 @@ import { View ,Text, StyleSheet, ScrollView} from "react-native";
 import { create } from "react-test-renderer";
 import Notification from '../../svg/BellWhiteIcon.svg';
 import { FlipInEasyY } from "react-native-reanimated";
-import { responsiveWidth,responsiveHeight } from "react-native-responsive-dimensions";
+
 
 const Notifications=({ele})=> {
     return (
