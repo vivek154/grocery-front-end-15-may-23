@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View, Dimensions } from 'react-native'
+import { Image, StyleSheet, Text, View, Dimensions, Alert } from 'react-native'
 import React, { useState } from 'react';
 import Mybutton from '../Mybutton'
 import { useSelector } from 'react-redux';
@@ -20,6 +20,29 @@ const ProductCard = (props) => {
   const { item } = props;
   const { userId, id, name, price, discount, description, imageUrl } = item
 
+  /*const showAlert = () =>
+  Alert.alert(
+    'Alert Title',
+    'Added to cart',
+    [
+      {
+        text: '',
+        onPress: () => Alert.alert('Added to cart'),
+        style: 'cancel',
+      },
+    ],
+    
+    
+  );*/
+  openAlert=()=>{
+    {
+    Alert.alert('Added to Cart');
+    style:'cancel'
+    }
+  }
+
+ 
+
   const handlePress = (productId) => {
     setAddedToCartFlag(true)
     const userId=userData.id
@@ -27,6 +50,7 @@ const ProductCard = (props) => {
 
     getmycart(userId);
     postmycart(productId,userId)
+    openAlert();
   }
 
   return (

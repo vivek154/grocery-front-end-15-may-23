@@ -1,10 +1,10 @@
-import { View ,Text,ScrollView} from "react-native"
+import { View ,Text,ScrollView,Pressable} from "react-native"
 
 import Notifications from "./Notifications"
 import PageHeader from "../PageHeader/PageHeader"
 import PageHeadBar from "../PageHeadBar/PageHeadBar"
 
-const MainNotification=()=>
+const MainNotification=({navigation})=>
 {
     const notificationarr=[
         {id:1,name:'fresh apple',text:'this is apple',time:'2hour'},
@@ -21,8 +21,9 @@ const MainNotification=()=>
     ]
     return (
         <>
+        <Pressable onPress={()=>navigation.navigate("MyProfile")}>
         <PageHeader text="Notifications"></PageHeader>
-       
+        </Pressable>
         <ScrollView>
         <View style={{flexDirection:'row',justifyContent:'space-between',margin:10}}>
             <Text style={{marginLeft:18,fontWeight:'bold',color:"black"}}>Today</Text>

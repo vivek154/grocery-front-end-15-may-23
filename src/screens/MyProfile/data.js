@@ -11,12 +11,12 @@ const data=[
     {
         option:"My Orders",
         SVG:ClockSvg,
-        goto:"MyCartPage",
+        goto:"MyOrder",
     },
     {
         option:"Wallet",
         SVG:WalletSvg,
-        goto:"PaymentOptions",
+        goto:"Wallets",
     },
     {
         option:"My Payments",
@@ -26,7 +26,7 @@ const data=[
     {
         option:"My Ratings & Reviews",
         SVG:StarSvg,
-        goto:"MainNotification"
+        goto:"RatingReviews",
     },
     {
         option:"Notifications",
@@ -36,7 +36,7 @@ const data=[
     {
         option:"Customer Service",
         SVG:HeadphoneSvg,
-        goto:"MainNotification",
+        goto:"CustomerService",
     },
     {
         option:"My Delivery Adress",

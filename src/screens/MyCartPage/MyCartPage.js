@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, View ,Pressable} from 'react-native'
 import React from 'react'
 import PageHeader from '../PageHeader/PageHeader'
 import MyCartCard from './MycartCard/MyCartCard'
@@ -49,7 +49,9 @@ const MyCartPage = ({ navigation }) => {
     <View style={{flex:1,backgroundColor:"white"}}>
 
       <View style={{height:"13%"}}>
-        <PageHeader text="My Cart"></PageHeader>
+    
+   <PageHeader text="My Cart"  ></PageHeader>
+ 
       </View>
       <View style={{height:"77%"}}>
           <ScrollView>
@@ -58,7 +60,6 @@ const MyCartPage = ({ navigation }) => {
                 return <MyCartCard key={index} item={item} SVGIcon={DeleteIcon} makeApiRequest={makeApiRequest} setTotalPrice={setTotalPrice}></MyCartCard>
               })}
             </View>
-
           </ScrollView>
         </View>
         <View style={styles.billContainer}>

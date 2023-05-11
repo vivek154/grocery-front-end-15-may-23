@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 //import DeleteIcon from "./images/delete.svg"
 import QuantityButtons from '../../QuantityButtons/QuantityButtons'
@@ -30,7 +30,7 @@ const MyCartCard = (props) => {
   const decrement = () => {
     if (count > 1) {
       setcount(count - 1)
-      setTotalPrice((prevValue)=> (prevValue-(price)))
+      setTotalPrice((prevValue)=> (prevValue-(count*price)))
     }
   }
 
@@ -42,12 +42,19 @@ const MyCartCard = (props) => {
   console.log(id)
   console.log("data", data);
 
+  openAlert=()=>{
+    Alert.alert('Deleted Successfully');
+    
+  }
+
 
   const handledelete = (productId) => {
     const data = deletemycart(productId, userId)
     props.makeApiRequest();
     console.log("user_id", userid);
     console.log("productId", productId);
+    openAlert()
+     
   }
 
 
@@ -70,7 +77,7 @@ const MyCartCard = (props) => {
       <View style={styles.endRightBox}>
         <View style={styles.quantityContainer}>
 
-          <Pressable onPress={() => handledelete(productId)} ><SVGIcon></SVGIcon></Pressable>
+          <Pressable onPress={() => handledelete(productId)} style={{width:20,height:20}} ><SVGIcon></SVGIcon></Pressable>
         </View>
       </View>
     </View>
@@ -81,6 +88,7 @@ export default MyCartCard
 
 const styles = StyleSheet.create({
   container: {
+    flex:1,
     flexDirection: "row",
     justifyContent: "space-between",
     alignSelf: "center",
@@ -94,8 +102,10 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 101,
-    height: 101,
+    height: 88,
     resizeMode: "contain",
+    
+    
 
   },
   middleBox: {

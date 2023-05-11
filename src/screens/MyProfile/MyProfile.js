@@ -22,7 +22,9 @@ const MyProfile = ({navigation}) => {
 
     <View style={{backgroundColor: 'white', minHeight: '100%'}}>
       <View style={styles.headerContainer}>
+      <Pressable onPress={()=>navigation.navigate("Home")}>
         <PageHeader text="My Profile"></PageHeader>
+        </Pressable>
       </View>
       <View style={styles.bodyContainer}>
             <View style={{flex: 0.2,paddingHorizontal:20,marginVertical:5}}>

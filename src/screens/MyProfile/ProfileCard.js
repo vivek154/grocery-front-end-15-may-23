@@ -4,17 +4,16 @@ import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 const ProfileCard = (props) => {
   const {userData,navigation}=props
   const {email,phoneNumber,fullName}=userData
-  
   return (
     <View style={styles.container}>
       <View style={styles.profilePicContainer}></View>
       <View style={styles.middleBox}>
-        <Text style={{color:"black",fontWeight:"bold",fontSize:18}}>{fullName?fullName:'no data'}</Text>
-        <Text style={{color:"#000"}}>{email?email:"no data"}</Text>
+        <Text style={{color:"black",fontWeight:"bold",fontSize:18}}>{fullName?fullName:'Na'}</Text>
+        <Text style={{color:"#000"}}>{email?email:'Na'}</Text>
         <Text style={{color:"#000"}}>{phoneNumber}</Text>
       </View>
 
-      <Text style={{color:"#ff5403",alignSelf:"flex-start",marginTop:10}}
+      <Text style={{color:"#ff5403",alignSelf:"flex-start",marginTop:10,fontSize:18}}
       onPress={()=>navigation.navigate("EditProfilePage")}>Edit</Text>
     </View>
   )
