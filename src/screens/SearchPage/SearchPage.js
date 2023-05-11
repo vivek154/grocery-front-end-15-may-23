@@ -108,7 +108,7 @@ const SearchPage = (props) => {
         { !showSearchResults &&
           <View style={{paddingHorizontal:20,height:hp("75%")}}>
 
-          <Text style={{marginTop: 30, fontSize:18, fontWeight: 'bold', color: 'black'}}>
+          <Text style={{marginTop: 22, fontSize:18, fontWeight: 'bold', color: 'black'}}>
             Top Searches
           </Text>
 
@@ -176,6 +176,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     gap: 10,
+    marginBottom:10
   },
   text: {
     color: 'white',
@@ -184,7 +185,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer:{
     //height:"10%",
-    flex:0.2,
+    flex:0.15,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent:"space-between",

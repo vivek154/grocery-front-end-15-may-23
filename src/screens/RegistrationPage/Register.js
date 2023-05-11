@@ -8,6 +8,8 @@ import {
   StatusBar,
   Pressable,
   ScrollView,
+  KeyboardAvoidingView,
+  
 } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import {
@@ -26,6 +28,7 @@ const PASSWORD_REGEX =
 //The string must be eight characters or longer
 
 const Register = props => {
+  console.log("gapppppp",(hp("70%")-(245+40))/20)
   const {navigation} = props;
   const [formValue, setFormValue] = useState({
     fullName: '',
@@ -63,7 +66,7 @@ const Register = props => {
       formValue.phoneNumber == '' ||
       !PHONE_REGEX.test(formValue.phoneNumber)
     ) {
-      validationFormValues.phoneNumber = 'Enter valid phone Number';
+      validationFormValues.phoneNumber = 'Enter valid phone number';
       console.log('false number');
       isValid = false;
     }
@@ -89,18 +92,18 @@ const Register = props => {
         />
       </View>
       <View style={styles.body}>
-        <View style={{height: hp('6%')}}>
           <Text
             style={{
               marginLeft: wp('10%'),
               fontWeight: 'bold',
               fontSize: 30,
               color: '#000',
+              height:40
             }}>
             Register
           </Text>
-        </View>
-        <View>
+        <KeyboardAvoidingView behavior="position">
+        <View style={{marginVertical:5}}>
             <TextInput
               style={styles.input}
               placeholder="Your Name "
@@ -118,7 +121,7 @@ const Register = props => {
               </View>
             )}
         </View>
-        <View>
+        <View style={{marginVertical:5}}>
           <TextInput
             style={styles.input}
             placeholder="Email "
@@ -135,7 +138,8 @@ const Register = props => {
             </View>
           )}
         </View>
-        <View>
+        
+        <View style={{marginVertical:5}}>
           <TextInput
             value={formValue.phoneNumber}
             style={styles.input}
@@ -154,7 +158,7 @@ const Register = props => {
             </View>
           )}
         </View>
-        <View>
+        <View style={{marginVertical:5}}>
           <TextInput
             value={formValue.password}
             style={styles.input}
@@ -170,7 +174,9 @@ const Register = props => {
               <Text style={styles.errorMsgText}>{errorMsg.password}</Text>
             </View>
           )}
+          
         </View>
+        </KeyboardAvoidingView>
         <Pressable style={styles.pressable}>
           <Text
             style={{color: '#fff'}}
@@ -184,7 +190,7 @@ const Register = props => {
           </Text>
         </Pressable>
         <Text
-          style={{alignSelf: 'center', marginTop: 0, color: '#000'}}
+          style={{alignSelf: 'center', marginTop: 5, color: '#000'}}
           onPress={() => props.navigation.navigate('LoginScreen')}>
           Have an account <Text style={{color: 'red'}}>Login</Text>
         </Text>
@@ -200,12 +206,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 100,
   },
   imageContainer: {
-    height: hp('40%'),
+    height: hp('30%'),
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -213,29 +216,32 @@ const styles = StyleSheet.create({
   image: {
     backgroundColor: 'white',
     resizeMode: 'contain',
+    width:wp("50%"),
+    height:wp("50%")
   },
 
   body: {
-    height: hp('60%'),
+    height: hp('70%'),
     overflow: 'scroll',
     flexDirection: 'column',
-    justifyContent: 'space-around',
+    marginVertical:20,
+    
   },
   input: {
     marginVertical: 0,
     padding: 10,
     width: wp('80%'),
-    height: hp('5%'),
+    height:40,
     borderWidth: 1,
     alignSelf: 'center',
     borderRadius: 29,
     color: 'black',
   },
   pressable: {
-    marginVertical: 0,
+    marginVertical: 5,
     padding: 12,
     width: wp('80%'),
-    height: hp('6%'),
+    height:45,
     borderWidth: 1,
     alignSelf: 'center',
     borderRadius: 29,
@@ -249,6 +255,6 @@ const styles = StyleSheet.create({
   },
   errorMsgText:{
     color: '#ff0000',
-    fontSize: 10
+    fontSize: 11
   }
 });

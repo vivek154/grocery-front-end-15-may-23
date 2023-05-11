@@ -1,12 +1,13 @@
-import { StyleSheet, Text, View, Image, Pressable} from 'react-native'
+
+import { StyleSheet, Text, View, Image, Pressable,ActivityIndicator} from 'react-native'
 import React, { useEffect, useState } from 'react'
 //import DeleteIcon from "./images/delete.svg"
 import QuantityButtons from '../../QuantityButtons/QuantityButtons'
 import { deletemycart, getmycart, postmycart } from '../../../api/api'
 import { useDispatch, useSelector } from 'react-redux'
 import { AUTH_TYPE } from '../../../redux/action/authAction'
+
 const MyCartCard = (props) => {
-  // const  selector=useSelector();
   const { userData } = useSelector(state => state?.auth)
   const { myCart } = useSelector(state => state?.auth)
   const state = useSelector(state => state)
@@ -21,7 +22,7 @@ const MyCartCard = (props) => {
   const { id, userId, name, price, imageUrl, productId } = item;
 
   const [count, setcount] = useState(1);
- 
+  const [deleteIndicator,setDeleteIndicator]=useState(false)
  
   useEffect(()=>{
     setTotalPrice((prevValue)=> (prevValue+ (count*price)))
@@ -45,13 +46,18 @@ const MyCartCard = (props) => {
   
 
 
-  const handledelete = (productId) => {
-    const data = deletemycart(productId, userId)
+  const handledelete = async(productId) => {
+    setDeleteIndicator(true)
+    const response = await deletemycart(productId, userId)
+    console.log("delete response",response.data)
+    if(response.data==1){
+      console.log("deleted")
+    }
     props.makeApiRequest();
-    console.log("user_id", userid);
-    console.log("productId", productId);
-    
-     
+
+    setTotalPrice((prevValue)=>prevValue-(count*price))
+    //console.log("user_id", userid);
+    //console.log("productId", productId);
   }
 
 
@@ -66,16 +72,22 @@ const MyCartCard = (props) => {
 
         <View style={styles.middleBox}>
           <Text style={{ fontWeight: "bold", color: "black", fontSize: 15 }}>{name}</Text>
-          <Text style={styles.text}>Price:{price*count}<Text style={{ color: "#656565", width: 70 }}>
+          <Text style={styles.text}>Price :{price*count}<Text style={{ color: "#656565", width: 70 }}>
           </Text>{ }</Text>
           <QuantityButtons count={count} increment={increment} decrement={decrement} ></QuantityButtons>
         </View>
       </View>
       <View style={styles.endRightBox}>
-        <View style={styles.quantityContainer}>
-
-          <Pressable onPress={() => handledelete(productId)} style={{width:20,height:20}} ><SVGIcon></SVGIcon></Pressable>
-        </View>
+        {
+          ! deleteIndicator &&
+        <Pressable onPress={() => handledelete(productId)} style={styles.quantityContainer}>
+          <SVGIcon></SVGIcon>
+        </Pressable>
+        }
+        {
+          deleteIndicator &&
+          <ActivityIndicator></ActivityIndicator>
+        }
       </View>
     </View>
   )
@@ -90,8 +102,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignSelf: "center",
     backgroundColor: "#ffffff",
-    maxHeight: "80%",
-    minWidth: "60%",
+    width: "90%",
     padding: 10,
     elevation: 5,
     borderRadius: 10,

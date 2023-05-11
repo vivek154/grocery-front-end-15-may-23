@@ -10,6 +10,7 @@ const ProfileCard = (props) => {
       <View style={styles.middleBox}>
         <Text style={{color:"black",fontWeight:"bold",fontSize:18}}>{fullName?fullName:'N/A'}</Text>
         <Text style={{color:"#000"}}>{email?email:'N/A'}</Text>
+
         <Text style={{color:"#000"}}>{phoneNumber}</Text>
       </View>
 

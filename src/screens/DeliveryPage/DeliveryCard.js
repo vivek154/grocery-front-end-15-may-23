@@ -5,12 +5,12 @@ import PageHeader from '../PageHeader/PageHeader'
 const DeliveryCard = ({navigation}) => {
   return (
 
+    
     <View>
-
+   
       <View>
-     
-          <PageHeader text="Delivery"></PageHeader>
-       
+        <PageHeader text="Delivery" navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
+
       </View>
 
       <Text style={{ color: "black", fontWeight: "bold", marginLeft: 18, marginVertical: 10 }}>Where</Text>

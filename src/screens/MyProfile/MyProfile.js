@@ -22,9 +22,8 @@ const MyProfile = ({navigation}) => {
 
     <View style={{backgroundColor: 'white', minHeight: '100%'}}>
       <View style={styles.headerContainer}>
-      <Pressable onPress={()=>navigation.navigate("Home")}>
-        <PageHeader text="My Profile"></PageHeader>
-        </Pressable>
+
+        <PageHeader text="My Profile" navigation={navigation} navigateTo={"Home"}></PageHeader>
       </View>
       <View style={styles.bodyContainer}>
             <View style={{flex: 0.2,paddingHorizontal:20,marginVertical:5}}>
@@ -49,7 +48,7 @@ const MyProfile = ({navigation}) => {
                     gap: 10,
                     }}>
                     <LocationIcon></LocationIcon>
-                    <Text style={{color: '#000'}}>Adress</Text>
+                    <Text style={{color: '#000'}}>Address</Text>
                 </View>
                 <Mybutton
                 myButton={styles.myButton}
@@ -89,11 +88,11 @@ export default MyProfile;
 
 const styles = StyleSheet.create({
   headerContainer: {
-    height: hp('18%'),
+    height: hp('12%'),
     
   },
   bodyContainer: {
-    height: hp('75%'),
+    height: hp('81%'),
    
   },
   footerContainer: {

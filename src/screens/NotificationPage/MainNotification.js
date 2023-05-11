@@ -21,9 +21,9 @@ const MainNotification=({navigation})=>
     ]
     return (
         <>
-        <Pressable onPress={()=>navigation.navigate("MyProfile")}>
-        <PageHeader text="Notifications"></PageHeader>
-        </Pressable>
+
+        <PageHeader text="Notifications" navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
+       
         <ScrollView>
         <View style={{flexDirection:'row',justifyContent:'space-between',margin:10}}>
             <Text style={{marginLeft:18,fontWeight:'bold',color:"black"}}>Today</Text>
