@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View ,Pressable} from 'react-native'
 import React from 'react'
 import DownArrowSvg from "../../svg/downArrow.svg"
 
@@ -14,7 +14,7 @@ const ProfileActionCard = ({LeftSvg,optionName,navigation,item}) => {
             <Text style={{color:"#000"}} onPress={()=>navigation.navigate(item.goto)} >{optionName}</Text>
         </View>
         <View style={{marginRight:27}}>
-            <DownArrowSvg></DownArrowSvg>
+          <Pressable onPress={()=>navigation.navigate(item.goto)}><DownArrowSvg ></DownArrowSvg></Pressable>
         </View>
     </View>
   )

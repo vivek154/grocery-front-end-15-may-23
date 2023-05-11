@@ -1,10 +1,10 @@
-import { View ,Text,ScrollView} from "react-native"
+import { View ,Text,ScrollView,Pressable} from "react-native"
 
 import Notifications from "./Notifications"
 import PageHeader from "../PageHeader/PageHeader"
 import PageHeadBar from "../PageHeadBar/PageHeadBar"
 
-const MainNotification=()=>
+const MainNotification=({navigation})=>
 {
     const notificationarr=[
         {id:1,name:'fresh apple',text:'this is apple',time:'2hour'},
@@ -21,6 +21,7 @@ const MainNotification=()=>
     ]
     return (
         <>
+
         <PageHeader text="Notifications" navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
        
         <ScrollView>

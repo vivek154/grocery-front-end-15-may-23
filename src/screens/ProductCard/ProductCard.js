@@ -1,5 +1,7 @@
+
 import { Image, StyleSheet, Text, View, Dimensions, Pressable } from 'react-native'
 import React, { useEffect, useState } from 'react';
+
 import Mybutton from '../Mybutton'
 import { useDispatch, useSelector } from 'react-redux';
 import { getmycart, postmycart } from '../../api/api';
@@ -31,6 +33,7 @@ const ProductCard = (props) => {
       }
       else setAddedToCartFlag(true)
     },[myCartProducts])
+
 
   const { userData } = useSelector(state => state?.auth)
 

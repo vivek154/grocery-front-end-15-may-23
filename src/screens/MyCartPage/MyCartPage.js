@@ -1,3 +1,4 @@
+
 import {ActivityIndicator, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import PageHeader from '../PageHeader/PageHeader';
@@ -46,9 +47,11 @@ const MyCartPage = ({navigation}) => {
   }, []);
 
   return (
+
     <View style={{flex: 1, backgroundColor: 'white'}}>      
           <View style={{height: '13%'}}>
             <PageHeader text="My Cart" navigation={navigation} navigateTo={"ProductList"}></PageHeader>
+
           </View>
         {
           fetchingDataIndicator && <ActivityIndicator></ActivityIndicator>

@@ -22,6 +22,7 @@ const MyProfile = ({navigation}) => {
 
     <View style={{backgroundColor: 'white', minHeight: '100%'}}>
       <View style={styles.headerContainer}>
+
         <PageHeader text="My Profile" navigation={navigation} navigateTo={"Home"}></PageHeader>
       </View>
       <View style={styles.bodyContainer}>

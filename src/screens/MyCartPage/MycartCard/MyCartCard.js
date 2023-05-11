@@ -1,3 +1,4 @@
+
 import { StyleSheet, Text, View, Image, Pressable,ActivityIndicator} from 'react-native'
 import React, { useEffect, useState } from 'react'
 //import DeleteIcon from "./images/delete.svg"
@@ -30,7 +31,7 @@ const MyCartCard = (props) => {
   const decrement = () => {
     if (count > 1) {
       setcount(count - 1)
-      setTotalPrice((prevValue)=> (prevValue-(price)))
+      setTotalPrice((prevValue)=> (prevValue-(count*price)))
     }
   }
 
@@ -42,6 +43,8 @@ const MyCartCard = (props) => {
   console.log(id)
   console.log("data", data);
 
+  
+
 
   const handledelete = async(productId) => {
     setDeleteIndicator(true)
@@ -51,6 +54,7 @@ const MyCartCard = (props) => {
       console.log("deleted")
     }
     props.makeApiRequest();
+
     setTotalPrice((prevValue)=>prevValue-(count*price))
     //console.log("user_id", userid);
     //console.log("productId", productId);
@@ -93,6 +97,7 @@ export default MyCartCard
 
 const styles = StyleSheet.create({
   container: {
+    flex:1,
     flexDirection: "row",
     justifyContent: "space-between",
     alignSelf: "center",
@@ -105,8 +110,10 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 101,
-    height: 101,
+    height: 88,
     resizeMode: "contain",
+    
+    
 
   },
   middleBox: {

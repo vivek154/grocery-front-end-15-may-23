@@ -1,66 +1,22 @@
-import { View ,Text, StyleSheet, TouchableOpacity, ScrollView, Pressable,Image} from "react-native";
-
-import Arrow from '../../svg/Arrow.svg'
-import PageHeader from "../PageHeader/PageHeader";
-
-
-const PaymentOptions=({navigation})=>
+import {View,Text,ScrollView,TouchableOpacity,Image,Pressable} from 'react-native';
+import PageHeader from '../PageHeader/PageHeader';
+import ProfileActionCard from '../MyProfile/ProfileActionCard';
+import { data } from '../SavePage/data';
+import PaymentOptions from '../PaymentOptions/PaymentOptions';
+import RatingReviews from './RatingReviews';
+const Wallets=({navigation})=>
 {
     return (
         
-    <>
-    <ScrollView>
-    {/* <View>
-        <View style={{width:357,height:160,borderWidth:1,borderBottomLeftRadius:20,borderBottomRightRadius:20,alignItems:'center',backgroundColor:'red',flexDirection:'row'}}>
-
-        <Arrow></Arrow>
-           { <Text style={{alignSelf:'flex-start',marginTop:60,color:'white',fontWeight:'bold',fontSize:23}}>Payment Options</Text>}
-            </View>
-        </View>
+         <>
+         <View >
         
-   */}
-
-   <PageHeader text='Payment Options'navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
-
-     <View style={{flex:1,flexDirection:'row',justifyContent:'space-around',marginTop:10}}>
-     <Text style={{fontWeight:'bold',color:'black'}}>Shipping To</Text>
-     <Pressable>
-     <Text style={{width:70,height:30,borderWidth:2,borderColor:'#FF5403',paddingLeft:17,paddingTop:7,borderRadius:20,color:'#FF5403'}}>ADD</Text>
-     </Pressable>
-     </View>
-     <View  style={{flex:1,flexDirection:'row',justifyContent:'flex-start',marginLeft:40,marginTop:10}}>
-        <TouchableOpacity >
-        <View style={{flex:1,flexDirection:'row',}}>
-            <View style={{ width:27,height:27,borderWidth:1,borderRadius:20,marginRight:'40%'}}></View>
-            </View>
-            <View style>
-            <Text style={{alignSelf:'center' ,marginLeft:10,color:"black",}}>Home </Text>
-            <Text style={{color:"black"}}>H/7 shiv flat jivrajpark Ahemadabad</Text>
-            </View>
-            </TouchableOpacity>
-           
-        </View>
-       
-        <View style={{ flex:1,width:270,borderWidth:1,marginTop:5,marginBottom:5,justifyContent:'center',borderColor:'grey',backgroundColor:'grey',marginLeft:44,marginRight:10}}></View>
-        <Text style={{color:'black',marginLeft:43,fontWeight:'bold'}}>Payment Method</Text>
-       {/* <TouchableOpacity style={{width:350}}>
-                <View style={{flex:1,flexDirection:'row',marginTop:10,justifyContent:'space-around',alignItems:"center",gap:10}}>
-        
-                    <View style={{width:27,height:27,borderWidth:1,borderRadius:20,marginLeft:8}}></View>
-                    <View style={{}}>
-                        <Image style={{resizeMode:'contain'}} source={require('../../images/visa.png')}></Image>
-                    </View>
-                    <Text style={{marginLeft:13,color:'black'}}>Visa Card</Text>
-                    
-            
-                    
-                </View>
-                
-          
-            </TouchableOpacity>
-      */ }
-      <TouchableOpacity style={{marginLeft:20}}>
-                            <View style={{ flex: 1, flexDirection: 'row', marginTop: 10, alignItems: "center",marginLeft:24, gap: 10 }}>
+         <PageHeader text='Wallet'></PageHeader>
+     
+         </View>
+           <ScrollView>
+        <TouchableOpacity style={{marginLeft:20,}}>
+                            <View style={{ flex: 1, flexDirection: 'row', marginTop: 10, alignItems: "center",marginLeft:24, gap: 10,justifyContent:'flex-start' }}>
                                      
                                 <View style={{ width: 27, height: 27, borderWidth: 1, borderRadius: 20,  }}></View>
                                 <View style={{}}>
@@ -74,7 +30,7 @@ const PaymentOptions=({navigation})=>
 
 
                         </TouchableOpacity>
-            <View style={{ flex:1,width:270,borderWidth:1,marginTop:5,marginBottom:5,justifyContent:'center',borderColor:'grey',backgroundColor:'grey',marginLeft:44,marginRight:10}}></View>
+            <View style={{ flex:1,width:270,borderWidth:1,marginTop:5,marginBottom:5,justifyContent:'center',borderColor:'grey',backgroundColor:'grey',marginLeft:44,marginRight:10,justifyContent:'flex-start' }}></View>
             <TouchableOpacity style={{marginLeft:20}}>
                             <View style={{ flex: 1, flexDirection: 'row', marginTop: 10, alignItems: "center",marginLeft:24, gap: 10 }}>
                                      
@@ -90,7 +46,7 @@ const PaymentOptions=({navigation})=>
 
 
                         </TouchableOpacity>
-                        <View style={{ flex:1,width:270,borderWidth:1,marginTop:5,marginBottom:5,justifyContent:'center',borderColor:'grey',backgroundColor:'grey',marginLeft:44,marginRight:10}}></View>
+                        <View style={{ flex:1,width:270,borderWidth:1,marginTop:5,marginBottom:5,justifyContent:'center',borderColor:'grey',backgroundColor:'grey',marginLeft:44,marginRight:10,justifyContent:'flex-start' }}></View>
       
        
         <TouchableOpacity style={{marginLeft:20}}>
@@ -114,7 +70,7 @@ const PaymentOptions=({navigation})=>
 
 
 
-                        <View style={{ flex:1,width:270,borderWidth:1,marginTop:5,marginBottom:5,justifyContent:'center',borderColor:'grey',backgroundColor:'grey',marginLeft:44,marginRight:10}}></View>
+                        <View style={{ flex:1,width:270,borderWidth:1,marginTop:5,marginBottom:5,justifyContent:'center',borderColor:'grey',backgroundColor:'grey',marginLeft:44,marginRight:10,justifyContent:'flex-start' }}></View>
       
         <TouchableOpacity style={{marginLeft:20}}>
                             <View style={{ flex: 1, flexDirection: 'row', marginTop: 10, alignItems: "center",marginLeft:24, gap: 10 }}>
@@ -131,7 +87,7 @@ const PaymentOptions=({navigation})=>
 
 
                         </TouchableOpacity>
-                        <View style={{ flex:1,width:270,borderWidth:1,marginTop:5,marginBottom:5,justifyContent:'center',borderColor:'grey',backgroundColor:'grey',marginLeft:44,marginRight:10}}></View>
+                        <View style={{ flex:1,width:270,borderWidth:1,marginTop:5,marginBottom:5,justifyContent:'center',borderColor:'grey',backgroundColor:'grey',marginLeft:44,marginRight:10,justifyContent:'flex-start' }}></View>
         <TouchableOpacity style={{marginLeft:20}}>
                             <View style={{ flex: 1, flexDirection: 'row', marginTop: 10, alignItems: "center",marginLeft:24, gap: 10 }}>
                                      
@@ -151,14 +107,14 @@ const PaymentOptions=({navigation})=>
         
 
         
-                        <View style={{ flex:1,width:270,borderWidth:1,marginTop:5,marginBottom:5,justifyContent:'center',borderColor:'grey',backgroundColor:'grey',marginLeft:44,marginRight:10}}></View>
+                        <View style={{ flex:1,width:270,borderWidth:1,marginTop:5,marginBottom:5,justifyContent:'center',borderColor:'grey',backgroundColor:'grey',marginLeft:44,marginRight:10,justifyContent:'flex-start' }}></View>
       
 
       
 
         <TouchableOpacity>
         <TouchableOpacity style={{marginLeft:20}}>
-                            <View style={{ flex: 1, flexDirection: 'row', marginTop: 10, alignItems: "center",marginLeft:24, gap: 10 }}>
+                            <View style={{ flex: 1, flexDirection: 'row', marginTop: 10, alignItems: "center",marginLeft:24, gap: 10,justifyContent:'flex-start'  }}>
                                      
                                 <View style={{ width: 27, height: 27, borderWidth: 1, borderRadius: 20,  }}></View>
                                 <View style={{}}>
@@ -188,7 +144,7 @@ const PaymentOptions=({navigation})=>
        
        </View>*/}
        <TouchableOpacity style={{marginLeft:20}}>
-                            <View style={{ flex: 1, flexDirection: 'row', marginTop: 10, alignItems: "center",marginLeft:24, gap: 10 }}>
+                            <View style={{ flex: 1, flexDirection: 'row', marginTop: 10, alignItems: "center",marginLeft:24, gap: 10,justifyContent:'flex-start'  }}>
                                      
                                 <View style={{ width: 27, height: 27, borderWidth: 1, borderRadius: 20,  }}></View>
                                 <View style={{}}>
@@ -210,17 +166,9 @@ const PaymentOptions=({navigation})=>
             <Text style={{backgroundColor:"#FF5403" ,color:'white',width:200,padding:7,height:40 ,alignSelf:'center',paddingLeft:50,borderRadius:30,marginBottom:40,marginTop:10}}>Pay$10.00</Text>
         </TouchableOpacity>
      </ScrollView>
-    </>   
-        
+
+</>
+    
     )
 }
-const styles=StyleSheet.create({
-    main:{
-       
-        flex:1,
-    },
-   
-    
-   
-})
-export default PaymentOptions; 
+export default Wallets;

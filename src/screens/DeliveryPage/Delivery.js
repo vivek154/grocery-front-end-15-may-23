@@ -10,12 +10,13 @@ const Delivery = (props) => {
     function showPaymentOptions(){
         props.navigation.navigate("PaymentOptions")
     }
+    const navigation=props.navigation;
     return (
         <>
             <ScrollView>
                 <View>
 
-                    <DeliveryCard ></DeliveryCard>
+                    <DeliveryCard navigation={navigation}></DeliveryCard>
 
                     <Text style={{ color: "black", fontWeight: "bold", marginLeft: 18, marginVertical: 10 }}>When</Text>
                   <View style={{justifyContent:'center'}}>
