@@ -4,6 +4,7 @@ import Mybutton from '../Mybutton'
 import { updateUserProfileData} from '../../api/api'
 import { useDispatch, useSelector } from 'react-redux'
 import { AUTH_TYPE } from '../../redux/action/authAction'
+import PageHeader from '../PageHeader/PageHeader'
 
 const EditProfile = (props) => {
     
@@ -35,10 +36,14 @@ const EditProfile = (props) => {
         catch(err){
             console.log(err)
         }
-       
+        
     }
 
   return (
+    <>
+    <View style={{backgroundColor:'white'}}>
+    <PageHeader text="Edit Profile"></PageHeader>
+    </View>
     <View style={styles.container}>
         
             <Text style={styles.lable}> Name</Text>
@@ -65,6 +70,7 @@ const EditProfile = (props) => {
                 <Mybutton width={200} btnTxt="save changes" onPress={requestUpdateProfile}></Mybutton>
             </View>
     </View>
+    </>
   )
 }
 
