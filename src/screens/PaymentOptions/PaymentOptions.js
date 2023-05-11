@@ -4,7 +4,7 @@ import Arrow from '../../svg/Arrow.svg'
 import PageHeader from "../PageHeader/PageHeader";
 
 
-const PaymentOptions=()=>
+const PaymentOptions=({navigation})=>
 {
     return (
         
@@ -19,7 +19,7 @@ const PaymentOptions=()=>
         </View>
         
    */}
-   <PageHeader text='Payment Options'></PageHeader>
+   <PageHeader text='Payment Options'navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
      <View style={{flex:1,flexDirection:'row',justifyContent:'space-around',marginTop:10}}>
      <Text style={{fontWeight:'bold',color:'black'}}>Shipping To</Text>
      <Pressable>

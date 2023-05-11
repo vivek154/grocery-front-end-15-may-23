@@ -7,14 +7,15 @@ import {
   useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
 import ArrowOrangeLeft from '../../svg/ArrowOrangeLeft.svg';
-import {otpVerify} from '../../api/api';
+import {getmycart, otpVerify} from '../../api/api';
 import {useDispatch} from 'react-redux';
 import {AUTH_TYPE} from '../../redux/action/authAction';
 import {setSession} from '../../api/authAxios';
+import { Store } from '../../redux/Store';
 const CELL_COUNT = 6;
 
 const OtpConfirmScreen = ({navigation, route}) => {
-  const [value, setValue] = useState('123456');
+  const [value, setValue] = useState('');
   const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
@@ -26,6 +27,15 @@ const OtpConfirmScreen = ({navigation, route}) => {
   const storeUserData = userData => {
     dispatch({type: AUTH_TYPE.RECEIVED_USER_DATA, payload: userData});
   };
+
+  const storeMyCartOnReduxStore= async(userid)=>{
+    let response= await getmycart(userid)
+    //console.log("***MyCart responce***",response.data)
+    let payload= response.data.map((cart)=> cart.productId)
+    //console.log("***payload***",payload)
+    dispatch({type: AUTH_TYPE.GET_MY_CART_DATA,payload:payload})
+   //console.log("******state******",Store.getState())
+  }
 
   const verifyOTP = async () => {
     setShowActivityIndicator(true)
@@ -44,6 +54,7 @@ const OtpConfirmScreen = ({navigation, route}) => {
         const {user, accessToken, refreshToken} = res.data.data;
         storeUserData(user);
         setSession(accessToken, refreshToken);
+        storeMyCartOnReduxStore(user.id)
         navigation.navigate('Home');
       }
     } catch (error) {
