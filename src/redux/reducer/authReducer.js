@@ -3,6 +3,7 @@ import { AUTH_TYPE } from '../action/authAction'
 
 const initialState = {
     showOnBoardingScreen: false,
+    myCart:null
 }
 
 const authReducer = (state = initialState, action) => {

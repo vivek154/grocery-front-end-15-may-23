@@ -6,13 +6,15 @@ import Mybutton from '../Mybutton';
 import ProductListBody from './ProductListBody';
 import { getAllCategories, getAllProducts } from '../../api/api';
 import FilterButton from './FilterButton';
+import { useSelector } from 'react-redux';
 const ProductList = ({navigation}) => {
     const refRBSheet = useRef();
     const [products,setProducts]= useState([]);
     const [categories,setCategories]=useState([])
     const [filters,setFilters]=useState([])
-   
-    console.log("****** filters*********",filters)
+
+    //console.log("*****mycartprods****",myCartProducts)
+    //console.log("****** filters*********",filters)
     const requestProducts = async () =>{
       try{
         let response = await getAllProducts()
@@ -35,7 +37,7 @@ const ProductList = ({navigation}) => {
     
     const handleFilterBtnPress= async(item)=>{
       await requestProducts()
-      console.log("*****item.id*****",item.id)
+     // console.log("*****item.id*****",item.id)
       if(filters.indexOf(item.id) == -1) {
         setFilters((prevState)=> [...prevState,item.id])
       }
@@ -52,8 +54,8 @@ const ProductList = ({navigation}) => {
           return filters.indexOf(product.categoryId) !== -1
         })
 
-        console.log("*******************************")
-        console.log("filtered Products",filteredProducts)
+        //console.log("*******************************")
+        //console.log("filtered Products",filteredProducts)
         setProducts(filteredProducts)
       }}
 
@@ -63,6 +65,7 @@ const ProductList = ({navigation}) => {
     }  
         
     useEffect(()=>{
+      console.log("product list useEffect called");
       requestProducts()
       requestCategories()
 

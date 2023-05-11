@@ -9,8 +9,8 @@ const ProfileCard = (props) => {
     <View style={styles.container}>
       <View style={styles.profilePicContainer}></View>
       <View style={styles.middleBox}>
-        <Text style={{color:"black",fontWeight:"bold",fontSize:18}}>{fullName?fullName:'no data'}</Text>
-        <Text style={{color:"#000"}}>{email?email:"no data"}</Text>
+        <Text style={{color:"black",fontWeight:"bold",fontSize:18}}>{fullName?fullName:''}</Text>
+        <Text style={{color:"#000"}}>{email?email:""}</Text>
         <Text style={{color:"#000"}}>{phoneNumber}</Text>
       </View>
 

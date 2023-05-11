@@ -1,13 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import ArrowSVG from "../../svg/Arrow.svg"
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 const PageHeader = (props) => {
+    const {navigation,navigateTo}=props
   return (
     <View style={styles.container}>
     
         <View style={styles.titleContainer}>
-            <ArrowSVG></ArrowSVG>
+            <Pressable style={{width:20}} onPress={()=>navigation.navigate(navigateTo?navigateTo:"Home")}>
+                <ArrowSVG></ArrowSVG>
+            </Pressable>
             <Text style={styles.text}>{props.text}</Text>
         </View>
     </View>
@@ -18,7 +21,7 @@ export default PageHeader
 
 const styles = StyleSheet.create({
     container:{
-        height:hp("13%"),
+        height:hp("10%"),
         width:"100%",
         backgroundColor:"#FF5403",
         borderBottomRightRadius:40,
@@ -30,7 +33,7 @@ const styles = StyleSheet.create({
         justifyContent:"flex-start",
         gap:10,
         alignItems:"center",
-        marginVertical:0,
+        marginBottom:0,
         marginHorizontal:20,
         height:40
     },

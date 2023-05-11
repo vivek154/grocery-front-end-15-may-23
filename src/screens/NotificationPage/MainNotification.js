@@ -21,7 +21,7 @@ const MainNotification=()=>
     ]
     return (
         <>
-        <PageHeader text="Notifications"></PageHeader>
+        <PageHeader text="Notifications" navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
        
         <ScrollView>
         <View style={{flexDirection:'row',justifyContent:'space-between',margin:10}}>

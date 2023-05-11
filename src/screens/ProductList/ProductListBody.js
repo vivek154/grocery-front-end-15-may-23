@@ -6,10 +6,14 @@ import BottomNavBar from '../BottomNavBar/BottomNavBar'
 import ProductCard from '../ProductCard/ProductCard'
 import FiterIcon from "../../svg/FilterIcon.svg"
 import ArrowDownIcon from "../../svg/downArrow.svg"
+import { useSelector } from 'react-redux'
 
 
 const ProductListBody = (props) => {
   const {navigation,refRBSheet,products}=props
+
+
+ // console.log("mycart store***",myCartProducts)
 
   return (
 <>
@@ -23,10 +27,11 @@ const ProductListBody = (props) => {
       
         {
             (products.length > 0) && products.map((item)=>(
-              <View key={item.id} >
-                  <ProductCard item={item}></ProductCard>
-              </View>
-            )) 
+
+                <View key={item.id} >
+                  <ProductCard item={item} navigation={navigation}></ProductCard>
+                </View>
+            ))
         }
       </View> 
     </ScrollView>

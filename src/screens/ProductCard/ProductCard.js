@@ -1,32 +1,51 @@
-import { Image, StyleSheet, Text, View, Dimensions } from 'react-native'
-import React, { useState } from 'react';
+import { Image, StyleSheet, Text, View, Dimensions, Pressable } from 'react-native'
+import React, { useEffect, useState } from 'react';
 import Mybutton from '../Mybutton'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getmycart, postmycart } from '../../api/api';
+import { AUTH_TYPE } from '../../redux/action/authAction';
 const width = Dimensions.get('window').width;
 
 
 let Source = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUdKHdrEpIGniBkcg0yrlilj6A093qJqLDppKi9sJH&s"
 
 const ProductCard = (props) => {
-
-  const[addedToCartFlag,setAddedToCartFlag]=useState(false)
-  const { userData } = useSelector(state => state?.auth)
-  console.log("userData", userData)
-
-  console.log("userDataId", userData.id);
+  //console.log("userData", userData)
+  //console.log("userDataId", userData.id);
  
-  
-  const { item } = props;
+  const { item,navigation} = props;
   const { userId, id, name, price, discount, description, imageUrl } = item
+  const myCartProducts= useSelector((state)=>state.auth.myCart)
+  //console.log("myCartProducst**",myCartProducts)
+  const dispatch=useDispatch()
+  const[addedToCartFlag,setAddedToCartFlag]=useState(()=>{
+      if(myCartProducts.indexOf(id)==-1){
+        return false
+      }
+      else return true
+    })
 
-  const handlePress = (productId) => {
+    useEffect(()=>{
+      if(myCartProducts.indexOf(id)==-1){
+        setAddedToCartFlag(false)
+      }
+      else setAddedToCartFlag(true)
+    },[myCartProducts])
+
+  const { userData } = useSelector(state => state?.auth)
+
+  const handlePress = async(productId) => {
     setAddedToCartFlag(true)
     const userId=userData.id
     console.log(productId,"Added to cart",userId);
-
-    getmycart(userId);
-    postmycart(productId,userId)
+    let response= await postmycart(productId,userId)
+    if(response.data){
+      let response= await getmycart(userId);
+      if(response.data){
+        let payload=response.data.map((cart)=>cart.productId)
+        dispatch({type:AUTH_TYPE.GET_MY_CART_DATA,payload:payload})
+      }
+    }
   }
 
   return (
@@ -54,10 +73,13 @@ const ProductCard = (props) => {
         </View>
 
         { !addedToCartFlag &&
-          <Mybutton onPress={() => handlePress(id)} myButton={styles.myButton} btnTxt="Add To Cart" txtColor="#ff9900" txtSize={7}></Mybutton>}
+          <Mybutton onPress={() => handlePress(id)} myButton={styles.myButton} btnTxt="Add To Cart" txtColor="#ff9900" txtSize={7}></Mybutton>
+        }
         {
           addedToCartFlag &&
-          <Text style={{color: "black"}}> Added to cart</Text>
+          <Text style={{color: "black"}}>Added to<Text 
+          onPress={()=> navigation.navigate("MyCartPage")} style={{color:"#ff5403"}}> cart</Text> 
+          </Text>
         }
 
       </View>
