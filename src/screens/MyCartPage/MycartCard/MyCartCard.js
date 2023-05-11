@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, Pressable, Alert } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable} from 'react-native'
 import React, { useEffect, useState } from 'react'
 //import DeleteIcon from "./images/delete.svg"
 import QuantityButtons from '../../QuantityButtons/QuantityButtons'
@@ -42,10 +42,7 @@ const MyCartCard = (props) => {
   console.log(id)
   console.log("data", data);
 
-  openAlert=()=>{
-    Alert.alert('Deleted Successfully');
-    
-  }
+  
 
 
   const handledelete = (productId) => {
@@ -53,7 +50,7 @@ const MyCartCard = (props) => {
     props.makeApiRequest();
     console.log("user_id", userid);
     console.log("productId", productId);
-    openAlert()
+    
      
   }
 
