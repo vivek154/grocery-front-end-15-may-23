@@ -1,8 +1,10 @@
 import { StyleSheet, Text, View, Image, ScrollView, Pressable } from 'react-native'
 import React from 'react'
 import PageHeader from '../PageHeader/PageHeader'
+import { useSelector } from 'react-redux'
 
 const DeliveryCard = ({navigation}) => {
+  const address=useSelector((state)=>state.auth.userData.address)
   return (
 
     
@@ -21,7 +23,7 @@ const DeliveryCard = ({navigation}) => {
         <View style={{ width: "60%", flexDirection: "row" }}>
           <View style={styles.middleBox}>
             <Text style={{ fontWeight: "bold", color: "black", fontSize: 15 }}>Deliver To</Text>
-            <Text style={{ color: "black" }}>H/7 shiv flat Jivrajpark Ahmedabad</Text>
+            <Text style={{ color: "black" }}>{address?address:"N/A"}</Text>
             <Text style={{ color: "black" }}>$10</Text>
           </View>
 

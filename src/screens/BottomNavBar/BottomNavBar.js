@@ -40,7 +40,7 @@ const BottomNavBar = ({navigation}) => {
     </Pressable>
     <Pressable style={styles.iconsContainer} onPress={showProductList}>
         <ProductListSVG></ProductListSVG>
-        <Text style={{color:"#000"}}>Productlist</Text>
+        <Text style={{color:"#000"}}>Product List</Text>
     </Pressable>
     <Pressable style={styles.iconsContainer} onPress={showMyCart}>
         <BasketSVG></BasketSVG>
