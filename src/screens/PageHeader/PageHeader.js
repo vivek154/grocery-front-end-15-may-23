@@ -9,7 +9,7 @@ const PageHeader = (props) => {
     
         <View style={styles.titleContainer}>
             <Pressable style={{width:20}} onPress={()=>navigation.navigate(navigateTo?navigateTo:"Home")}>
-                <ArrowSVG></ArrowSVG>
+                  <ArrowSVG></ArrowSVG>
             </Pressable>
             <Text style={styles.text}>{props.text}</Text>
         </View>
@@ -17,7 +17,7 @@ const PageHeader = (props) => {
   )
 }
 
-export default PageHeader
+export default PageHeader;
 
 const styles = StyleSheet.create({
     container:{
