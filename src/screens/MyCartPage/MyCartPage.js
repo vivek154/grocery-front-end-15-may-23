@@ -77,7 +77,7 @@ const MyCartPage = ({navigation}) => {
           <View style={styles.billContainer}>
             <View>
               <Text style={{color: 'black', fontWeight: 'bold', fontSize: 20}}>
-                Rs {totalPrice}
+                ₹ {totalPrice}
               </Text>
               <Text style={{fontWeight: 'bold', color: '#C4C4C4'}}>
                 Total Price
