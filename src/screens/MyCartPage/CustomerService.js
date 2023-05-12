@@ -5,7 +5,7 @@ const CustomerService = ({navigation,}) => {
         <>
             <View>
                
-                    <PageHeader text="Customer Service"></PageHeader>
+                    <PageHeader text="Customer Service" navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
                 
             </View>
             <View style={{ flex: 1, justifyContent: 'center' }} >

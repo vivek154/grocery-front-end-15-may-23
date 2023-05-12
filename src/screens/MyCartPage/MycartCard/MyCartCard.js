@@ -26,12 +26,13 @@ const MyCartCard = (props) => {
  
   useEffect(()=>{
     setTotalPrice((prevValue)=> (prevValue+ (count*price)))
+   
   },[])
 
   const decrement = () => {
     if (count > 1) {
       setcount(count - 1)
-      setTotalPrice((prevValue)=> (prevValue-(count*price)))
+      setTotalPrice((prevValue)=> (prevValue-(price)))
     }
   }
 
@@ -49,12 +50,13 @@ const MyCartCard = (props) => {
   const handledelete = async(productId) => {
     setDeleteIndicator(true)
     const response = await deletemycart(productId, userId)
+    
     console.log("delete response",response.data)
-    if(response.data==1){
+    if(response){
       console.log("deleted")
     }
     props.makeApiRequest();
-
+    setDeleteIndicator(false)
     setTotalPrice((prevValue)=>prevValue-(count*price))
     //console.log("user_id", userid);
     //console.log("productId", productId);

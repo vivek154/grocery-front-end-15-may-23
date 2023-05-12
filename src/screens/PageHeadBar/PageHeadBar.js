@@ -3,6 +3,7 @@ import React from 'react'
 import SearchIconSVG from "../../svg/Search.svg"
 import BellIconSVG from "../../svg/BellIcon.svg"
 import BasketIconSVG from "../../svg/BasketIcon.svg"
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 const PageHeadBar = ({title,navigation}) => {
 
   function showSearchPage(){
@@ -19,7 +20,7 @@ const PageHeadBar = ({title,navigation}) => {
   }
   return (
     <View style={styles.container}>
-      <Text style={{fontSize:23,fontWeight:"bold",color:"black"}}>{title}</Text>
+      <Text style={{fontSize:23,fontWeight:"bold",color:"black",textTransform:"capitalize"}}>{title}</Text>
       <View style={styles.iconsContainer}>
         <Pressable onPress={showSearchPage}>
             <SearchIconSVG></SearchIconSVG>
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         justifyContent:"space-between",
         alignItems:"center",
-        height:"10%",
+        height:hp("10%"),
         paddingHorizontal:20,
         backgroundColor:"white"
     },

@@ -100,7 +100,7 @@ const OtpConfirmScreen = ({navigation, route}) => {
         <View>
           {!showActivityIndicator &&<Pressable
             style={{
-              backgroundColor: '#ff0543',
+              backgroundColor: '#FF5403',
               justifyContent: 'center',
               alignItems: 'center',
               paddingVertical: 6,
@@ -115,7 +115,7 @@ const OtpConfirmScreen = ({navigation, route}) => {
         <Text
           style={{
             marginVertical: 20,
-            color: '#FF0543',
+            color: '#FF5403',
             textDecorationLine: 'underline',
             alignSelf: 'center',
           }}>
