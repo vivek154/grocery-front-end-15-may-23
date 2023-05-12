@@ -6,7 +6,7 @@ const MyOrder=({navigation})=>
         <>
              <View>
                
-                <PageHeader text="My Orders"></PageHeader>
+                <PageHeader text="My Orders" navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
               
              </View>
              <View style={{flex:1,justifyContent:'center'}} >

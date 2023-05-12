@@ -144,7 +144,7 @@ const SearchPage = (props) => {
         {
           showSearchResults &&
             <ScrollView fadingEdgeLength={20} style={{flex:1,padding:10,marginVertical:15}}> 
-              <SearchResults matchedProducts={matchedProducts}></SearchResults>
+              <SearchResults matchedProducts={matchedProducts} navigation={navigation}></SearchResults>
             </ScrollView>
         }
       

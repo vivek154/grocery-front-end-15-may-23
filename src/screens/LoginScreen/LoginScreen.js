@@ -67,7 +67,8 @@ const LoginScreen = ({navigation}) => {
         </Text>
         <TextInput
           style={styles.ipMobNo}
-          placeholder="Enter Mobile no"
+          placeholder="Enter Mobile number"
+          placeholderTextColor="#656565"
           keyboardType="numeric"
           onChangeText={newText => setMobNo(newText)}
           value={mobNo}></TextInput>
@@ -95,22 +96,26 @@ const LoginScreen = ({navigation}) => {
         )}
 
         {showActivityIndicator && <ActivityIndicator></ActivityIndicator>}
-        <Text
-          style={{
-            color: '#ff9900',
-            textDecorationLine: 'underline',
-            marginTop: 10,
-          }}
-          onPress={() => Linking.openURL('/')}>
-          Forget Password?
-        </Text>
-        <Text style={{marginTop: 40}}>
-          Don't have an account
-          <Text style={{color: '#ff9900'}} onPress={showRegistration}>
-            {' '}
-            Register?
+
+        
+          <Text
+            style={{
+              color: '#ff9900',
+              textDecorationLine: 'underline',
+              marginTop: 10,
+              alignSelf:"center"
+            }}
+            onPress={() => Linking.openURL('/')}>
+            Forget Password?
           </Text>
-        </Text>
+        <View style={{justifyContent:"center",alignItems:"center"}}>  
+          <Text style={{marginTop: 40,}}>
+            Don't have an account 
+            <Text style={{color: '#FF5403',marginHorizontal:2}} onPress={showRegistration}>
+            {" "}Register?
+            </Text>
+          </Text>
+        </View>
       </View>
     </View>
   );

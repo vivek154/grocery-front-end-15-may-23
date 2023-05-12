@@ -107,6 +107,7 @@ const Register = props => {
             <TextInput
               style={styles.input}
               placeholder="Your Name "
+              placeholderTextColor={"#656565"}
               value={formValue.fullName}
               onChangeText={newText =>
                 setFormValue({
@@ -125,6 +126,7 @@ const Register = props => {
           <TextInput
             style={styles.input}
             placeholder="Email "
+            placeholderTextColor={"#656565"}
             value={formValue.email}
             onChangeText={newText =>
               setFormValue({
@@ -144,6 +146,7 @@ const Register = props => {
             value={formValue.phoneNumber}
             style={styles.input}
             placeholder="Mobile number"
+            placeholderTextColor={"#656565"}
             onChangeText={newText =>
               setFormValue({
                 ...formValue,
@@ -163,6 +166,7 @@ const Register = props => {
             value={formValue.password}
             style={styles.input}
             placeholder="Password"
+            placeholderTextColor={"#656565"}
             onChangeText={newText =>
               setFormValue({
                 ...formValue,

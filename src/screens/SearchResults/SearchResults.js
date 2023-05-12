@@ -3,6 +3,7 @@ import React from 'react'
 import ProductCard from '../ProductCard/ProductCard'
 
 const SearchResults = (props) => {
+    const {navigation}=props
   return (
 
         
@@ -11,7 +12,7 @@ const SearchResults = (props) => {
         {
             props.matchedProducts.map((item)=>(
               <View key={item.id} >
-                  <ProductCard item={item}></ProductCard>
+                  <ProductCard item={item} navigation={navigation}></ProductCard>
               </View>
             )) 
         }

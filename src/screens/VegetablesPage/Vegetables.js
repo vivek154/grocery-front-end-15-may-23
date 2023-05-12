@@ -44,7 +44,7 @@ const Vegetables = (props) => {
         {
             arr1.map((item)=>(
               <View key={item.id} >
-                  <ProductCard item={item}></ProductCard>
+                  <ProductCard item={item} navigation={navigation}></ProductCard>
               </View>
             )) 
         }
