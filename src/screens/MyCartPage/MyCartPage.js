@@ -18,18 +18,15 @@ const MyCartPage = ({navigation}) => {
   const [data, setdata] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [fetchingDataIndicator,setFetchingDataIndicator]=useState(true)
-
-  console.log(totalPrice, '*****total price');
-
   const dispatch = useDispatch();
-
-  console.log('data', data);
-
   const {userData} = useSelector(state => state?.auth);
-  console.log('userData', userData);
 
-  console.log('userDataId', userData.id);
 
+  
+  function getTotalPrice(){
+    let state1=Store.getState()
+    console.log("*****totalPrice***",state1.auth.totalPrice)
+  }
   const makeApiRequest = async () => {
     try {
       let response = await getmycart(userData.id);
@@ -45,7 +42,11 @@ const MyCartPage = ({navigation}) => {
   useEffect(() => {
     makeApiRequest();
   }, []);
-
+  
+  useEffect(()=>{
+    dispatch({type:AUTH_TYPE.SET_TOTAL_PRICE,payload:totalPrice})
+    getTotalPrice()
+  },[totalPrice])
   return (
 
     <View style={{flex: 1, backgroundColor: 'white'}}>      
