@@ -64,9 +64,9 @@ const OtpConfirmScreen = ({navigation, route}) => {
 
   return (
     <SafeAreaView style={styles.root}>
-    
-      <ArrowOrangeLeft></ArrowOrangeLeft>
-    
+    <View >
+      <ArrowOrangeLeft ></ArrowOrangeLeft>
+      </View>
       <View style={{marginHorizontal: 20}}>
         <View style={{marginVertical: 20}}>
           <Text style={styles.title}>Please Verify</Text>
@@ -114,7 +114,7 @@ const OtpConfirmScreen = ({navigation, route}) => {
 
           {showActivityIndicator && <ActivityIndicator></ActivityIndicator>}
         </View>
-        <Text
+       {/* <Text
           style={{
             marginVertical: 20,
             color: '#FF5403',
@@ -123,6 +123,7 @@ const OtpConfirmScreen = ({navigation, route}) => {
           }}>
           Resend OTP
         </Text>
+      */}
       </View>
     </SafeAreaView>
   );
