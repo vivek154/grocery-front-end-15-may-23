@@ -207,7 +207,7 @@ const PaymentOptions=({navigation})=>
         </TouchableOpacity>
         <View style={{ flex:1,width:270,borderWidth:1,marginTop:5,marginBottom:5,justifyContent:'center',borderColor:'grey',backgroundColor:'grey',marginLeft:44,marginRight:10}}></View>
         <TouchableOpacity>
-            <Text style={{backgroundColor:"#FF5403" ,color:'white',width:200,padding:7,height:40 ,alignSelf:'center',paddingLeft:50,borderRadius:30,marginBottom:40,marginTop:10}}>Pay$10.00</Text>
+            <Text style={{backgroundColor:"#FF5403" ,color:'white',width:200,padding:7,height:40 ,alignSelf:'center',paddingLeft:50,borderRadius:30,marginBottom:40,marginTop:10}}>Pay ₹10.00</Text>
         </TouchableOpacity>
      </ScrollView>
     </>   

@@ -17,6 +17,8 @@ import BurgerIcon from '../../../../svg/BurgerIcon.svg';
 import BellWhiteIcon from '../../../../svg/BellWhiteIcon.svg';
 import BasketWhiteIcon from '../../../../svg/BasketWhiteIcon.svg';
 import SearchIcon from '../../../../svg/SearchIcon.svg';
+import { BGRED } from '../../../../shared/constants/color';
+import { useSelector } from 'react-redux';
 
 const HomeHeader = props => {
   const {
@@ -49,6 +51,8 @@ const HomeHeader = props => {
   function showProfile() {
     navigation.navigate('MyProfile');
   }
+  const cart=useSelector((state)=>state.auth.myCart);
+  const count=cart.length;
   return (
     <View style={{width: '100%',height:hp("18%")}}>
       <View style={styles.header}>
@@ -74,9 +78,14 @@ const HomeHeader = props => {
             </Pressable>
 
             <Pressable onPress={showMyCart}>
+            <View  style={{width:'10%'}}>
               <BasketWhiteIcon
                 width={0.063 * width}
                 height={0.063 * width}></BasketWhiteIcon>
+                <View style={{width:18,height:18,borderRadius:9,position:'absolute',left:14,backgroundColor:BGRED,backgroundColor:'black'}}>
+                  <Text style={{color:'white',fontSize:14,alignSelf:'center',}}>{count}</Text>
+                </View>
+              </View>
             </Pressable>
 
             <Pressable onPress={showProfile}>

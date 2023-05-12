@@ -26,13 +26,13 @@ const MyCartCard = (props) => {
   const [deleteIndicator,setDeleteIndicator]=useState(false)
  
   useEffect(()=>{
+
     setTotalPrice((prevValue)=> (prevValue+ (quantity*price)))
     
   },[])
   useEffect(()=>{
     setQuantityLoader(false)
   },[quantity])
-
   const decrement =async () => {
     if (quantity > 1) {
       setQuantityLoader(true)
@@ -42,7 +42,6 @@ const MyCartCard = (props) => {
       setTotalPrice((prevValue)=> (prevValue-(price)))
     }
   }
-
   const increment = async() => {
     setQuantityLoader(true)
     let payload={productId:productId,userId:userId,action:1}
@@ -50,13 +49,11 @@ const MyCartCard = (props) => {
     await props.makeApiRequest();
     setTotalPrice((prevValue)=> (prevValue+(price)))
   }
-  
     const handledelete = async(productId) => {
     setDeleteIndicator(true)
     const response = await deletemycart(productId, userId)
-    
     console.log("delete response",response.data)
-    if(response){
+    if(response.data==1){
       console.log("deleted")
     }
     props.makeApiRequest();

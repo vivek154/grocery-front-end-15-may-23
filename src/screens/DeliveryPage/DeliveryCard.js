@@ -12,10 +12,9 @@ const DeliveryCard = ({navigation}) => {
    
       <View>
         <PageHeader text="Delivery" navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
-
       </View>
 
-      <Text style={{ color: "black", fontWeight: "bold", marginLeft: 18, marginVertical: 10 }}>Where</Text>
+      <Text style={{ color: "black", fontWeight: "bold", marginVertical: 10 ,marginHorizontal:13}}>Where</Text>
 
       <View style={styles.container}>
         <Image source={require("../../images/apple.jpg")} style={styles.image}></Image>
