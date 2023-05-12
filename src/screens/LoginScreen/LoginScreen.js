@@ -109,7 +109,7 @@ const LoginScreen = ({navigation}) => {
             Forget Password?
           </Text>
         <View style={{justifyContent:"center",alignItems:"center"}}>  
-          <Text style={{marginTop: 40,}}>
+          <Text style={{marginVertical:40,}}>
             Don't have an account 
             <Text style={{color: '#FF5403',marginHorizontal:2}} onPress={showRegistration}>
             {" "}Register?

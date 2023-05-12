@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image, ScrollView, Pressable } from 'react-native'
 import React from 'react'
 import PageHeader from '../PageHeader/PageHeader'
+import Applesvg from '../../svg/Apple.svg';
 
 const DeliveryCard = ({navigation}) => {
   return (
@@ -12,11 +13,10 @@ const DeliveryCard = ({navigation}) => {
         <PageHeader text="Delivery" navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
       </View>
 
-      <Text style={{ color: "black", fontWeight: "bold", marginVertical: 10 ,marginHorizontal:13}}>Where</Text>
-
+      <Text style={{ color: "black", fontWeight: "bold", marginVertical: 10 ,marginHorizontal:27}}>Where</Text>
       <View style={styles.container}>
-        <Image source={require("../../images/apple.jpg")} style={styles.image}></Image>
-
+        {/* <Image source={require("../../images/apple.jpg")} style={styles.image}></Image> */}
+      <Applesvg></Applesvg>
         <View style={{ width: "60%", flexDirection: "row" }}>
           <View style={styles.middleBox}>
             <Text style={{ fontWeight: "bold", color: "black", fontSize: 15 }}>Deliver To</Text>
