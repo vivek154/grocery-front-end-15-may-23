@@ -10,10 +10,9 @@ const DeliveryCard = ({navigation}) => {
    
       <View>
         <PageHeader text="Delivery" navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
-
       </View>
 
-      <Text style={{ color: "black", fontWeight: "bold", marginLeft: 18, marginVertical: 10 }}>Where</Text>
+      <Text style={{ color: "black", fontWeight: "bold", marginVertical: 10 ,marginHorizontal:13}}>Where</Text>
 
       <View style={styles.container}>
         <Image source={require("../../images/apple.jpg")} style={styles.image}></Image>
@@ -22,7 +21,7 @@ const DeliveryCard = ({navigation}) => {
           <View style={styles.middleBox}>
             <Text style={{ fontWeight: "bold", color: "black", fontSize: 15 }}>Deliver To</Text>
             <Text style={{ color: "black" }}>H/7 shiv flat Jivrajpark Ahmedabad</Text>
-            <Text style={{ color: "black" }}>$10</Text>
+            {/*<Text style={{ color: "black" }}>$10</Text>*/}
           </View>
 
 

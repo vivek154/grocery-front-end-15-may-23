@@ -3,6 +3,8 @@ import React from 'react'
 import SearchIconSVG from "../../svg/Search.svg"
 import BellIconSVG from "../../svg/BellIcon.svg"
 import BasketIconSVG from "../../svg/BasketIcon.svg"
+import { useSelector } from 'react-redux'
+import { heightPercentageToDP } from 'react-native-responsive-screen'
 const PageHeadBar = ({title,navigation}) => {
 
   function showSearchPage(){
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         justifyContent:"space-between",
         alignItems:"center",
-        height:"10%",
+        height:heightPercentageToDP("10%"),
         paddingHorizontal:20,
         backgroundColor:"white"
     },
