@@ -22,9 +22,9 @@ const Delivery = (props) => {
                 <View>
 
                     <DeliveryCard navigation={navigation}></DeliveryCard>
-                    <Text style={{ alignSelf: 'flex-start', marginLeft: 17, marginVertical:10, color: 'black', fontWeight: 'bold', fontSize: 23 }}>Total Bill Amount : ₹100 </Text>
+                    <Text style={{ alignSelf: 'flex-start', marginVertical:10, color: 'black', fontWeight: 'bold', fontSize: 23,marginHorizontal:27 }}>Total Bill Amount : ₹100 </Text>
                     <View style={{marginVertical:20}}>
-                    <Text style={{ alignSelf: 'flex-start',marginHorizontal:17,  color: 'black', fontWeight: 'bold', fontSize: 23 }}>Payment Option :</Text>
+                    <Text style={{ alignSelf: 'flex-start',marginHorizontal:27,  color: 'black', fontWeight: 'bold', fontSize: 23 }}>Payment Option :</Text>
                     <TouchableOpacity style={{marginHorizontal:20,marginVertical:20}}>
                             <View style={{ flex: 1, flexDirection: 'row', alignItems: "center",marginLeft:24, gap: 10 }}>
                                      
@@ -32,10 +32,10 @@ const Delivery = (props) => {
                                 <View style={{}}>
                                     <Image style={{ resizeMode: 'contain',marginLeft:8 }} source={require('../../images/bi_cash.png')}></Image>
                                 </View>
-                                <Text style={{ marginLeft: 13,color:"#000",marginLeft:6 }}>Cash on Delivery</Text>
+                                <Text style={{ marginHorizontal:13,color:"#000", }}>Cash on Delivery</Text>
                                
                             </View>
-                            <View style={{ width:270,borderWidth:1,alignSelf:'center',marginVertical:16,backgroundColor:'grey'}}></View>
+                            <View style={{ width:290,borderWidth:1,alignSelf:'center',marginVertical:16,backgroundColor:'grey'}}></View>
                             <View style={{justifyContent:'center',alignItems:'center'}}>
                             <Pressable style={{ flex: 1 }} onPress={showPaymentOptions}>
                             <View style={{justifyContent:'center'}}>
