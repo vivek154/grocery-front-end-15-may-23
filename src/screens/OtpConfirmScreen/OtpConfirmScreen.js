@@ -64,8 +64,9 @@ const OtpConfirmScreen = ({navigation, route}) => {
 
   return (
     <SafeAreaView style={styles.root}>
+    
       <ArrowOrangeLeft></ArrowOrangeLeft>
-
+    
       <View style={{marginHorizontal: 20}}>
         <View style={{marginVertical: 20}}>
           <Text style={styles.title}>Please Verify</Text>
@@ -100,7 +101,8 @@ const OtpConfirmScreen = ({navigation, route}) => {
         <View>
           {!showActivityIndicator &&<Pressable
             style={{
-              backgroundColor: '#FF5403',
+
+              backgroundColor: '#FF5403'      
               justifyContent: 'center',
               alignItems: 'center',
               paddingVertical: 6,

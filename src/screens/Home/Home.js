@@ -6,7 +6,7 @@ import SingleSlider from './HomeComponents/SingleSlider';
 import MultiSlider from './HomeComponents/MultiSlider';
 import SearchResults from '../SearchResults/SearchResults';
 import {getSearchResults} from '../../api/api';
-import { widthPercentageToDP as wp,heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp,heightPercentageToDP as hp, widthPercentageToDP, heightPercentageToDP } from 'react-native-responsive-screen';
 const single_slider_images = [
   {id: 1, url: require('../../images/Images-multi/img1.jpg')},
   {id: 2, url: require('../../images/Images-multi/img2.jpg')},
@@ -76,8 +76,8 @@ const Home = props => {
           
           <ScrollView fadingEdgeLength={20}>
             <View>
-              <View>
-                <SingleSlider images={single_slider_images}></SingleSlider>
+              <View >
+                <SingleSlider images={single_slider_images} showAllGrocery={showAllGrocery}></SingleSlider>
               </View>
               <View
                 style={{
@@ -95,7 +95,7 @@ const Home = props => {
               </View>
 
               <View>
-                <MultiSlider images={multi_slider_images}></MultiSlider>
+                <MultiSlider images={multi_slider_images}  goto={showAllVegetables}></MultiSlider>
               </View>
 
               <View
@@ -113,8 +113,8 @@ const Home = props => {
                 </Text>
               </View>
 
-              <View>
-                <MultiSlider images={multi_slider_images}></MultiSlider>
+              <View >
+                <MultiSlider images={multi_slider_images} goto={showAllFruits}></MultiSlider>
               </View>
 
               <View
@@ -131,8 +131,9 @@ const Home = props => {
                   View All
                 </Text>
               </View>
-
-              <SingleSlider images={single_slider_images}></SingleSlider>
+              <View >
+              <SingleSlider images={single_slider_images} showAllGrocery={showAllGrocery}></SingleSlider>
+              </View>
             </View>
           </ScrollView>
         </View>
