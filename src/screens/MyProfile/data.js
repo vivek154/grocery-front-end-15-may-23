@@ -39,7 +39,7 @@ const data=[
         goto:"CustomerService",
     },
     {
-        option:"My Delivery Adress",
+        option:"My Delivery Address",
         SVG:LocationGreySvg,
         goto:"Delivery"
 

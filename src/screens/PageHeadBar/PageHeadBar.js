@@ -3,6 +3,8 @@ import React from 'react'
 import SearchIconSVG from "../../svg/Search.svg"
 import BellIconSVG from "../../svg/BellIcon.svg"
 import BasketIconSVG from "../../svg/BasketIcon.svg"
+import { BGRED } from '../../shared/constants/color'
+import { useSelector } from 'react-redux'
 const PageHeadBar = ({title,navigation}) => {
 
   function showSearchPage(){
@@ -17,6 +19,8 @@ const PageHeadBar = ({title,navigation}) => {
   function showNotificationPage(){
     navigation.navigate("MainNotification")
   }
+  const cart=useSelector((state)=>state.auth.myCart);
+  const count=cart.length;
   return (
     <View style={styles.container}>
       <Text style={{fontSize:23,fontWeight:"bold",color:"black"}}>{title}</Text>
@@ -27,8 +31,14 @@ const PageHeadBar = ({title,navigation}) => {
         <Pressable onPress={showNotificationPage}>
             <BellIconSVG></BellIconSVG>
         </Pressable>
+        
         <Pressable onPress={showMyCart}>
+          <View style={{width:"10%"}}>
             <BasketIconSVG></BasketIconSVG>
+            <View style={{width:17.7,height:17.7,borderRadius:9,backgroundColor:"#ff5403",position:'absolute',left:14,}}>
+              <Text style={{alignSelf:'center',color:'white',fontSize:13.4}}>{count}</Text>
+            </View>
+            </View>
         </Pressable>
         
         <Pressable onPress={showMyProfile}>
