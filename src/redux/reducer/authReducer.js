@@ -3,7 +3,8 @@ import { AUTH_TYPE } from '../action/authAction'
 
 const initialState = {
     showOnBoardingScreen: false,
-    myCart:null
+    myCart:null,
+    totalPrice:0,
 }
 
 const authReducer = (state = initialState, action) => {
@@ -31,6 +32,11 @@ const authReducer = (state = initialState, action) => {
         }
         case AUTH_TYPE.DELETE_FROM_MY_CART:{
             return action.payload
+        }
+        case AUTH_TYPE.SET_TOTAL_PRICE:{
+            return {
+                ...state,totalPrice:action.payload
+            }
         }
         default:
             return state;

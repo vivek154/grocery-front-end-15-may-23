@@ -158,7 +158,7 @@ export default Home;
 
 const styles = StyleSheet.create({
   headerContainer: {
-    height:hp("22%"),
+    height:hp("20%"),
     //flex: 0.18,
     //borderWidth: 1,
     backgroundColor: 'white',
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
   },
   bodyContainer: {
     //flex: 0.75,
-    height:hp("66%"),
+    height:hp("68%"),
     backgroundColor: 'white',
     paddingHorizontal: 20,
     //paddingVertical:38

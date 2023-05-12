@@ -41,12 +41,11 @@ const EditProfile = (props) => {
             fullName:name,
             email:email,
             phoneNumber:phoneNumber,
-            adress:adress,
+            address:adress,
             userId:userID
         }
         let response = await updateUserProfileData(userData)
         dispatch({type:AUTH_TYPE.UPDATE_USER_DATA,payload:response.data})
-        console.log("updated profile response ",response.data)
         setTimeout(()=>navigation.navigate("MyProfile"),1500)
         
         }

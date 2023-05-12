@@ -3,9 +3,10 @@ import { StyleSheet, Text, View, Image, Pressable,ActivityIndicator} from 'react
 import React, { useEffect, useState } from 'react'
 //import DeleteIcon from "./images/delete.svg"
 import QuantityButtons from '../../QuantityButtons/QuantityButtons'
-import { deletemycart, getmycart, postmycart } from '../../../api/api'
+import { deletemycart, getmycart, postmycart, updateQuantity } from '../../../api/api'
 import { useDispatch, useSelector } from 'react-redux'
 import { AUTH_TYPE } from '../../../redux/action/authAction'
+import { Store } from '../../../redux/Store'
 
 const MyCartCard = (props) => {
   const { userData } = useSelector(state => state?.auth)
@@ -19,34 +20,36 @@ const MyCartCard = (props) => {
   }
   const SVGIcon = props.SVGIcon
   const { item, data,setTotalPrice} = props;
-  const { id, userId, name, price, imageUrl, productId } = item;
+  const { id, userId, name, price, imageUrl, productId,quantity } = item;
 
-  const [count, setcount] = useState(1);
+  const [quantityLoader, setQuantityLoader] = useState(false);
   const [deleteIndicator,setDeleteIndicator]=useState(false)
  
   useEffect(()=>{
-    setTotalPrice((prevValue)=> (prevValue+ (count*price)))
-  },[])
 
-  const decrement = () => {
-    if (count > 1) {
-      setcount(count - 1)
-      setTotalPrice((prevValue)=> (prevValue-(count*price)))
+    setTotalPrice((prevValue)=> (prevValue+ (quantity*price)))
+    
+  },[])
+  useEffect(()=>{
+    setQuantityLoader(false)
+  },[quantity])
+  const decrement =async () => {
+    if (quantity > 1) {
+      setQuantityLoader(true)
+      let payload={productId:productId,userId:userId,action:-1}
+      await updateQuantity(payload)
+      await props.makeApiRequest(); 
+      setTotalPrice((prevValue)=> (prevValue-(price)))
     }
   }
-
-  const increment = () => {
-    setcount(count + 1)
+  const increment = async() => {
+    setQuantityLoader(true)
+    let payload={productId:productId,userId:userId,action:1}
+    await updateQuantity(payload)
+    await props.makeApiRequest();
     setTotalPrice((prevValue)=> (prevValue+(price)))
   }
-
-  console.log(id)
-  console.log("data", data );
-
-  
-
-
-  const handledelete = async(productId) => {
+    const handledelete = async(productId) => {
     setDeleteIndicator(true)
     const response = await deletemycart(productId, userId)
     console.log("delete response",response.data)
@@ -54,10 +57,8 @@ const MyCartCard = (props) => {
       console.log("deleted")
     }
     props.makeApiRequest();
-
-    setTotalPrice((prevValue)=>prevValue-(count*price))
-    //console.log("user_id", userid);
-    //console.log("productId", productId);
+    setDeleteIndicator(false)
+    setTotalPrice((prevValue)=>prevValue-(quantity*price))
   }
 
 
@@ -72,9 +73,16 @@ const MyCartCard = (props) => {
 
         <View style={styles.middleBox}>
           <Text style={{ fontWeight: "bold", color: "black", fontSize: 15 }}>{name}</Text>
-          <Text style={styles.text}>Price :{price*count}<Text style={{ color: "#656565", width: 70 }}>
+          <Text style={styles.text}>Price :{price}<Text style={{ color: "#656565", width: 70 }}>
           </Text>{ }</Text>
-          <QuantityButtons count={count} increment={increment} decrement={decrement} ></QuantityButtons>
+          {!quantityLoader &&
+            <QuantityButtons count={quantity} increment={increment} decrement={decrement} ></QuantityButtons>
+          }
+          {
+            quantityLoader &&
+            <ActivityIndicator style={{alignSelf:"center"}}></ActivityIndicator>
+          }
+          
         </View>
       </View>
       <View style={styles.endRightBox}>

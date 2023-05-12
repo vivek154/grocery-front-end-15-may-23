@@ -82,6 +82,11 @@ export const getUserDataById = (id) => {
   return authAxiosInstance.post(url,{id})
 }
 
+export const updateQuantity=({userId,productId,action})=>{
+  const url=`${API_URL}cart/update-quantity`
+  return authAxiosInstance.post(url,{userId:userId,productId:productId,action:action})
+}
+
 
 
 
