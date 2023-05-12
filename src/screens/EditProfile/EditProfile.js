@@ -11,6 +11,9 @@ const EditProfile = (props) => {
     const {navigation}=props
     const state= useSelector(state=>state?.auth)
     console.log("state at edit profile page",state)
+    const data=useSelector((state)=>state.auth.myCart);
+    console.log("Data from my cart length",data);
+    console.log("Length",data.length);
     const userID = state?.userData.id
     const dispatch=useDispatch()
     const [name,setName]= useState('')
