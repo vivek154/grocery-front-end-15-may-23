@@ -11,7 +11,7 @@ const Wallets=({navigation})=>
          <>
          <View >
         
-         <PageHeader text='Wallet'></PageHeader>
+         <PageHeader text='Wallet' navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
      
          </View>
            <ScrollView>

@@ -5,7 +5,7 @@ const RatingReviews = ({navigation}) => {
         <>
             <View>
                
-                    <PageHeader text="Rating & Reviews"></PageHeader>
+                    <PageHeader text="Rating & Reviews" navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
              
             </View>
             <View style={{ flex: 1, justifyContent: 'center' }} >

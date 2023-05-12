@@ -1,7 +1,7 @@
-import { StyleSheet, Text, View,TextInput} from 'react-native'
-import React, { useState } from 'react'
+import { StyleSheet, Text, View,TextInput,ActivityIndicator} from 'react-native'
+import React, { useEffect, useState } from 'react'
 import Mybutton from '../Mybutton'
-import { updateUserProfileData} from '../../api/api'
+import { getUserDataById, updateUserProfileData} from '../../api/api'
 import { useDispatch, useSelector } from 'react-redux'
 import { AUTH_TYPE } from '../../redux/action/authAction'
 import PageHeader from '../PageHeader/PageHeader'
@@ -20,7 +20,21 @@ const EditProfile = (props) => {
     const [email,setEmail]= useState('')
     const [phoneNumber,setPhoneNumber]=useState('')
     const [adress,setAdress]=useState('')
-
+    const [fetchDataIndicator,setFetchDataIndicator]=useState(true)
+    const getUserData=async()=>{
+        let responce= await getUserDataById(userID)
+        if(responce.data){
+            const{fullName,email,address,phoneNumber}=responce.data
+            setName(fullName?fullName:"")
+            setEmail(email?email:"")
+            setPhoneNumber(phoneNumber?phoneNumber:"")
+            setAdress(address?address:"")
+            setFetchDataIndicator(false)
+        }
+    }
+    useEffect(()=>{
+        getUserData()
+    },[])
     const requestUpdateProfile= async() =>{
         try{
         let userData={
@@ -45,7 +59,7 @@ const EditProfile = (props) => {
   return (
     <>
     <View style={{backgroundColor:'white'}}>
-    <PageHeader text="Edit Profile"></PageHeader>
+    <PageHeader text="Edit Profile" navigation={navigation} navigateTo={"MyProfile"} ></PageHeader>
     </View>
     <View style={styles.container}>
         
@@ -66,11 +80,16 @@ const EditProfile = (props) => {
         
 
         
-            <Text style={styles.lable}>Adress</Text>
+            <Text style={styles.lable}>Address</Text>
             <TextInput value={adress} placeholder='' onChangeText={setAdress} style={styles.textInput}></TextInput>
         
             <View style={{justifyContent:"center",alignItems:"center",marginVertical:15}}>
-                <Mybutton width={200} btnTxt="save changes" onPress={requestUpdateProfile}></Mybutton>
+                { !fetchDataIndicator &&
+                    <Mybutton txtColor={"#fff"} width={200} btnTxt="save changes" onPress={requestUpdateProfile}></Mybutton>
+                }
+                {
+                    fetchDataIndicator && <ActivityIndicator></ActivityIndicator>
+                }
             </View>
     </View>
     </>
@@ -92,5 +111,5 @@ const styles = StyleSheet.create({
     },
     lable:{
         color:"#000"
-    }
+    },
 })

@@ -142,7 +142,7 @@ const Home = props => {
       {!(searchKeyWord == '') && (
         <View style={{height:hp("75%"), marginTop: 0}}>
           <ScrollView fadingEdgeLength={20}>
-            <SearchResults matchedProducts={matchedProducts}></SearchResults>
+            <SearchResults matchedProducts={matchedProducts} navigation={navigation}></SearchResults>
           </ScrollView>
         </View>
       )}

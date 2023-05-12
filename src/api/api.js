@@ -54,7 +54,7 @@ export const getAllProducts = () => {
 }
 
 export const getmycart = (userid) => {
-  console.log("user Id get my cart ", userid)
+  //console.log("user Id get my cart ", userid)
   const url = `${API_URL}cart/get-usercart`
   let response = authAxiosInstance.post(url, { userId: userid });
   console.log ("******* response from cart ******",response)
@@ -66,15 +66,20 @@ export const postmycart = (productId, userId, count) => {
 }
 
 export const deletemycart = (productId, userId) => {
-  console.log('------------------------',productId,userId);
+  //console.log('------------------------',productId,userId);
   const url = `${API_URL}cart/deletecart`
   return authAxiosInstance.post(url, { productId, userId });
 }
 
 export const updateUserProfileData = (userData) => {
-  console.log("payload post update", userData)
+  //console.log("payload post update", userData)
   const url = `${API_URL}users/update-user`
   return authAxiosInstance.post(url, userData)
+}
+export const getUserDataById = (id) => {
+  //console.log("payload post update", id)
+  const url = `${API_URL}users/get-user-by-id`
+  return authAxiosInstance.post(url,{id})
 }
 
 
