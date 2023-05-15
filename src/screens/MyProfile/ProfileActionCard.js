@@ -1,19 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View ,Pressable} from 'react-native'
 import React from 'react'
 import DownArrowSvg from "../../svg/downArrow.svg"
 
 
-const ProfileActionCard = ({LeftSvg,optionName}) => {
+
+const ProfileActionCard = ({LeftSvg,optionName,navigation,item}) => {
   return (
     <View style={styles.container}>
         <View style={{flexDirection:"row",alignItems:"center",gap:10}}>
             <View style={{width:50,height:40,justifyContent:"center",alignItems:"center"}}>
                 <LeftSvg></LeftSvg>
             </View>
-            <Text>{optionName}</Text>
+            <Text style={{color:"#000"}} onPress={()=>navigation.navigate(item.goto)} >{optionName}</Text>
         </View>
-        <View>
-            <DownArrowSvg></DownArrowSvg>
+        <View style={{marginRight:27}}>
+          <Pressable onPress={()=>navigation.navigate(item.goto)}><DownArrowSvg ></DownArrowSvg></Pressable>
         </View>
     </View>
   )
@@ -26,8 +27,8 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         justifyContent:"space-between",
         alignItems:'center',
-        marginHorizontal:"5%",
-        padding:5,
+        paddingVertical:5,
         elevation:1
+
     }
 })

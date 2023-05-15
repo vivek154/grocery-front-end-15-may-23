@@ -8,7 +8,7 @@ const Notifications=({ele})=> {
         <>
         
         <ScrollView style={{}}>
-          
+        
           <View style={styles.view}>
             
               <View style={{backgroundColor:'#DEDEDE',width:35,height:35,justifyContent:"center",alignItems:"center",borderRadius:17.5}}>
@@ -21,11 +21,12 @@ const Notifications=({ele})=> {
                 <Text style={{color:"black"}}>lorem inspum dolor sitl lsjflsjflj </Text>
               </View >
               <View style={{alignSelf:"flex-start"}}>
-                <Text style={{alignSelf:'flex-end'}}>{ele.time}</Text>
+                <Text style={{alignSelf:'flex-end',color:"black"}}>{ele.time}</Text>
               </View>
           </View>
           
           </ScrollView>
+        
         </>
     )
 }
@@ -37,8 +38,9 @@ const styles=StyleSheet.create({
        justifyContent:"space-between",
        alignItems:"center",
        minHeight:80,
+        borderRadius:4,
        marginHorizontal:15,
-       elevation:2,
+       elevation:4,
        padding:8
     }
 })

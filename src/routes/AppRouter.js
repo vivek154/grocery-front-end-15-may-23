@@ -24,6 +24,13 @@ import OnboardingPage from '../screens/OnboardingPage/OnboardingPage';
 import Delivery from '../screens/DeliveryPage/Delivery';
 import BottomNavBar from '../screens/BottomNavBar/BottomNavBar';
 import NewCategory from '../screens/Categories/NewCategory';
+import EditProfile from '../screens/EditProfile/EditProfile';
+import MyOrder from '../screens/MyCartPage/MyOrder';
+import Wallets from '../screens/MyCartPage/Wallets';
+import RatingReviews from '../screens/MyCartPage/RatingReviews';
+import CustomerService from '../screens/MyCartPage/CustomerService';
+import DeliveryCard from '../screens/OrderInfoPage/DeliveryCard/DeliveryCard';
+
 
 
 
@@ -42,7 +49,6 @@ const AppRouter = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown:false}}>
       
-      <Stack.Screen name="NavigationPage" component={NavigationPage}></Stack.Screen>
       <Stack.Screen name="LoginScreen" component={LoginScreen}></Stack.Screen>
       <Stack.Screen name='OnboardingScreen' component={OnboardingPage}></Stack.Screen>
       <Stack.Screen name="SpleshScreen" component={SpleshScreen}></Stack.Screen>
@@ -53,7 +59,6 @@ const AppRouter = () => {
       <Stack.Screen name="vegetablesPage" component={Vegetables}></Stack.Screen>
       <Stack.Screen name="FruitsPage" component={Fruits}></Stack.Screen>
       <Stack.Screen name="GroceryPage" component={Grocery}></Stack.Screen>
-     {/* <Stack.Screen name="ProductList" component={ProductList}></Stack.Screen>*/}
       <Stack.Screen name="MainCategory" component={MainCategory}></Stack.Screen>
       <Stack.Screen name="SearchPage" component={SearchPage}></Stack.Screen>
       <Stack.Screen name="MyCartPage" component={MyCartPage}></Stack.Screen>
@@ -67,8 +72,13 @@ const AppRouter = () => {
       <Stack.Screen name="Delivery" component={Delivery}></Stack.Screen>
       <Stack.Screen name="BottomNavbar" component={BottomNavBar}></Stack.Screen>
       <Stack.Screen name="NewCategory" component={NewCategory}></Stack.Screen>
-      
-      
+      <Stack.Screen name="NavigationPage" component={NavigationPage}></Stack.Screen>
+      <Stack.Screen name="EditProfilePage" component={EditProfile}></Stack.Screen>
+      <Stack.Screen name='MyOrder' component={MyOrder}></Stack.Screen>
+      <Stack.Screen name='Wallets' component={Wallets}></Stack.Screen>
+      <Stack.Screen name='RatingReviews' component={RatingReviews}></Stack.Screen>
+      <Stack.Screen name='CustomerService' component={CustomerService}></Stack.Screen>
+      <Stack.Screen name="DeliveryCart" component={DeliveryCard}></Stack.Screen>
     </Stack.Navigator>
   );
 };

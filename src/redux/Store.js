@@ -13,7 +13,7 @@ const persistConfig = {
 }
 const initialState = {}
 const middlewares = [sagaMiddleware]
-let devtools = (x: any) => x
+let devtools = (x) => x
 
 if (
     process.env.NODE_ENV !== 'production' &&

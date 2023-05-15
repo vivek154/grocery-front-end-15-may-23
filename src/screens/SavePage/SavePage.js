@@ -5,10 +5,10 @@ import BottomNavBar from '../BottomNavBar/BottomNavBar'
 import {data} from "./data"
 import SaveIcon from "../../svg/save.svg"
 import MyCartCard from '../MyCartPage/MycartCard/MyCartCard'
-const SavePage = () => {
+const SavePage = ({navigation}) => {
   return (
     <>
-      <PageHeader text="Save"></PageHeader>
+      <PageHeader text="Save" navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
       <ScrollView style={{height:"60%"}}>
         <View>
         {data.map((item,index)=>{

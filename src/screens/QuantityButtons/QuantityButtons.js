@@ -1,36 +1,67 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
+import React, { useState } from 'react'
+import { postmycart } from '../../api/api';
 
-const QuantityButtons = () => {
-  return (
-    <View style={styles.container}>
-        <View style={[styles.buttons,{borderColor:"#C4C4C4"}]}>
-            <Text style={{color:"#C4C4C4"}}>-</Text>
-        </View >
 
-            <Text style={{color:"black"}}>1Kg</Text>
 
-        <View style={[styles.buttons]}>
-            <Text style={{color:"black"}}>+</Text>
+const QuantityButtons = ({ count, increment, decrement }) => {
+
+    /* const   [count,setcount]=useState(0);
+ 
+     console.log("price",props.price);
+ 
+     let a=props.price;
+     console.log("a",a);
+ 
+     const [price,totalprice]=useState(a);
+    console.log(price);
+ const dec=()=>{
+     if(count > 0){
+     setcount(count-1)
+     totalprice((a)*count);
+    
+     }
+ }
+ 
+ const inc=()=>
+ {
+     setcount(count+1) 
+     totalprice((a)*count);
+ }
+ */
+
+    return (
+        <View style={styles.container}>
+            <Pressable style={[styles.buttons, { borderColor: "#C4C4C4" }]} onPress={decrement}>
+                <Text style={{ color: "#C4C4C4", }} >-</Text>
+            </Pressable >
+            <Text style={{ color: "black" }}>{count}</Text>
+            <Pressable style={[styles.buttons]} onPress={increment}>
+                <Text style={{ color: "black" }} >+</Text>
+            </Pressable>
         </View>
-    </View>
-  )
+    )
 }
 
 export default QuantityButtons
 
 const styles = StyleSheet.create({
-    container:{
-        flexDirection:"row",
-        gap:5,
-        alignItems:"center"
+    container: {
+        
+        flexDirection: "row",
+        gap: 5,
+        alignItems: "center",
+        width:60,
+        height:40, 
+       
     },
-    buttons:{
-        justifyContent:"center",
-        alignItems:"center",
-        borderWidth:1,
-        justifyContent:"center",
-        width:20,
-        height:20,
+    buttons: {
+        justifyContent: "center",
+        alignItems: "center",
+        borderWidth: 1,
+        justifyContent: "center",
+        width: 30,
+        height: 30,
+
     }
 })

@@ -5,14 +5,14 @@ import RBSheet from 'react-native-raw-bottom-sheet';
 import Mybutton from '../Mybutton';
 import ProductListBody from './ProductListBody';
 import { getAllCategories, getAllProducts } from '../../api/api';
-
+import FilterButton from './FilterButton';
+import { useSelector } from 'react-redux';
 const ProductList = ({navigation}) => {
     const refRBSheet = useRef();
     const [products,setProducts]= useState([]);
     const [categories,setCategories]=useState([])
     const [filters,setFilters]=useState([])
-   
-    console.log("****** filters*********",filters)
+
     const requestProducts = async () =>{
       try{
         let response = await getAllProducts()
@@ -35,7 +35,6 @@ const ProductList = ({navigation}) => {
     
     const handleFilterBtnPress= async(item)=>{
       await requestProducts()
-      console.log("*****item.id*****",item.id)
       if(filters.indexOf(item.id) == -1) {
         setFilters((prevState)=> [...prevState,item.id])
       }
@@ -52,8 +51,6 @@ const ProductList = ({navigation}) => {
           return filters.indexOf(product.categoryId) !== -1
         })
 
-        console.log("*******************************")
-        console.log("filtered Products",filteredProducts)
         setProducts(filteredProducts)
       }}
 
@@ -63,6 +60,7 @@ const ProductList = ({navigation}) => {
     }  
         
     useEffect(()=>{
+      console.log("product list useEffect called");
       requestProducts()
       requestCategories()
 
@@ -100,14 +98,17 @@ const ProductList = ({navigation}) => {
             <View style={styles.btnContainer}>
             {
               categories.map((item,index)=>{
-                return <Mybutton 
-                key={index} 
-                btnTxt={item.name} 
-                txtColor="#ffffff"
-                bgColorB4Pressed="#C4C4C4"
-                bgColorAfterPressed="#FF5403"
-                myButton={styles.myButton} 
-                onPress={() => handleFilterBtnPress(item)} width={100}></Mybutton>
+                return (
+                  <FilterButton
+                    key={index} 
+                    item={item}
+                    filters={filters} 
+                    onPress={() => handleFilterBtnPress(item)}
+                  >
+
+                  </FilterButton>
+                )
+                
               })
             }
             </View>
@@ -117,8 +118,6 @@ const ProductList = ({navigation}) => {
               <Mybutton 
               btnTxt="Apply Filter" 
               txtColor="#ffffff" 
-              bgColorB4Pressed="#C4C4C4"
-              bgColorAfterPressed="#FF5403"
               width={250}
               myButton={styles.bigButtons}
               onPress={applyFilters}></Mybutton>
@@ -126,9 +125,7 @@ const ProductList = ({navigation}) => {
               <Mybutton 
               btnTxt="Clear All" 
               txtColor="#ffffff" 
-              width={250}
-              bgColorB4Pressed="#C4C4C4"
-              bgColorAfterPressed="#FF5403" 
+              width={250} 
               myButton={styles.bigButtons}
               onPress={clearFilters}
               ></Mybutton>

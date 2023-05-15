@@ -23,6 +23,7 @@ const Grocery = ({navigation}) => {
 
   return (
 <>
+<View >
     <PageHeadBar title="Grocery" navigation={navigation}></PageHeadBar> 
     <ScrollView style={{backgroundColor:"white",marginVertical:4}}>
       <View style={{flex:1,paddingBottom:60,flexDirection:"row",flexWrap:"wrap",justifyContent:"center",columnGap:10,rowGap:10}}>
@@ -30,13 +31,14 @@ const Grocery = ({navigation}) => {
         {
             grocery.map((item)=>(
               <View key={item.id} >
-                  <ProductCard item={item}></ProductCard>
+                  <ProductCard item={item} navigation={navigation}></ProductCard>
               </View>
             )) 
         }
       </View> 
     </ScrollView>
     <BottomNavBar navigation={navigation}></BottomNavBar>
+    </View>
   </>
   )
 }

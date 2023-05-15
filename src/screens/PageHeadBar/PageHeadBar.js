@@ -3,6 +3,8 @@ import React from 'react'
 import SearchIconSVG from "../../svg/Search.svg"
 import BellIconSVG from "../../svg/BellIcon.svg"
 import BasketIconSVG from "../../svg/BasketIcon.svg"
+import { useSelector } from 'react-redux'
+import { heightPercentageToDP } from 'react-native-responsive-screen'
 const PageHeadBar = ({title,navigation}) => {
 
   function showSearchPage(){
@@ -15,8 +17,10 @@ const PageHeadBar = ({title,navigation}) => {
     navigation.navigate("MyProfile")
   }
   function showNotificationPage(){
-    navigation.navigate("MyProfile")
+    navigation.navigate("MainNotification")
   }
+  const cart=useSelector((state)=>state.auth.myCart);
+  const count=cart?.length?cart.length:0
   return (
     <View style={styles.container}>
       <Text style={{fontSize:23,fontWeight:"bold",color:"black"}}>{title}</Text>
@@ -27,8 +31,14 @@ const PageHeadBar = ({title,navigation}) => {
         <Pressable onPress={showNotificationPage}>
             <BellIconSVG></BellIconSVG>
         </Pressable>
+        
         <Pressable onPress={showMyCart}>
+          <View style={{width:"10%"}}>
             <BasketIconSVG></BasketIconSVG>
+            <View style={{width:18,height:18,borderRadius:9,backgroundColor:"#ff5403",position:'absolute',left:14,}}>
+              <Text style={{alignSelf:'center',color:'white',fontSize:14}}>{count}</Text>
+            </View>
+            </View>
         </Pressable>
         
         <Pressable onPress={showMyProfile}>
@@ -46,7 +56,7 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         justifyContent:"space-between",
         alignItems:"center",
-        height:"10%",
+        height:heightPercentageToDP("10%"),
         paddingHorizontal:20,
         backgroundColor:"white"
     },

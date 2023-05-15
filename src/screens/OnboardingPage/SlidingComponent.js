@@ -10,7 +10,7 @@ const SlidingComponent = (props) => {
       </View>
       <View style={{flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
         <Text style={{color:"black",fontSize:20}}>{props.item.title}</Text>
-        <Text>{props.item.description}</Text>
+        <Text style={{color:"#000"}}>{props.item.description}</Text>
       </View>
     </View>
   )

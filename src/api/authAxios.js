@@ -17,17 +17,25 @@ const authAxiosInstance = axios.create();
 
 
 export const setSession = async (accessToken, refreshToken) => {
-    if (accessToken) {
-        await AsyncStorage.setItem('accessToken', response.data.data.token);
-        if (refreshToken) {
-            // localStorage.setItem('refreshToken', refreshToken)
-            // await AsyncStorage.setItem('accessToken', response.data.data.token);
+
+    console.log("access token at setSession:",accessToken)
+    console.log("refresh token at setSession:",refreshToken)
+    try{
+        if (accessToken) {
+            await AsyncStorage.setItem('accessToken',accessToken);
+            if (refreshToken) {
+                 await AsyncStorage.setItem('refreshToken', refreshToken);
+            }
+            authAxiosInstance.defaults.headers.common.Authorization = `Bearer ${accessToken}`
+        } 
+        else {
+            await AsyncStorage.removeItem('accessToken')
+            await AsyncStorage.removeItem('refreshToken')
+            delete authAxiosInstance.defaults.headers.common.Authorization
         }
-        authAxiosInstance.defaults.headers.common.Authorization = `Bearer ${accessToken}`
-    } else {
-        await AsyncStorage.removeItem('accessToken')
-        await AsyncStorage.removeItem('refreshToken')
-        delete authAxiosInstance.defaults.headers.common.Authorization
+    }
+    catch(err){
+        console.log(err)
     }
 }
 
@@ -43,12 +51,12 @@ authAxiosInstance.interceptors.request.use(
         const accessToken = await AsyncStorage.getItem('accessToken')
         if (accessToken) {
             conf.headers["Authorization"] = `Bearer ${accessToken}`;
-            conf.headers["os"] = Platform.OS.toLowerCase();
-            conf.headers["version"] = version;
-            const _longitude = await AsyncStorage.getItem('longitude')
-            const _latitude = await AsyncStorage.getItem('latitude')
-            conf.headers["longitude"] = _longitude || "";
-            conf.headers["latitude"] = _latitude || "";;
+            // conf.headers["os"] = Platform.OS.toLowerCase();
+            // conf.headers["version"] = version;
+            // const _longitude = await AsyncStorage.getItem('longitude')
+            // const _latitude = await AsyncStorage.getItem('latitude')
+            // conf.headers["longitude"] = _longitude || "";
+            // conf.headers["latitude"] = _latitude || "";;
         }
         return conf;
     },

@@ -1,5 +1,5 @@
-import {View, Text, StyleSheet, TextInput, ScrollView} from 'react-native';
-
+import {View, Text, StyleSheet, TextInput, ScrollView,KeyboardAvoidingView} from 'react-native';
+import { widthPercentageToDP as wp,heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import SearchIcon from '../../svg/SearchIcon.svg';
 import ArrowIcon from '../../svg/Arrow.svg';
 
@@ -39,8 +39,6 @@ const SearchPage = (props) => {
         }
   }
 
-  
-
   const handleChangeInput=(newText)=>{
     
     setSearchKeyWord(newText);
@@ -77,7 +75,7 @@ const SearchPage = (props) => {
   
 
   return (
-    <>
+    <View style={{flex:1}}>
         <View style={styles.container}>
           <View style={styles.titleContainer}>
             <ArrowIcon></ArrowIcon>
@@ -86,15 +84,14 @@ const SearchPage = (props) => {
           <View
             style={{
               flexDirection: 'row',
-              marginVertical: 15,
-              height: 37,
+              marginVertical:0,
+              height: 40,
               alignItems: 'center',
               paddingHorizontal: 5,
-              borderWidth: 1,
+              borderWidth: 2,
               borderColor: 'white',
               borderRadius: 25,
-              width: '86%',
-              alignSelf: 'center',
+              width: '100%',
               color: 'white',
             }}>
             <SearchIcon></SearchIcon>
@@ -109,14 +106,14 @@ const SearchPage = (props) => {
         </View>
 
         { !showSearchResults &&
-          <View style={{paddingHorizontal:10}}>
+          <View style={{paddingHorizontal:20,height:hp("75%")}}>
 
-          <Text style={{marginTop: 30, fontWeight: 'bold', color: 'black'}}>
+          <Text style={{marginTop: 22, fontSize:18, fontWeight: 'bold', color: 'black'}}>
             Top Searches
           </Text>
 
           <View style={styles.buttonContainer}>
-
+              
                 {
                   (topSearches.length > 0) && topSearches.map((category)=>{
                     return <Mybutton key={category.id} myButton={styles.myButton} width={buttonWidth} btnTxt={category.name}
@@ -124,17 +121,15 @@ const SearchPage = (props) => {
                   })
                 }
               
-
-              
           </View>
           <View>
-            <Text style={{fontWeight: 'bold', color: 'black', marginTop: 20}}>
+            <Text style={{fontWeight: 'bold',fontSize:18, color: 'black'}}>
               Browse Catagories
             </Text>
           </View>
 
-          <View style={{marginTop:10}}>
-            <ScrollView>
+          <View style={{flex:0.8,marginVertical:5}}>
+            <ScrollView style={{marginBottom:10}}>
             {allCategories.map((item, index) => {
               return (
                 
@@ -148,33 +143,40 @@ const SearchPage = (props) => {
         }
         {
           showSearchResults &&
-            <ScrollView style={{flex:1,padding:10,marginVertical:15}}> 
-              <SearchResults matchedProducts={matchedProducts}></SearchResults>
+            <ScrollView fadingEdgeLength={20} style={{flex:1,padding:10,marginVertical:15}}> 
+              <SearchResults matchedProducts={matchedProducts} navigation={navigation}></SearchResults>
             </ScrollView>
         }
       
-      <BottomNavBar navigation={navigation}></BottomNavBar>
-    </>
+    <View style={{height:hp('7%')}}>
+        <BottomNavBar navigation={navigation}></BottomNavBar>
+      </View>
+      
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    minHeight: '12%',
+    //flex:0.18,
+    //height:'23%',
+    flexDirection:"column",
+    justifyContent:"center",
+    gap:10,
+    paddingHorizontal:20,
     backgroundColor: '#FF5403',
     borderBottomRightRadius: 40,
     borderBottomLeftRadius: 40,
+    height:hp('18%')
   },
   titleContainer: {
     flexDirection: 'row',
-    maxWidth: '50%',
+    width: '100%',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    width: '60%',
-    marginTop: '15%',
-    marginHorizontal: 20,
     gap: 10,
+    marginBottom:10
   },
   text: {
     color: 'white',
@@ -182,11 +184,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   buttonContainer:{
-    
+    //height:"10%",
+    flex:0.15,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
-    marginTop: 10,
+    justifyContent:"space-between",
   },
   myButton:{
     backgroundColor:"#C4C4C4",

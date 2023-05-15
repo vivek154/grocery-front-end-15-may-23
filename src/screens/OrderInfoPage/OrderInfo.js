@@ -10,7 +10,7 @@ const OrderInfo = ({navigation}) => {
   return (
     <>
       <View style={styles.container}>
-        <PageHeader text="Order Information"></PageHeader>
+        <PageHeader text="Order Information" navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
       <ScrollView style={{paddingHorizontal:10}}>
       <View style={styles.adressCardContainer}>
         <AdressCard></AdressCard>

@@ -1,16 +1,24 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, } from 'react-native'
 import React from 'react'
-
-const ProfileCard = () => {
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import Applesvg from '../../svg/Apple.svg'
+const ProfileCard = (props) => {
+  const {userData,navigation}=props
+  const {email,phoneNumber,fullName}=userData
   return (
     <View style={styles.container}>
-      <View style={styles.profilePicContainer}></View>
-      <View style={styles.middleBox}>
-        <Text style={{color:"black",fontWeight:"bold",fontSize:18}}>John Doe</Text>
-        <Text>john@gmail.com</Text>
-        <Text>+1123456789</Text>
+      <View style={styles.profilePicContainer}>
+      <Applesvg></Applesvg>
       </View>
-      <Text style={{color:"#ff5403",alignSelf:"flex-start",marginTop:10}}>Edit</Text>
+      <View style={styles.middleBox}>
+        <Text style={{color:"black",fontWeight:"bold",fontSize:18}}>{fullName?fullName:'N/A'}</Text>
+        <Text style={{color:"#000"}}>{email?email:'N/A'}</Text>
+
+        <Text style={{color:"#000"}}>{phoneNumber}</Text>
+      </View>
+
+      <Text style={{color:"#ff5403",alignSelf:"flex-start",marginTop:10,fontSize:18}}
+      onPress={()=>navigation.navigate("EditProfilePage")}>Edit</Text>
     </View>
   )
 }
@@ -22,11 +30,11 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         justifyContent:"space-between",
         alignItems:"center",
-        marginHorizontal:30,
-        marginVertical:10,
     },
     profilePicContainer:{
         borderWidth:4,
+        justifyContent:'center',
+        alignItems:'center',
         borderColor:"#FF5403",
         width:100,
         height:100,

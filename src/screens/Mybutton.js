@@ -1,7 +1,7 @@
 import { View, Text,Pressable,StyleSheet} from 'react-native'
 import React from 'react'
 
-const Mybutton = ({onPress,btnTxt,txtColor,myButton,width}) => {
+const Mybutton = ({onPress,btnTxt,txtColor,myButton,width,}) => {
   
 
 

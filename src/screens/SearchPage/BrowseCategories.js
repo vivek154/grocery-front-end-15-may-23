@@ -8,10 +8,10 @@ const BrowseCategories=(props)=>{
     return  (
         
             <Pressable style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',
-            marginHorizontal:20,height:30,marginVertical:5}} 
+            marginHorizontal:0,height:30,marginVertical:5}} 
             onPress={()=>{ navigation.navigate("NewCategory",{item})}}>
                
-               <Text style={{ color:'black',fontWeight:'bold',justifyContent:'flex-start',textTransform:"capitalize"}}
+               <Text style={{ color:'black',justifyContent:'flex-start',textTransform:"capitalize"}}
                >{item.name}</Text>
                
                <Arrow ></Arrow>
