@@ -9,6 +9,7 @@ import {
   Linking,
   StatusBar,
   ActivityIndicator,
+  Pressable,
 } from 'react-native';
 
 import Mybutton from '../Mybutton';
@@ -79,26 +80,15 @@ const LoginScreen = ({navigation}) => {
         )}
 
         {!showActivityIndicator && (
-          <Mybutton
-            onPress={() => {
-              if (validatePhoneNumber(mobNo)) {
-                handleGetOtp();
-              }
-              else {
-                setIsValid(false)
-                setTimeout(()=>setIsValid(true),2000)
-              }
-            }}
-            btnTxt="GET OTP"
-            txtColor="#ffffff"
-            myButton={styles.myButton}
-            width={300}></Mybutton>
+         <Pressable style={styles.myButton} onPress={handleGetOtp}>
+            <Text style={{color:"white",fontWeight:"bold",fontSize:17,alignSelf:"center"}}>GET OTP</Text>
+         </Pressable>
         )}
 
         {showActivityIndicator && <ActivityIndicator></ActivityIndicator>}
 
         
-          <Text
+         {/* <Text
             style={{
               color: '#ff9900',
               textDecorationLine: 'underline',
@@ -107,8 +97,8 @@ const LoginScreen = ({navigation}) => {
             }}
             onPress={() => Linking.openURL('/')}>
             Forget Password?
-          </Text>
-        <View style={{justifyContent:"center",alignItems:"center"}}>  
+          </Text>*/}
+      {/* <View style={{justifyContent:"center",alignItems:"center"}}>  
           <Text style={{marginVertical:40,}}>
             Don't have an account 
             <Text style={{color: '#FF5403',marginHorizontal:2}} onPress={showRegistration}>
@@ -116,6 +106,7 @@ const LoginScreen = ({navigation}) => {
             </Text>
           </Text>
         </View>
+        */}
       </View>
     </View>
   );
@@ -157,7 +148,6 @@ const styles = StyleSheet.create({
     padding: 10,
     width: 300,
     marginTop: 15,
-    fontWeight: 'bold',
-    fontSize: 17,
+   
   },
 });

@@ -1,4 +1,4 @@
-import {View, Text, Pressable, StyleSheet, Image, ScrollView} from 'react-native';
+import {View, Text, Pressable, StyleSheet, Image, ScrollView,Modal} from 'react-native';
 import PageHeader from '../PageHeader/PageHeader';
 import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import DeliveryCard from '../DeliveryPage/DeliveryCard';
@@ -33,8 +33,8 @@ const MyOrder = ({navigation}) => {
       <View style={stylesMyOrder.bodyContainer}>
         <ScrollView>
           {
-            myOrders.map((order)=>{
-             return <MyOrderCard item={order}></MyOrderCard>
+            myOrders.map((order,index)=>{
+             return <MyOrderCard key={index} item={order}></MyOrderCard>
             })
           }
           

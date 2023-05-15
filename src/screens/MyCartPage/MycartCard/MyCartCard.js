@@ -25,9 +25,9 @@ const MyCartCard = (props) => {
   const [deleteIndicator,setDeleteIndicator]=useState(false)
  
   useEffect(()=>{
-
-    setTotalPrice((prevValue)=> (prevValue+ (quantity*price)))
     
+    setTotalPrice((prevValue)=> (prevValue+ (quantity*price)))
+
   },[])
   useEffect(()=>{
     setQuantityLoader(false)

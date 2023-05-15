@@ -28,7 +28,6 @@ const QuantityButtons = ({ count, increment, decrement }) => {
      setcount(count+1) 
      totalprice((a)*count);
  }
- 
  */
 
     return (
