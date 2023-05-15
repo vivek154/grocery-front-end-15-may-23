@@ -6,14 +6,15 @@ import { useSelector } from 'react-redux'
 const DeliveryCard = ({navigation}) => {
   const address=useSelector((state)=>state.auth.userData.address)
   return (
+
     <View>
-      <View>
+       <View>
         <PageHeader text="Delivery" navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
-      </View>
+       </View>
 
       <Text style={{ color: "black", fontWeight: "bold", marginVertical: 10 ,marginHorizontal:27}}>Where</Text>
       <View style={styles.container}>
-        {/* <Image source={require("../../images/apple.jpg")} style={styles.image}></Image> */}
+      
       <Applesvg></Applesvg>
         <View style={{ width: "60%", flexDirection: "row" }}>
           <View style={styles.middleBox}>
