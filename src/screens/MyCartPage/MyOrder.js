@@ -5,13 +5,9 @@ import { widthPercentageToDP } from 'react-native-responsive-screen';
 import DeliveryCard from '../DeliveryPage/DeliveryCard';
 const MyOrder = ({ navigation }) => {
     return (
+
         <>
-            <View>
-
-                <PageHeader text="My Orders" navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
-
-            </View>
-         
+             
             <View style={styles.container}>
         <Image source={require("../../images/apple.jpg")} style={styles.image}></Image>
 
@@ -29,16 +25,6 @@ const MyOrder = ({ navigation }) => {
 
         </View>
       </View>
- 
-
-              
-
-
-
-
-
-      
-
         </>
     )
 }
