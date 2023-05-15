@@ -40,6 +40,7 @@ const ProductCard = (props) => {
   const handlePress = async(productId) => {
     setAddedToCartFlag(true)
     const userId=userData.id
+    console.log(productId,"Added to cart",userId);
     let response= await postmycart(productId,userId)
     if(response.data){
       let response= await getmycart(userId);

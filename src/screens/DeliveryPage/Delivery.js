@@ -9,20 +9,25 @@ import {
   Alert,
   Modal
 } from 'react-native';
-
+import { Store } from '../../redux/Store';
 import DeliveryCard from './DeliveryCard';
 import BottomNavBar from '../BottomNavBar/BottomNavBar';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { useState } from 'react';
+import { AUTH_TYPE } from '../../redux/action/authAction';
 
 const Delivery = props => {
     const navigation = props.navigation;
     const [modalVisible,setModalVisible]=useState(false)
+    const {myCart}=useSelector((state)=>state.auth)
+    const dispatch=useDispatch()
     const openalert = () => {
       Alert.alert('OrderSuccessfull');
     };
     const showPaymentOptions = () => {
       //props.navigation.navigate('MyOrder');
+      dispatch({type:AUTH_TYPE.SET_MY_ORDERS,payload:myCart})
+     console.log("******myOrders Delivery page*****",Store.getState().auth.myOrders)
       setModalVisible(!modalVisible)
      // openalert();
     };

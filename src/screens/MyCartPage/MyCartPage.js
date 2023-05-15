@@ -13,6 +13,8 @@ import {Store} from '../../redux/Store';
 
 const MyCartPage = ({navigation}) => {
   function showDeliveryOptions() {
+    dispatch({type:AUTH_TYPE.SET_MY_ORDERS,action:data})
+
     navigation.navigate('Delivery');
   }
   const [data, setdata] = useState([]);

@@ -4,6 +4,7 @@ import { AUTH_TYPE } from '../action/authAction'
 const initialState = {
     showOnBoardingScreen: false,
     myCart:[],
+    myOrders:[],
     totalPrice:0,
 }
 
@@ -36,6 +37,11 @@ const authReducer = (state = initialState, action) => {
         case AUTH_TYPE.SET_TOTAL_PRICE:{
             return {
                 ...state,totalPrice:action.payload
+            }
+        }
+        case AUTH_TYPE.SET_MY_ORDERS:{
+            return {
+                ...state,myOrders:action.payload
             }
         }
         default:
