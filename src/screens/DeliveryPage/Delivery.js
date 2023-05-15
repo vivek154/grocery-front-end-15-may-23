@@ -12,21 +12,23 @@ import {
 
 import DeliveryCard from './DeliveryCard';
 import BottomNavBar from '../BottomNavBar/BottomNavBar';
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useState } from 'react';
 
 const Delivery = props => {
-    const navigation = props.navigation;
-    const [modalVisible,setModalVisible]=useState(false)
-    const openalert = () => {
-      Alert.alert('OrderSuccessfull');
-    };
-    const showPaymentOptions = () => {
-      //props.navigation.navigate('MyOrder');
-      setModalVisible(!modalVisible)
-     // openalert();
-    };
+  const navigation = props.navigation;
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const openalert = () => {
+    Alert.alert('OrderSuccessfull');
+  };
+  const showPaymentOptions = () => {
+    //props.navigation.navigate('MyOrder');
+    setModalVisible(!modalVisible)
   
+    // openalert();
+  };
+
 
   const totalPrice = useSelector(state => state.auth.totalPrice);
 
@@ -46,9 +48,10 @@ const Delivery = props => {
                 <Text style={styles.modalText}>Order Placed Successfully!</Text>
                 <Pressable
                   style={[styles.button, styles.buttonClose]}
-                  onPress={() =>{
-                   setModalVisible(!modalVisible)
-                   navigation.navigate("MyOrder")}}>
+                  onPress={() => {
+                    setModalVisible(!modalVisible)
+                    navigation.navigate("OrderDetails")
+                  }}>
                   <Text style={styles.textStyle}> OK </Text>
                 </Pressable>
               </View>
@@ -66,7 +69,7 @@ const Delivery = props => {
             }}>
             Total Bill Amount : ₹ {totalPrice}
           </Text>
-          <View style={{marginVertical: 20}}>
+          <View style={{ marginVertical: 20 }}>
             <Text
               style={{
                 alignSelf: 'flex-start',
@@ -78,7 +81,7 @@ const Delivery = props => {
               Payment Option :
             </Text>
             <TouchableOpacity
-              style={{marginHorizontal: 20, marginVertical: 20}}>
+              style={{ marginHorizontal: 20, marginVertical: 20 }}>
               <View
                 style={{
                   flex: 1,
@@ -93,13 +96,15 @@ const Delivery = props => {
                     height: 27,
                     borderWidth: 1,
                     borderRadius: 20,
-                  }}></View>
+                  }}>
+                  <View style={{ width: 19, height: 19, borderRadius: 12, alignSelf: 'center', backgroundColor: '#FF5403', marginVertical: 3 }}></View>
+                </View>
                 <View style={{}}>
                   <Image
-                    style={{resizeMode: 'contain', marginLeft: 8}}
+                    style={{ resizeMode: 'contain', marginLeft: 8 }}
                     source={require('../../images/bi_cash.png')}></Image>
                 </View>
-                <Text style={{marginHorizontal: 13, color: '#000'}}>
+                <Text style={{ marginHorizontal: 13, color: '#000' }}>
                   Cash on Delivery
                 </Text>
               </View>
@@ -111,9 +116,12 @@ const Delivery = props => {
                   marginVertical: 16,
                   backgroundColor: 'grey',
                 }}></View>
-              <View style={{justifyContent: 'center', alignItems: 'center'}}>
-                <Pressable style={{flex: 1}} onPress={showPaymentOptions}>
-                  <View style={{justifyContent: 'center'}}>
+              <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+               
+              </View>
+            </TouchableOpacity>
+            <Pressable style={{ flex: 1 ,alignSelf:'center',marginVertical:4}} onPress={showPaymentOptions}>
+                  <View style={{ justifyContent: 'center' }}>
                     <Text
                       style={{
                         color: '#000',
@@ -130,8 +138,6 @@ const Delivery = props => {
                     </Text>
                   </View>
                 </Pressable>
-              </View>
-            </TouchableOpacity>
           </View>
           {/*<View style={{justifyContent:'center'}}>
                     <View style={{ flexDirection: 'row', flexWrap:'wrap', overflow: "hidden", width: "90%", justifyContent: "space-around",alignItems:'center',marginLeft:14 ,padding:1 }}>
@@ -213,7 +219,7 @@ const Delivery = props => {
                         <View style={{ flex: 1, width: 300, borderWidth: 1, marginTop: 5, marginBottom: 12,  borderColor: 'grey', backgroundColor: 'grey', marginLeft: 20, marginRight: 10 }}></View>
                     </View>*/}
         </View>
-        <View style={{height: 70}}></View>
+        <View style={{ height: 70 }}></View>
       </ScrollView>
       <BottomNavBar navigation={props.navigation}></BottomNavBar>
     </>
@@ -259,14 +265,14 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
-    fontSize:16,
-    fontWeight:600,
+    fontSize: 16,
+    fontWeight: 600,
   },
   button: {
     borderRadius: 18,
     padding: 10,
     elevation: 2,
-    backgroundColor:"#ff5403"
+    backgroundColor: "#ff5403"
   },
 });
 export default Delivery;

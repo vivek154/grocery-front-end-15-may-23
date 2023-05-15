@@ -10,6 +10,7 @@ import DeleteIcon from '../../svg/delete.svg';
 import {getmycart} from '../../api/api';
 import {useDispatch, useSelector} from 'react-redux';
 import {Store} from '../../redux/Store';
+import OrderDetails from './OrderDetails';
 
 const MyCartPage = ({navigation}) => {
   function showDeliveryOptions() {
@@ -95,6 +96,7 @@ const MyCartPage = ({navigation}) => {
               }  
             </View>
           </View>
+          
         </>
       )}
       {

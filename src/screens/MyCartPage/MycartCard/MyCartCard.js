@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     padding: 10,
     elevation: 5,
     borderRadius: 10,
-    marginVertical: 10
+    marginVertical: 7
   },
   image: {
     width: 101,
