@@ -143,5 +143,6 @@ const styles = StyleSheet.create({
   searchBar: {
     color: 'white',
     height: 40,
+    width:"100%"
   },
 });
