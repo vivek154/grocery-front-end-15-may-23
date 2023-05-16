@@ -17,8 +17,9 @@ const ProductCard = (props) => {
  
   const { item,navigation} = props;
   const { userId, id, name, price, discount, description, imageUrl } = item
-  const myCartProducts= useSelector((state)=>state.auth.myCart)
-  //console.log("myCartProducst**",myCartProducts)
+  const myCart= useSelector((state)=>state.auth.myCart)
+  const myCartProducts=myCart.map((cart)=> cart.productId)
+  //console.log("***myCartProducst product card***",myCartProducts)
   const dispatch=useDispatch()
   const[addedToCartFlag,setAddedToCartFlag]=useState(()=>{
       if(myCartProducts.indexOf(id)==-1){
@@ -32,7 +33,7 @@ const ProductCard = (props) => {
         setAddedToCartFlag(false)
       }
       else setAddedToCartFlag(true)
-    },[myCartProducts])
+    },[myCart])
 
 
   const { userData } = useSelector(state => state?.auth)
@@ -40,6 +41,7 @@ const ProductCard = (props) => {
   const handlePress = async(productId) => {
     setAddedToCartFlag(true)
     const userId=userData.id
+    console.log(productId,"Added to cart",userId);
     let response= await postmycart(productId,userId)
     if(response.data){
       let response= await getmycart(userId);
