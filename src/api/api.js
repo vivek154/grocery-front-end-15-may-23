@@ -66,7 +66,7 @@ export const postmycart = (productId, userId, count) => {
 
 export const deletemycart = (productId, userId) => {
   //console.log('------------------------',productId,userId);
-  const url = `${API_URL}cart/deletecart`
+  const url = `${API_URL}cart/deletecart`//-- change to cart/delete-one
   return authAxiosInstance.post(url, { productId, userId });
 }
 
