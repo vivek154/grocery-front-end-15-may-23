@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import BottomNavBar from '../BottomNavBar/BottomNavBar';
 import { getmycart } from '../../api/api';
 import { useSelector } from 'react-redux';
+import OrderDetails from './OrderDetails';
 
 const MyOrder = ({ navigation }) => {
   const [myOrders, setMyOrders] = useState([])
@@ -33,12 +34,7 @@ const MyOrder = ({ navigation }) => {
  
   return (
     <View>
-      <View style={stylesMyOrder.headerContainer}>
-        <PageHeader
-          text="My Orders"
-          navigation={navigation}
-          navigateTo={'MyProfile'}></PageHeader>
-      </View>
+      
       <View>
        {/* <Pressable >
           <Text
@@ -52,6 +48,7 @@ const MyOrder = ({ navigation }) => {
             Order Details :{random}
           </Text>
         </Pressable>*/}
+
       </View>
       <View style={stylesMyOrder.bodyContainer}>
         <ScrollView>
@@ -76,7 +73,7 @@ const stylesMyOrder = StyleSheet.create({
     height: hp("10%")
   },
   bodyContainer: {
-    height: hp("83%")
+    height: hp("93%")
   },
   footerContainer: {
     height: hp("7%")

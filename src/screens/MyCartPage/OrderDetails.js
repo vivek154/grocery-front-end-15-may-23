@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import MyOrder from './MyOrder';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 import { useSelector } from 'react-redux';
+import { ScrollView } from 'react-native-gesture-handler';
 const OrderDetails=({navigation})=>
 {
    
@@ -12,6 +13,10 @@ const OrderDetails=({navigation})=>
    const [random,setrandom]=useState(0);
    const a="cancel";
    const [show,setshow]=useState(a);
+
+   const [showMyOrder,setshowMyorder]=useState(false);
+   const [visibleOrderDetails,setvisibleOrderDetails]=useState(true);
+
   const  handlePress=()=>
   {
     setshow("Cancelled");
@@ -20,16 +25,23 @@ const OrderDetails=({navigation})=>
    {
      setrandom(Math.floor(Math.random() * 11159099898));
    },[])
+
+   const showmyOrderScreen=()=>
+   {
+       setshowMyorder(true);
+       setvisibleOrderDetails(false);
+   }
   
     return (
         <>
-        <View   >
+      { visibleOrderDetails && <View   >
           <View>
-                  <PageHeader text="Order Details"></PageHeader>
+                  <PageHeader text="My Order"></PageHeader>
                   
           </View>
           <View style={styles.container}> 
-          <Pressable  onPress={()=>navigation.navigate("MyOrder")}> 
+          <Pressable  /*</View>onPress={()=>navigation.navigate("MyOrder")}*/
+          onPress={showmyOrderScreen}> 
           <View>
          
           <Text
@@ -57,9 +69,16 @@ const OrderDetails=({navigation})=>
             <Text style={{alignSelf:'center',color:'white',marginVertical:4,fontSize:16}}>{show}</Text>
         </Pressable>
         </View>
-        </View>
+        </View>  }
     
     <View >
+    <View>
+    <ScrollView>
+    <View style={{widthPercentageToDP:"93%"}}>
+   { showMyOrder && <MyOrder></MyOrder>}
+    </View>
+    </ScrollView>
+    </View>
 
 
 
@@ -74,16 +93,11 @@ const styles = StyleSheet.create({
     container: {
        marginVertical:20,
        alignSelf:'center',
-       width:widthPercentageToDP("80%"),
+       width:widthPercentageToDP("84%"),
        height:heightPercentageToDP("20%"),
        borderRadius:7,
        backgroundColor:'white',
        elevation:2,
-
-       
-
     },
-   
-    
   })
 
