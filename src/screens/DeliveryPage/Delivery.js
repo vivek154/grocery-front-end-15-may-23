@@ -6,29 +6,22 @@ import {
   ScrollView,
   Image,
   Pressable,
-  Alert,
-  Modal
+  Modal,
 } from 'react-native';
-
+import {Store} from '../../redux/Store';
 import DeliveryCard from './DeliveryCard';
 import BottomNavBar from '../BottomNavBar/BottomNavBar';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 
+
 const Delivery = props => {
   const navigation = props.navigation;
   const [modalVisible, setModalVisible] = useState(false);
 
-  const openalert = () => {
-    Alert.alert('OrderSuccessfull');
-  };
   const showPaymentOptions = () => {
-    //props.navigation.navigate('MyOrder');
-    setModalVisible(!modalVisible)
-  
-    // openalert();
+    setModalVisible(!modalVisible);
   };
-
 
   const totalPrice = useSelector(state => state.auth.totalPrice);
 
@@ -49,8 +42,8 @@ const Delivery = props => {
                 <Pressable
                   style={[styles.button, styles.buttonClose]}
                   onPress={() => {
-                    setModalVisible(!modalVisible)
-                    navigation.navigate("OrderDetails")
+                    setModalVisible(!modalVisible);
+                    navigation.navigate('MyOrder');
                   }}>
                   <Text style={styles.textStyle}> OK </Text>
                 </Pressable>
@@ -267,12 +260,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     fontWeight: 600,
+    color: '#000',
   },
   button: {
     borderRadius: 18,
     padding: 10,
     elevation: 2,
-    backgroundColor: "#ff5403"
+    backgroundColor: '#ff5403',
   },
 });
 export default Delivery;

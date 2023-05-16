@@ -7,11 +7,14 @@ import BottomNavBar from '../BottomNavBar/BottomNavBar';
 import { getmycart } from '../../api/api';
 import { useSelector } from 'react-redux';
 
-const MyOrder = ({ navigation }) => {
-  const [myOrders, setMyOrders] = useState([])
-  const userId = useSelector(state => state?.auth.userData.id);
-  const fetchMyCartData = async () => {
-
+const MyOrder = ({navigation}) => {
+  const myOrdersFromStore=useSelector((state)=>state.auth.myOrders)
+  console.log("******myOrders*****",myOrdersFromStore)
+  const [myOrders,setMyOrders]=useState(myOrdersFromStore)
+  console.log("/////my orders///",myOrders)
+  //const userId = useSelector(state => state?.auth.userData.id);
+ /* const fetchMyCartData =async () => {
+    
     let response = await getmycart(userId);
 
    
@@ -23,14 +26,7 @@ const MyOrder = ({ navigation }) => {
   };
   useEffect(() => {
     fetchMyCartData();
-  
-    
-  }, []);
-
-
- 
-
- 
+  },[]);*/
   return (
     <View>
       <View style={stylesMyOrder.headerContainer}>

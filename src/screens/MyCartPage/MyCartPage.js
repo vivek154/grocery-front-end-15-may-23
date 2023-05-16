@@ -13,7 +13,10 @@ import {Store} from '../../redux/Store';
 import OrderDetails from './OrderDetails';
 
 const MyCartPage = ({navigation}) => {
+  
   function showDeliveryOptions() {
+    dispatch({type:AUTH_TYPE.SET_MY_ORDERS,payload:data})
+    console.log("*****My Orders after buy now*****",Store.getState().auth.myOrders)
     navigation.navigate('Delivery');
   }
   const [data, setdata] = useState([]);
@@ -32,7 +35,7 @@ const MyCartPage = ({navigation}) => {
     try {
       let response = await getmycart(userData.id);
       console.log('get my cart response ', response.data);
-      let payload = response.data.map(cart => cart.productId);
+      let payload = response.data//.map(cart => cart.productId);
       dispatch({type: AUTH_TYPE.GET_MY_CART_DATA, payload: payload});
       setdata(response.data);
       setFetchingDataIndicator(false)
@@ -53,7 +56,6 @@ const MyCartPage = ({navigation}) => {
     <View style={{flex: 1, backgroundColor: 'white'}}>      
           <View style={{height: '13%'}}>
             <PageHeader text="My Cart" navigation={navigation} navigateTo={"ProductList"}></PageHeader>
-
           </View>
         {
           fetchingDataIndicator && <ActivityIndicator></ActivityIndicator>
