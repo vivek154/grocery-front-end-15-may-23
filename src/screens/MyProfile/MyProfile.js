@@ -69,9 +69,9 @@ const MyProfile = ({navigation}) => {
                     );
                     })}
                 </ScrollView>
-                <Pressable style={{height:50,flexDirection:"row",alignItems:"center",gap:30,paddingHorizontal:10,marginVertical:5}}>
+                <Pressable style={{height:50,flexDirection:"row",gap:30,paddingHorizontal:10,marginVertical:5,alignSelf:'center'}}>
                     <LogoutIcon></LogoutIcon>
-                    <Text style={{color:"red",fontSize:15}} onPress={()=>navigation.navigate('LoginScreen')}>Logout</Text>        
+                    <Text style={{color:"red",fontSize:15,}} onPress={()=>navigation.navigate('LoginScreen')}>Logout</Text>        
                 </Pressable>
             </View>
       </View>

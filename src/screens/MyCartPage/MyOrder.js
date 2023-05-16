@@ -1,8 +1,8 @@
-import {View, Text, Pressable, StyleSheet, Image, ScrollView,Modal} from 'react-native';
+import { View, Text, Pressable, StyleSheet, Image, ScrollView, Modal } from 'react-native';
 import PageHeader from '../PageHeader/PageHeader';
-import {heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import DeliveryCard from '../DeliveryPage/DeliveryCard';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import BottomNavBar from '../BottomNavBar/BottomNavBar';
 import { getmycart } from '../../api/api';
 import { useSelector } from 'react-redux';
@@ -16,9 +16,11 @@ const MyOrder = ({navigation}) => {
  /* const fetchMyCartData =async () => {
     
     let response = await getmycart(userId);
-    
-    if(response.data){
-      
+
+   
+
+    if (response.data) {
+
       setMyOrders(response.data)
     }
   };
@@ -33,15 +35,30 @@ const MyOrder = ({navigation}) => {
           navigation={navigation}
           navigateTo={'MyProfile'}></PageHeader>
       </View>
+      <View>
+       {/* <Pressable >
+          <Text
+            style={{
+              alignSelf: 'flex-start',
+              marginHorizontal: 20,
+              color: 'black',
+              fontWeight: 'bold',
+              fontSize: 20,
+            }}>
+            Order Details :{random}
+          </Text>
+        </Pressable>*/}
+      </View>
       <View style={stylesMyOrder.bodyContainer}>
         <ScrollView>
-          {
-            myOrders.map((order,index)=>{
-             return <MyOrderCard key={index} item={order}></MyOrderCard>
+ 
+        {
+             myOrders.map((order, index) => {
+              return <MyOrderCard key={index} item={order}></MyOrderCard>
             })
           }
-          
-        </ScrollView>  
+
+        </ScrollView>
       </View>
       <View style={stylesMyOrder.footerContainer}>
         <BottomNavBar navigation={navigation}></BottomNavBar>
@@ -51,14 +68,14 @@ const MyOrder = ({navigation}) => {
 };
 
 const stylesMyOrder = StyleSheet.create({
-  headerContainer:{
-    height:hp("10%")
+  headerContainer: {
+    height: hp("10%")
   },
-  bodyContainer:{
-    height:hp("83%")
+  bodyContainer: {
+    height: hp("83%")
   },
-  footerContainer:{
-    height:hp("7%")
+  footerContainer: {
+    height: hp("7%")
   }
 })
 
@@ -75,7 +92,7 @@ const styles = StyleSheet.create({
     maxwidth: '90%',
     minWidth: '70%',
 
-    marginVertical: 10,
+    marginVertical: 7,
   },
   image: {
     width: 101,
@@ -89,11 +106,18 @@ const styles = StyleSheet.create({
       marginHorizontal: 10,
       gap: 5*/
 
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    // alignItems: "flex-start"
-    flexWrap: 'wrap',
-    marginHorizontal: 23,
+    /* flexDirection: 'column',
+     justifyContent: 'space-around',
+     // alignItems: "flex-start"
+     flexWrap: 'wrap',
+     marginHorizontal: 23,
+     width: 120,
+      flexWrap:'wrap'*/
+    flexDirection: "column",
+    justifyContent: "space-around",
+    alignItems: "flex-start",
+    flexWrap: "wrap",
+    marginHorizontal: 10,
     width: 120,
   },
   endRightBox: {
@@ -112,23 +136,23 @@ const styles = StyleSheet.create({
 export default MyOrder;
 
 const MyOrderCard = (props) => {
-  const{item}=props
-  const totalPrice = useSelector((state)=> state.auth.totalPrice)
-  const { id, userId, name, price, imageUrl, productId,quantity } = item;
+  const { item } = props
+  const totalPrice = useSelector((state) => state.auth.totalPrice)
+  const { id, userId, name, price, imageUrl, productId, quantity } = item;
   return (
     <>
       <View style={styles.container}>
         <Image
-          source={{uri:imageUrl}}
+          source={{ uri: imageUrl }}
           style={styles.image}></Image>
 
-        <View style={{width: '60%', flexDirection: 'row'}}>
+        <View style={{ width: '60%', flexDirection: 'row' }}>
           <View style={styles.middleBox}>
-            <Text style={{fontWeight: 'bold', color: 'black', fontSize: 15}}>
+            <Text style={{ fontWeight: 'bold', color: 'black', fontSize: 15 }}>
               {name}
             </Text>
-            <Text style={{color: 'black'}}>Quantity : {quantity}</Text>
-            <Text style={{color: 'black'}}>Sum Total : {quantity*price}</Text>
+            <Text style={{ color: 'black' }}>Quantity : {quantity}</Text>
+            <Text style={{ color: 'black' }}>Sum Total : {quantity * price}</Text>
           </View>
 
           {/*<Text style={{ color: "black" }}>$10</Text>*/}

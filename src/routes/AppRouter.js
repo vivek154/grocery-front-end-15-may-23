@@ -30,6 +30,7 @@ import Wallets from '../screens/MyCartPage/Wallets';
 import RatingReviews from '../screens/MyCartPage/RatingReviews';
 import CustomerService from '../screens/MyCartPage/CustomerService';
 import DeliveryCard from '../screens/OrderInfoPage/DeliveryCard/DeliveryCard';
+import OrderDetails from '../screens/MyCartPage/OrderDetails';
 
 
 
@@ -79,6 +80,7 @@ const AppRouter = () => {
       <Stack.Screen name='RatingReviews' component={RatingReviews}></Stack.Screen>
       <Stack.Screen name='CustomerService' component={CustomerService}></Stack.Screen>
       <Stack.Screen name="DeliveryCart" component={DeliveryCard}></Stack.Screen>
+      <Stack.Screen name="OrderDetails" component={OrderDetails}></Stack.Screen>
     </Stack.Navigator>
   );
 };

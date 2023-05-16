@@ -9,8 +9,8 @@ const PaymentOptions=({navigation})=>
     return (
         
     <>
-    <ScrollView>
-    {/* <View>
+  {/*  <ScrollView>
+     <View>
         <View style={{width:357,height:160,borderWidth:1,borderBottomLeftRadius:20,borderBottomRightRadius:20,alignItems:'center',backgroundColor:'red',flexDirection:'row'}}>
 
         <Arrow></Arrow>
@@ -20,7 +20,7 @@ const PaymentOptions=({navigation})=>
         
    */}
 
-   <PageHeader text='Payment Options'navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
+  {/*} <PageHeader text='Payment Options'navigation={navigation} navigateTo={"MyProfile"}></PageHeader>
 
      <View style={{flex:1,flexDirection:'row',justifyContent:'space-around',marginTop:10}}>
      <Text style={{fontWeight:'bold',color:'black'}}>Shipping To</Text>
@@ -58,7 +58,7 @@ const PaymentOptions=({navigation})=>
                 
           
             </TouchableOpacity>
-      */ }
+     
       <TouchableOpacity style={{marginLeft:20}}>
                             <View style={{ flex: 1, flexDirection: 'row', marginTop: 10, alignItems: "center",marginLeft:24, gap: 10 }}>
                                      
@@ -187,7 +187,7 @@ const PaymentOptions=({navigation})=>
    
        
        </View>*/}
-       <TouchableOpacity style={{marginLeft:20}}>
+      {/* <TouchableOpacity style={{marginLeft:20}}>
                             <View style={{ flex: 1, flexDirection: 'row', marginTop: 10, alignItems: "center",marginLeft:24, gap: 10 }}>
                                      
                                 <View style={{ width: 27, height: 27, borderWidth: 1, borderRadius: 20,  }}></View>
@@ -200,20 +200,28 @@ const PaymentOptions=({navigation})=>
 
                             </View>
 
-
-                        </TouchableOpacity>
+              
+       </TouchableOpacity>   */} 
      
-        </View>
+       {/*} </View>
         </TouchableOpacity>
         <View style={{ flex:1,width:270,borderWidth:1,marginTop:5,marginBottom:5,justifyContent:'center',borderColor:'grey',backgroundColor:'grey',marginLeft:44,marginRight:10}}></View>
         <TouchableOpacity>
             <Text style={{backgroundColor:"#FF5403" ,color:'white',width:200,padding:7,height:40 ,alignSelf:'center',paddingLeft:50,borderRadius:30,marginBottom:40,marginTop:10}}>Pay ₹10.00</Text>
         </TouchableOpacity>
      </ScrollView>
+    */}
+    <View >
+    <PageHeader text="Payment Options"></PageHeader>
+   
+            </View> 
+            <View style={{ flex: 1, justifyContent: 'center' }} >
+                <Text style={{ alignSelf: 'center', fontWeight: 'bold', color: 'black' }}> Currently data is not avaliable</Text>
+            </View>
     </>   
-        
-    )
-}
+   
+    )}
+
 const styles=StyleSheet.create({
     main:{
        
