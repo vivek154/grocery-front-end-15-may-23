@@ -6,32 +6,22 @@ import {
   ScrollView,
   Image,
   Pressable,
-  Alert,
-  Modal
+  Modal,
 } from 'react-native';
-import { Store } from '../../redux/Store';
+import {Store} from '../../redux/Store';
 import DeliveryCard from './DeliveryCard';
 import BottomNavBar from '../BottomNavBar/BottomNavBar';
-import {useDispatch, useSelector} from 'react-redux';
-import { useState } from 'react';
-import { AUTH_TYPE } from '../../redux/action/authAction';
+import {useSelector} from 'react-redux';
+import {useState} from 'react';
+
 
 const Delivery = props => {
-    const navigation = props.navigation;
-    const [modalVisible,setModalVisible]=useState(false)
-    const {myCart}=useSelector((state)=>state.auth)
-    const dispatch=useDispatch()
-    const openalert = () => {
-      Alert.alert('OrderSuccessfull');
-    };
-    const showPaymentOptions = () => {
-      //props.navigation.navigate('MyOrder');
-      dispatch({type:AUTH_TYPE.SET_MY_ORDERS,payload:myCart})
-     console.log("******myOrders Delivery page*****",Store.getState().auth.myOrders)
-      setModalVisible(!modalVisible)
-     // openalert();
-    };
-  
+  const navigation = props.navigation;
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const showPaymentOptions = () => {
+    setModalVisible(!modalVisible);
+  };
 
   const totalPrice = useSelector(state => state.auth.totalPrice);
 
@@ -51,9 +41,10 @@ const Delivery = props => {
                 <Text style={styles.modalText}>Order Placed Successfully!</Text>
                 <Pressable
                   style={[styles.button, styles.buttonClose]}
-                  onPress={() =>{
-                   setModalVisible(!modalVisible)
-                   navigation.navigate("MyOrder")}}>
+                  onPress={() => {
+                    setModalVisible(!modalVisible);
+                    navigation.navigate('MyOrder');
+                  }}>
                   <Text style={styles.textStyle}> OK </Text>
                 </Pressable>
               </View>
@@ -264,14 +255,15 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
-    fontSize:16,
-    fontWeight:600,
+    fontSize: 16,
+    fontWeight: 600,
+    color: '#000',
   },
   button: {
     borderRadius: 18,
     padding: 10,
     elevation: 2,
-    backgroundColor:"#ff5403"
+    backgroundColor: '#ff5403',
   },
 });
 export default Delivery;

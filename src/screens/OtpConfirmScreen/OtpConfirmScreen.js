@@ -31,10 +31,10 @@ const OtpConfirmScreen = ({navigation, route}) => {
   const storeMyCartOnReduxStore= async(userid)=>{
     let response= await getmycart(userid)
     //console.log("***MyCart responce***",response.data)
-    let payload= response.data.map((cart)=> cart.productId)
+    let payload= response.data//.map((cart)=> cart.productId)
     //console.log("***payload***",payload)
     dispatch({type: AUTH_TYPE.GET_MY_CART_DATA,payload:payload})
-   //console.log("******state******",Store.getState())
+    console.log("****** state otp screen ******",Store.getState().auth.myCart)
   }
 
   const verifyOTP = async () => {
