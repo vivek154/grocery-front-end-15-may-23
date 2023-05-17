@@ -1,17 +1,20 @@
-import { View, Text, Pressable, StyleSheet, Image, ScrollView, Modal } from 'react-native';
+import { View, Text, Pressable, StyleSheet, Image, ScrollView, Modal, Button } from 'react-native';
 import PageHeader from '../PageHeader/PageHeader';
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { heightPercentageToDP as hp,widthPercentageToDP,widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import DeliveryCard from '../DeliveryPage/DeliveryCard';
 import { useEffect, useState } from 'react';
 import BottomNavBar from '../BottomNavBar/BottomNavBar';
 import { getmycart } from '../../api/api';
 import { useSelector } from 'react-redux';
+import Mybutton from '../Mybutton';
 
 const MyOrder = ({navigation}) => {
   const myOrdersFromStore=useSelector((state)=>state.auth.myOrders)
   console.log("******myOrders*****",myOrdersFromStore)
   const [myOrders,setMyOrders]=useState(myOrdersFromStore)
   console.log("/////my orders///",myOrders)
+  const totalPrice = useSelector((state)=>state.auth.totalPrice) 
+  const [showDetails,setShowDetails]= useState(false)
   //const userId = useSelector(state => state?.auth.userData.id);
  /* const fetchMyCartData =async () => {
     
@@ -50,14 +53,32 @@ const MyOrder = ({navigation}) => {
         </Pressable>*/}
       </View>
       <View style={stylesMyOrder.bodyContainer}>
-        <ScrollView>
- 
-        {
+        
+        { !showDetails &&
+          <View style={{alignSelf:"center",width:wp("80%"),flexDirection:"column",justifyContent:"center",
+          gap:5,marginTop:10,padding:10,elevation:4,borderRadius:10,backgroundColor:"#fff"}}>
+              <Text style={{color:"black"}}>Order Details:</Text>
+              <Text style={{color:"black"}}>Order ID : O-16052023236784 </Text>
+              <Text style={{color:"black"}}>Total Price: RS {totalPrice}</Text>
+              <Button onPress={()=>setShowDetails(!showDetails)} title='Show Details'
+              color={"#000"} ></Button>
+          </View>
+        }
+        <ScrollView style={{marginVertical:10}}>
+          {showDetails &&
+          <View style={{width:wp("90%"),alignSelf:'center'}}>
+            <Button title='HIDE DETAILS' onPress={()=>setShowDetails(!showDetails)}
+            
+           color={"#000"} style={{color:"#000"}}></Button>
+          </View>  
+          }
+          { showDetails &&
+            
              myOrders.map((order, index) => {
               return <MyOrderCard key={index} item={order}></MyOrderCard>
             })
           }
-
+        
         </ScrollView>
       </View>
       <View style={stylesMyOrder.footerContainer}>

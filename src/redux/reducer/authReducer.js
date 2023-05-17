@@ -6,6 +6,7 @@ const initialState = {
     myCart:[],
     myOrders:[],
     totalPrice:0,
+    reloadMyCartScreen:false
 }
 
 const authReducer = (state = initialState, action) => {
@@ -42,6 +43,11 @@ const authReducer = (state = initialState, action) => {
         case AUTH_TYPE.SET_MY_ORDERS:{
             return {
                 ...state,myOrders:action.payload
+            }
+        }
+        case AUTH_TYPE.RELOAD_MY_CART_SCREEN:{
+            return {
+                ...state,reloadMyCartScreen:action.payload
             }
         }
         default:

@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+
 import { API_URL } from '../constant/environment';
 import authAxiosInstance from './authAxios';
 
@@ -55,7 +55,8 @@ export const getAllProducts = () => {
 
 export const getmycart = (userid) => {
   //console.log("user Id get my cart ", userid)
-  const url = `${API_URL}cart/get-usercart`
+  //const url = `${API_URL}cart/get-usercart`//change to get-user-carts
+  const url = `${API_URL}cart/get-user-carts`//change to get-user-carts
   let response = authAxiosInstance.post(url, { userId: userid });
   return response
 }
@@ -66,8 +67,8 @@ export const postmycart = (productId, userId, count) => {
 
 export const deletemycart = (productId, userId) => {
   //console.log('------------------------',productId,userId);
-  const url = `${API_URL}cart/deletecart`//-- change to cart/delete-one
-  return authAxiosInstance.post(url, { productId, userId });
+  const url = `${API_URL}cart/1/${userId}/${productId}`
+  return authAxiosInstance.delete(url, { productId, userId });
 }
 
 export const updateUserProfileData = (userData) => {
@@ -83,7 +84,12 @@ export const getUserDataById = (id) => {
 
 export const updateQuantity=({userId,productId,action})=>{
   const url=`${API_URL}cart/update-quantity`
-  return authAxiosInstance.post(url,{userId:userId,productId:productId,action:action})
+  return authAxiosInstance.put(url,{userId:userId,productId:productId,action:action})
+}
+
+export const deleteAllCartRowsByUserId=({userId})=>{
+  const url=`${API_URL}cart/${userId}`
+  return authAxiosInstance.delete(url,{userId:userId})
 }
 
 
