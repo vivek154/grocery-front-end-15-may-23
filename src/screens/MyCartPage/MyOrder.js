@@ -15,21 +15,7 @@ const MyOrder = ({navigation}) => {
   console.log("/////my orders///",myOrders)
   const totalPrice = useSelector((state)=>state.auth.totalPrice) 
   const [showDetails,setShowDetails]= useState(false)
-  //const userId = useSelector(state => state?.auth.userData.id);
- /* const fetchMyCartData =async () => {
-    
-    let response = await getmycart(userId);
 
-   
-
-    if (response.data) {
-
-      setMyOrders(response.data)
-    }
-  };
-  useEffect(() => {
-    fetchMyCartData();
-  },[]);*/
   return (
     <View>
       <View style={stylesMyOrder.headerContainer}>
@@ -39,18 +25,6 @@ const MyOrder = ({navigation}) => {
           navigateTo={'MyProfile'}></PageHeader>
       </View>
       <View>
-       {/* <Pressable >
-          <Text
-            style={{
-              alignSelf: 'flex-start',
-              marginHorizontal: 20,
-              color: 'black',
-              fontWeight: 'bold',
-              fontSize: 20,
-            }}>
-            Order Details :{random}
-          </Text>
-        </Pressable>*/}
       </View>
       <View style={stylesMyOrder.bodyContainer}>
         
