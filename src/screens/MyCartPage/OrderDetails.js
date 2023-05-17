@@ -1,7 +1,6 @@
 import {View,Text,Pressable,StyleSheet,Image} from 'react-native';
 import PageHeader from '../PageHeader/PageHeader';
 import { useEffect, useState } from 'react';
-import MyOrder from './MyOrder';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 import { useSelector } from 'react-redux';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -34,11 +33,11 @@ const OrderDetails=({navigation})=>
   
     return (
         <>
-      { visibleOrderDetails && <View   >
-          <View>
-                  <PageHeader text="My Order"></PageHeader>
+        <View   >
+        {/*  <View>
+                  <PageHeader text="Order Details"></PageHeader>
                   
-          </View>
+          </View> */}
           <View style={styles.container}> 
           <Pressable  /*</View>onPress={()=>navigation.navigate("MyOrder")}*/
           onPress={showmyOrderScreen}> 
@@ -69,14 +68,12 @@ const OrderDetails=({navigation})=>
             <Text style={{alignSelf:'center',color:'white',marginVertical:4,fontSize:16}}>{show}</Text>
         </Pressable>
         </View>
-        </View>  }
+        </View>  
     
     <View >
     <View>
     <ScrollView>
-    <View style={{widthPercentageToDP:"93%"}}>
-   { showMyOrder && <MyOrder></MyOrder>}
-    </View>
+   
     </ScrollView>
     </View>
 

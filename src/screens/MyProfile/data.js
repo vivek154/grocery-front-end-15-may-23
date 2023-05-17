@@ -11,7 +11,7 @@ const data=[
     {
         option:"My Order",
         SVG:ClockSvg,
-        goto:"OrderDetails",
+        goto:"MyOrder",
     },
     {
         option:"Wallet",
