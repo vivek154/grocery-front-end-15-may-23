@@ -46,7 +46,7 @@ const ProductCard = (props) => {
     if(response.data){
       let response= await getmycart(userId);
       if(response.data){
-        let payload=response.data.map((cart)=>cart.productId)
+        let payload=response.data//.map((cart)=>cart.productId)
         dispatch({type:AUTH_TYPE.GET_MY_CART_DATA,payload:payload})
       }
     }
