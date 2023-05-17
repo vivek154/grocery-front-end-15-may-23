@@ -15,98 +15,11 @@ const MyOrder = ({navigation}) => {
   console.log("/////my orders///",myOrders)
   const totalPrice = useSelector((state)=>state.auth.totalPrice) 
   const [showDetails,setShowDetails]= useState(false)
-  //const userId = useSelector(state => state?.auth.userData.id);
- /* const fetchMyCartData =async () => {
-    
-    let response = await getmycart(userId);
 
-   
-
-    if (response.data) {
-
-      setMyOrders(response.data)
-    }
-  };
-  useEffect(() => {
-    fetchMyCartData();
-  
-    
-  }, []);
-
-  const amount=useSelector((state)=>state.auth.totalPrice);
-   console.log("..amount...",amount);
-   const [random,setrandom]=useState(0);
-   const a="cancel";
-   const [show,setshow]=useState(a);
-
-   const [showMyOrder,setshowMyorder]=useState(false);
-   const [visibleOrderDetails,setvisibleOrderDetails]=useState(true);
-
-  const  handlePress=()=>
-  {
-    setshow("Cancelled");
-  }
-   useEffect(()=>
-   {
-     setrandom(Math.floor(Math.random() * 11159099898));
-   },[])
-   const showmyOrderScreen=()=>
-   {
-       setshowMyorder(true);
-       setvisibleOrderDetails(false);
-   }
   return (
     <View>
       
       <View>
-       {/* <Pressable >
-          <Text
-            style={{
-              alignSelf: 'flex-start',
-              marginHorizontal: 20,
-              color: 'black',
-              fontWeight: 'bold',
-              fontSize: 20,
-            }}>
-            Order Details :{random}
-          </Text>
-        </Pressable>*/}
-        <View   >
-         <View>
-                  <PageHeader text="My Orders"></PageHeader>
-                  
-          </View> 
-         {  visibleOrderDetails && <View>
-          <View style={styles.container1}> 
-          <Pressable  /*</View>onPress={()=>navigation.navigate("MyOrder")}*/
-          onPress={showmyOrderScreen}> 
-          <View>
-          <Text
-            style={{
-              alignSelf: 'flex-start',
-              marginHorizontal: 20,
-              color: 'grey',
-              fontWeight: 'bold',
-              fontSize: 18,
-            }}>
-           Order Id: {random}
-          </Text>
-          <Text  style={{
-              alignSelf: 'flex-start',
-              marginVertical:4,
-              marginHorizontal: 20,
-              color: 'grey',
-              fontWeight: 'bold',
-              fontSize: 18,
-            }}>Total Amount : {amount}</Text>
-        </View>
-        </Pressable>
-        <Pressable style={{width:90,height:34,borderWidth:1,alignSelf:'center',marginVertical:30,borderRadius:10,backgroundColor:"#FF5403"}} onPress={handlePress}>
-            <Text style={{alignSelf:'center',color:'white',marginVertical:4,fontSize:16}}>{show}</Text>
-        </Pressable>
-        </View>
-        </View>}
-        </View>  
       </View>
       <View style={stylesMyOrder.bodyContainer}>
         
@@ -136,7 +49,7 @@ const MyOrder = ({navigation}) => {
           }
         
         </ScrollView>
-      </View>}
+      </View>
       <View style={stylesMyOrder.footerContainer}>
         <BottomNavBar navigation={navigation}></BottomNavBar>
       </View>
