@@ -31,11 +31,7 @@ import RatingReviews from '../screens/MyCartPage/RatingReviews';
 import CustomerService from '../screens/MyCartPage/CustomerService';
 import DeliveryCard from '../screens/OrderInfoPage/DeliveryCard/DeliveryCard';
 import OrderDetails from '../screens/MyCartPage/OrderDetails';
-
-
-
-
-// import SignInScreen from '../screens/auth/SignIn';
+import { useSelector } from 'react-redux';
 
 //const Stack = createNativeStackNavigator<RootStackParamList>();
 const Stack = createNativeStackNavigator();
@@ -47,16 +43,20 @@ const Stack = createNativeStackNavigator();
 };*/
 
 const AppRouter = () => {
+  
+  const {isLoggedIn} = useSelector(state => state.auth);
+
   return (
     <Stack.Navigator screenOptions={{headerShown:false}}>
-      
-      <Stack.Screen name="LoginScreen" component={LoginScreen}></Stack.Screen>
+      { !isLoggedIn &&
+        <Stack.Screen name="LoginScreen" component={LoginScreen}></Stack.Screen>
+      }
+      <Stack.Screen name="Home" component={Home}></Stack.Screen>
       <Stack.Screen name='OnboardingScreen' component={OnboardingPage}></Stack.Screen>
       <Stack.Screen name="SpleshScreen" component={SpleshScreen}></Stack.Screen>
       <Stack.Screen name="Guarantees" component={Guarantees}></Stack.Screen>
       <Stack.Screen name="OtpConfirmScreen" component={OtpConfirmScreen}></Stack.Screen>
       <Stack.Screen name="Register" component={Register}></Stack.Screen>
-      <Stack.Screen name="Home" component={Home}></Stack.Screen>
       <Stack.Screen name="vegetablesPage" component={Vegetables}></Stack.Screen>
       <Stack.Screen name="FruitsPage" component={Fruits}></Stack.Screen>
       <Stack.Screen name="GroceryPage" component={Grocery}></Stack.Screen>
