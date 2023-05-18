@@ -30,7 +30,7 @@ const authReducer = (state = initialState, action) => {
         }
         case AUTH_TYPE.GET_MY_CART_DATA:{
             return {
-                ...state,myCart:action.payload
+                ...state,myCart:action.payload 
             }
         }
         case AUTH_TYPE.DELETE_FROM_MY_CART:{

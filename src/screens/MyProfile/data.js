@@ -9,7 +9,7 @@ import LocationGreySvg from "../../svg/locationGrey.svg"
 
 const data=[
     {
-        option:"My Orders",
+        option:"My Order",
         SVG:ClockSvg,
         goto:"MyOrder",
     },

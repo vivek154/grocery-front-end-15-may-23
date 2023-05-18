@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, ScrollView, Keyboard} from 'react-native';
+import {StyleSheet, Text, View, ScrollView, Keyboard, Alert, BackHandler } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import HomeHeader from './HomeComponents/HomeHeader/HomeHeader';
 import BottomNavBar from '../BottomNavBar/BottomNavBar';
@@ -60,6 +60,29 @@ const Home = props => {
   function showAllGrocery() {
     navigation.navigate('NewCategory', {item: {name: 'grocery'}});
   }
+
+  useEffect(()=>{
+    const backACtion=()=>{
+      Alert.alert("Hold on!",'Do you want to logout?',[
+        {
+          text:"Cancel",
+          
+          onPress:()=>null,
+          
+        },
+        {
+          text:"Yes",
+          onPress:()=>BackHandler.exitApp() 
+        }
+      ]);
+     
+      return true;
+    };
+    
+    const backHandler=BackHandler.addEventListener("hardwareBackPress",backACtion);
+    return ()=>backHandler.remove();
+   
+  },[])
 
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
