@@ -55,6 +55,7 @@ const OtpConfirmScreen = ({navigation, route}) => {
         storeUserData(user);
         setSession(accessToken, refreshToken);
         storeMyCartOnReduxStore(user.id)
+        dispatch({type:AUTH_TYPE.SET_IS_LOGGED_IN,payload:true})
         navigation.navigate('Home');
       }
     } catch (error) {

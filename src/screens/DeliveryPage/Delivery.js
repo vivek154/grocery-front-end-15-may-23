@@ -7,14 +7,13 @@ import {
   Image,
   Pressable,
   Modal,
-  ActivityIndicator
+  ActivityIndicator,
 } from 'react-native';
-import {Store} from '../../redux/Store';
 import DeliveryCard from './DeliveryCard';
 import BottomNavBar from '../BottomNavBar/BottomNavBar';
 import {useSelector, useDispatch} from 'react-redux';
 import {useState} from 'react';
-import {deleteAllCartRowsByUserId, getmycart} from '../../api/api';
+import {deleteAllCartRowsByUserId} from '../../api/api';
 import {AUTH_TYPE} from '../../redux/action/authAction';
 
 const Delivery = props => {
@@ -22,13 +21,13 @@ const Delivery = props => {
   const navigation = props.navigation;
   const [modalVisible, setModalVisible] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
+  const reloadMyCartScreen=useSelector((state)=>state.auth.reloadMyCartScreen)
   const dispatch = useDispatch();
-
 
   const showPaymentOptions =async () => {
     setShowLoader(true)
     await deleteAllCartRowsByUserId({userId: userId});
-    dispatch({type: AUTH_TYPE.RELOAD_MY_CART_SCREEN,payload:true});
+    dispatch({type: AUTH_TYPE.RELOAD_MY_CART_SCREEN,payload:!reloadMyCartScreen})
     setShowLoader(false)
     setModalVisible(!modalVisible);
   };
