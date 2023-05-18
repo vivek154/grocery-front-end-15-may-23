@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   View,
+  BackHandler
 } from 'react-native';
 import React from 'react';
 import PageHeader from '../PageHeader/PageHeader';
