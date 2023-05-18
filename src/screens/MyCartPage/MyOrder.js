@@ -18,7 +18,12 @@ const MyOrder = ({navigation}) => {
 
   return (
     <View>
-      
+      <View style={stylesMyOrder.headerContainer}>
+        <PageHeader
+          text="My Orders"
+          navigation={navigation}
+          navigateTo={'MyProfile'}></PageHeader>
+      </View>
       <View>
       </View>
       <View style={stylesMyOrder.bodyContainer}>
@@ -90,6 +95,19 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
   },
   middleBox: {
+    /*stifyContent: "center",
+      alignItems: "flex-start",
+      flexWrap: "wrap",
+      marginHorizontal: 10,
+      gap: 5*/
+
+    /* flexDirection: 'column',
+     justifyContent: 'space-around',
+     // alignItems: "flex-start"
+     flexWrap: 'wrap',
+     marginHorizontal: 23,
+     width: 120,
+      flexWrap:'wrap'*/
     flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "flex-start",
@@ -108,16 +126,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#E5E5E5',
-  }, 
-  container1: {
-    marginVertical:20,
-    alignSelf:'center',
-    width:widthPercentageToDP("80%"),
-    height:heightPercentageToDP("20%"),
-    borderRadius:7,
-    backgroundColor:'white',
-    elevation:2,
- },
+  },
 });
 export default MyOrder;
 
@@ -140,6 +149,8 @@ const MyOrderCard = (props) => {
             <Text style={{ color: 'black' }}>Quantity : {quantity}</Text>
             <Text style={{ color: 'black' }}>Sum Total : {quantity * price}</Text>
           </View>
+
+          {/*<Text style={{ color: "black" }}>$10</Text>*/}
         </View>
       </View>
     </>
