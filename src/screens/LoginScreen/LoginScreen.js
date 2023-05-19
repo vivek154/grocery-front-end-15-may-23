@@ -15,6 +15,7 @@ import {
 import Mybutton from '../Mybutton';
 import {mobileLogin} from '../../api/api';
 import {useState} from 'react';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const LoginScreen = ({navigation}) => {
   function showRegistration() {
@@ -52,6 +53,7 @@ const LoginScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <KeyboardAwareScrollView>
       <Image
         style={styles.imgApple}
         source={require('../../images/apple.jpg')}></Image>
@@ -108,6 +110,7 @@ const LoginScreen = ({navigation}) => {
         </View>
         */}
       </View>
+      </KeyboardAwareScrollView>
     </View>
   );
 };
