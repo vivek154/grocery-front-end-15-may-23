@@ -9,14 +9,19 @@ import Mybutton from '../Mybutton';
 import data from './data';
 import ProfileActionCard from './ProfileActionCard';
 import BottomNavBar from '../BottomNavBar/BottomNavBar';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
+import { AUTH_TYPE } from '../../redux/action/authAction';
 
 const MyProfile = ({navigation}) => {
+
+  const isLoggedIn=useSelector((state)=>state.auth.isLoggedIn);
+  console.log(isLoggedIn)
   const {userData} = useSelector(state => state?.auth);
+  const dispatch=useDispatch();
 
   return (
 
@@ -71,7 +76,11 @@ const MyProfile = ({navigation}) => {
                 </ScrollView>
                 <Pressable style={{height:50,flexDirection:"row",gap:30,paddingHorizontal:10,marginVertical:5,alignSelf:'center'}}>
                     <LogoutIcon></LogoutIcon>
-                    <Text style={{color:"red",fontSize:15,}} onPress={()=>navigation.navigate('LoginScreen')}>Logout</Text>        
+                    <Text style={{color:"red",fontSize:15,}} onPress={()=>{
+                    dispatch({type:AUTH_TYPE.SET_IS_LOGGED_IN,payload:true},
+                    navigation.navigate("LoginScreen1"))
+                    
+                    }}>Logout</Text>        
                 </Pressable>
             </View>
       </View>

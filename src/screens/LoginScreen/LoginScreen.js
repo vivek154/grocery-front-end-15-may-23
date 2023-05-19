@@ -15,6 +15,8 @@ import {
 import Mybutton from '../Mybutton';
 import {mobileLogin} from '../../api/api';
 import {useState} from 'react';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import { heightPercentageToDP } from 'react-native-responsive-screen';
 
 const LoginScreen = ({navigation}) => {
   function showRegistration() {
@@ -51,7 +53,9 @@ const LoginScreen = ({navigation}) => {
   };
 
   return (
+    <View style={{backgroundColor:'white',flex:1}}>
     <View style={styles.container}>
+     <KeyboardAwareScrollView>
       <Image
         style={styles.imgApple}
         source={require('../../images/apple.jpg')}></Image>
@@ -59,7 +63,7 @@ const LoginScreen = ({navigation}) => {
         <Text
           style={{
             alignSelf: 'flex-start',
-            marginLeft: 20,
+             marginHorizontal:20,
             fontWeight: 'bold',
             fontSize: 30,
             color: '#000',
@@ -108,6 +112,8 @@ const LoginScreen = ({navigation}) => {
         </View>
         */}
       </View>
+      </KeyboardAwareScrollView>
+    </View>
     </View>
   );
 };
@@ -116,10 +122,16 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+
+    
     backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor:'white',
+    marginVertical:40
+    
+
+    
   },
 
   inputContainer: {

@@ -61,29 +61,7 @@ const Home = props => {
     navigation.navigate('NewCategory', {item: {name: 'grocery'}});
   }
 
-  useEffect(()=>{
-    const backACtion=()=>{
-      Alert.alert("Hold on!",'Do you want to logout?',[
-        {
-          text:"Cancel",
-          
-          onPress:()=>null,
-          
-        },
-        {
-          text:"Yes",
-          onPress:()=>BackHandler.exitApp() 
-        }
-      ]);
-     
-      return true;
-    };
-    
-    const backHandler=BackHandler.addEventListener("hardwareBackPress",backACtion);
-    return ()=>backHandler.remove();
-   
-  },[])
-
+ 
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <View style={styles.headerContainer}>

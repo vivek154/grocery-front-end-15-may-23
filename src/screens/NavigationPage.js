@@ -29,6 +29,7 @@ const NavigationPage = ({navigation}) => {
         <Button title='Registration Page' onPress={()=>{navigation.navigate("Register") }}></Button>
         <Button title='Onboarding Page' onPress={()=>{navigation.navigate("Onboarding") }}></Button>
         <Button title='OrderDetails' onPress={()=>{navigation.navigate("OrderDetails")}}></Button>
+        <Button title='LoginScreen1' onPress={()=>{navigation.navigate("LoginScreen1")}}></Button>
       
     </ScrollView>
   )

@@ -33,6 +33,7 @@ import DeliveryCard from '../screens/OrderInfoPage/DeliveryCard/DeliveryCard';
 import OrderDetails from '../screens/MyCartPage/OrderDetails';
 import { useSelector } from 'react-redux';
 
+
 //const Stack = createNativeStackNavigator<RootStackParamList>();
 const Stack = createNativeStackNavigator();
 
@@ -46,11 +47,13 @@ const AppRouter = () => {
   
   const {isLoggedIn} = useSelector(state => state.auth);
 
+  console.log(isLoggedIn,"login")
   return (
     <Stack.Navigator screenOptions={{headerShown:false}}>
       { !isLoggedIn &&
         <Stack.Screen name="LoginScreen" component={LoginScreen}></Stack.Screen>
       }
+
       <Stack.Screen name="Home" component={Home}></Stack.Screen>
       <Stack.Screen name='OnboardingScreen' component={OnboardingPage}></Stack.Screen>
       <Stack.Screen name="SpleshScreen" component={SpleshScreen}></Stack.Screen>
@@ -81,6 +84,8 @@ const AppRouter = () => {
       <Stack.Screen name='CustomerService' component={CustomerService}></Stack.Screen>
       <Stack.Screen name="DeliveryCart" component={DeliveryCard}></Stack.Screen>
       <Stack.Screen name="OrderDetails" component={OrderDetails}></Stack.Screen>
+      <Stack.Screen name='LoginScreen1' component={LoginScreen}></Stack.Screen>
+
     </Stack.Navigator>
   );
 };
