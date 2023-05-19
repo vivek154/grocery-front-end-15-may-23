@@ -1,3 +1,4 @@
+import { State } from 'react-native-gesture-handler';
 import { AUTH_TYPE } from '../action/authAction'
 
 

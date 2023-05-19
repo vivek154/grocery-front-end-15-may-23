@@ -53,7 +53,6 @@ const AppRouter = () => {
       { !isLoggedIn &&
         <Stack.Screen name="LoginScreen" component={LoginScreen}></Stack.Screen>
       }
-
       <Stack.Screen name="Home" component={Home}></Stack.Screen>
       <Stack.Screen name='OnboardingScreen' component={OnboardingPage}></Stack.Screen>
       <Stack.Screen name="SpleshScreen" component={SpleshScreen}></Stack.Screen>
@@ -85,7 +84,6 @@ const AppRouter = () => {
       <Stack.Screen name="DeliveryCart" component={DeliveryCard}></Stack.Screen>
       <Stack.Screen name="OrderDetails" component={OrderDetails}></Stack.Screen>
       <Stack.Screen name='LoginScreen1' component={LoginScreen}></Stack.Screen>
-
     </Stack.Navigator>
   );
 };
