@@ -1,4 +1,4 @@
-import { View, Text, Pressable, StyleSheet, Image, ScrollView, Modal, Button } from 'react-native';
+import { View, Text, Pressable, StyleSheet, Image, ScrollView, Modal, Button, BackHandler,Alert } from 'react-native';
 import PageHeader from '../PageHeader/PageHeader';
 import { heightPercentageToDP as hp,widthPercentageToDP,widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import  DeliveryCard from '../DeliveryPage/DeliveryCard';
@@ -15,6 +15,22 @@ const MyOrder = ({navigation}) => {
   console.log("/////my orders///",myOrders)
   const totalPrice = useSelector((state)=>state.auth.totalPrice) 
   const [showDetails,setShowDetails]= useState(false)
+
+  useEffect(() => {
+    const backAction = () => {
+         navigation.navigate("Home");
+    }
+    
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction
+      
+    );
+
+    return () => backHandler.remove();
+  }, []);
+
 
   return (
     <View>

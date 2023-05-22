@@ -6,7 +6,7 @@ import SingleSlider from './HomeComponents/SingleSlider';
 import MultiSlider from './HomeComponents/MultiSlider';
 import SearchResults from '../SearchResults/SearchResults';
 import {getSearchResults} from '../../api/api';
-import { widthPercentageToDP as wp,heightPercentageToDP as hp, widthPercentageToDP, heightPercentageToDP } from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp,heightPercentageToDP as hp, } from 'react-native-responsive-screen';
 const single_slider_images = [
   {id: 1, url: require('../../images/Images-multi/img1.jpg')},
   {id: 2, url: require('../../images/Images-multi/img2.jpg')},
