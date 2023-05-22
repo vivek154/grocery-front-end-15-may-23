@@ -12,6 +12,7 @@ const ProductList = ({navigation}) => {
     const [products,setProducts]= useState([]);
     const [categories,setCategories]=useState([])
     const [filters,setFilters]=useState([])
+    const {myCart}=useSelector((state)=>state.auth.myCart)
 
     const requestProducts = async () =>{
       try{
@@ -64,7 +65,7 @@ const ProductList = ({navigation}) => {
       requestProducts()
       requestCategories()
 
-    },[])
+    },[myCart])
 
 
   return (
@@ -120,7 +121,9 @@ const ProductList = ({navigation}) => {
               txtColor="#ffffff" 
               width={250}
               myButton={styles.bigButtons}
-              onPress={applyFilters}></Mybutton>
+              onPress={()=>{
+                applyFilters()
+                refRBSheet.current.close()}}></Mybutton>
 
               <Mybutton 
               btnTxt="Clear All" 

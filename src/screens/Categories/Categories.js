@@ -8,15 +8,10 @@ const Categories=({item,navigation})=>
 {
   return (
     
-         <View style={styles.view}>
-         <View>
-            <Pressable onPress={()=>navigation.navigate(item.goto,{item})}>
-               <Image style={styles.img} source={item.url}></Image>
-               <Text>{item.name}</Text>
-            </Pressable>
-         </View>
-         </View>
-    
+      <Pressable style={styles.view} onPress={()=>navigation.navigate("NewCategory",{item})}>
+         <Image style={styles.img} source={{uri:item.thumbnail}}></Image>
+         <Text style={{color:"black",textTransform:"capitalize"}}>{item.name}</Text>
+      </Pressable> 
   )
 }
 const styles=StyleSheet.create({

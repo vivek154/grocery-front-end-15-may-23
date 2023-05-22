@@ -13,11 +13,15 @@ import DeliveryCard from './DeliveryCard';
 import BottomNavBar from '../BottomNavBar/BottomNavBar';
 import {useSelector, useDispatch} from 'react-redux';
 import {useState} from 'react';
-import {deleteAllCartRowsByUserId} from '../../api/api';
+import {addNewOrder, deleteAllCartRowsByUserId} from '../../api/api';
 import {AUTH_TYPE} from '../../redux/action/authAction';
 
 const Delivery = props => {
-  const userId = useSelector(state => state.auth.userData.id);
+  const {id,address} = useSelector(state => state.auth.userData);
+  const {myCart} = useSelector(state => state.auth);
+  const userId=id;
+  const deliveryAdderss=address?address:""
+  const cart=myCart
   const navigation = props.navigation;
   const [modalVisible, setModalVisible] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
@@ -26,7 +30,9 @@ const Delivery = props => {
 
   const showPaymentOptions =async () => {
     setShowLoader(true)
+    await addNewOrder(userId,deliveryAdderss,cart)
     await deleteAllCartRowsByUserId({userId: userId});
+    dispatch({type:AUTH_TYPE.GET_MY_CART_DATA,payload:[]})
     dispatch({type: AUTH_TYPE.RELOAD_MY_CART_SCREEN,payload:!reloadMyCartScreen})
     setShowLoader(false)
     setModalVisible(!modalVisible);

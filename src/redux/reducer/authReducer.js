@@ -45,9 +45,13 @@ const authReducer = (state = initialState, action) => {
         }
         case AUTH_TYPE.SET_MY_ORDERS:{
             return {
-                ...state,myOrders:action.payload
-            }
+                ...state,myOrders:[...state.myOrders,{
+                    totalPrice:action.payload.totalPrice,
+                    orders:action.payload.orders
+                    }]
+                }
         }
+        
         case AUTH_TYPE.RELOAD_MY_CART_SCREEN:{
             return {
                 ...state,reloadMyCartScreen:action.payload
