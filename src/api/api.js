@@ -92,6 +92,21 @@ export const deleteAllCartRowsByUserId=({userId})=>{
   return authAxiosInstance.delete(url,{userId:userId})
 }
 
+export const addNewOrder=(userId,deliveryAddress,cart)=>{
+  const url=`${API_URL}orders/new-order`
+  return authAxiosInstance.post(url,{userId,deliveryAddress,cart})
+}
+
+export const getAllOrders=(userId)=>{
+  const url=`${API_URL}orders/all/${userId}`
+  return authAxiosInstance.get(url)
+}
+
+export const getOrderDatails=(orderId)=>{
+  const url=`${API_URL}orderdetails/all/${orderId}`
+  return authAxiosInstance.get(url)
+}
+
 
 
 

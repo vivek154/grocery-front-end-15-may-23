@@ -18,8 +18,10 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Store} from '../../redux/Store';
 
 const MyCartPage = ({navigation}) => {
+  const myOrdersFromStore=useSelector((state)=>state.auth.myOrders)
   function showDeliveryOptions() {
-    dispatch({type: AUTH_TYPE.SET_MY_ORDERS, payload: data});
+    dispatch({type: AUTH_TYPE.SET_MY_ORDERS, payload:{totalPrice:totalPrice,orders:data}});
+    console.log("@@@@@@ myOrders @@@@@@@",Store.getState().auth.myOrders)
     navigation.navigate('Delivery');
   }
   const [data, setdata] = useState([]);
