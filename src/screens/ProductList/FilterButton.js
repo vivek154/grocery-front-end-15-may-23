@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View,Pressable } from 'react-native'
 import React,{useEffect, useState} from 'react'
 
-const FilterButton = (props) => {
+const  FilterButton = (props) => {
     const INITIAL_COLOR="#C4C4C4"
     const ON_PRESS_COLOR="#FF5403"
     const {item,onPress,filters}=props

@@ -17,6 +17,7 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 showOnBoardingScreen: true
+                
             }
         }
         case AUTH_TYPE.RECEIVED_USER_DATA: {
