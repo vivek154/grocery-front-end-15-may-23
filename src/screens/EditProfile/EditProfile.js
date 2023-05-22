@@ -33,7 +33,7 @@ const EditProfile = (props) => {
         }
     }
     useEffect(()=>{
-        getUserData()
+        getUserData()                                                                                                                                                                                                                                      
     },[])
     const requestUpdateProfile= async() =>{
         try{
@@ -106,9 +106,11 @@ const styles = StyleSheet.create({
     textInput:{
         borderWidth:1,
         borderColor:"#000",
-        color:"#000"
+        color:"#000",
+        borderRadius:10,
     },
     lable:{
-        color:"#000"
+        color:"#000",
+        fontWeight:'bold'
     },
 })

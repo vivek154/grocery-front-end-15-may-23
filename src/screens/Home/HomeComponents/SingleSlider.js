@@ -28,6 +28,7 @@ const SingleSlider = ({images, showAllGrocery}) => {
                  height:heightPercentageToDP("19%"),
                 
                  justifyContent:'center',
+                 
                    
                 }}>
                     
