@@ -23,7 +23,7 @@ const PageHeadBar = ({title,navigation}) => {
   const count=cart?.length?cart.length:0
   return (
     <View style={styles.container}>
-      <Text style={{fontSize:23,fontWeight:"bold",color:"black"}}>{title}</Text>
+      <Text style={{fontSize:23,fontWeight:"bold",color:"black",textTransform:"capitalize"}}>{title}</Text>
       <View style={styles.iconsContainer}>
         <Pressable onPress={showSearchPage}>
             <SearchIconSVG></SearchIconSVG>
