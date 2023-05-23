@@ -1,7 +1,6 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Store } from '../redux/Store';
-//import { AUTH_TYPE } from '../redux/actions/authAction';
 import { AUTH_TYPE } from '../redux/action/authAction';
 import { Platform } from 'react-native';
 import deviceInfoModule from 'react-native-device-info'

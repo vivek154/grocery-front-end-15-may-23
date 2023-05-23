@@ -33,8 +33,9 @@ const NewCategory = props => {
     }
   };
   useEffect(() => {
+    setShowActivityIndicator(true)
     makeApiRequest();
-  }, []);
+  }, [categoryName]);
 
   return (
     <View style={{height:hp("100%")}}>
@@ -52,7 +53,7 @@ const NewCategory = props => {
             rowGap: 10,
             paddingVertical:10
           }}>
-          {showActivityIndicator && <ActivityIndicator></ActivityIndicator>}
+          {showActivityIndicator && <ActivityIndicator color={"#FF5403"}></ActivityIndicator>}
           {!showActivityIndicator &&
             products.map(item => (
               <View key={item.id}>
