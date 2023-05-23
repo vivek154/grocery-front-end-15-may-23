@@ -54,7 +54,7 @@ const HomeHeader = props => {
   const cart=useSelector((state)=>state.auth.myCart);
   const count=cart.length;
   return (
-    <View style={{width: '100%',height:hp("18%")}}>
+    <View style={{width: '100%',height:hp("17%")}}>
       <View style={styles.header}>
         <View
           style={{
