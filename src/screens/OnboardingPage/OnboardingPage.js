@@ -57,7 +57,7 @@ const OnboardingPage=({onBoardingDone})=>
                  renderItem={({item,index})=>
                     {
                         return(
-                            <View key={index} style={{width:360,height:200 }}>
+                            <View key={index} style={{width:width,height:height}}>
                             <SlidingComponent key={index} item={item}></SlidingComponent>
                             </View>
                         )

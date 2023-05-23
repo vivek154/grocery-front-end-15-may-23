@@ -51,6 +51,7 @@ const Home = props => {
     }
   };
 
+
   function showAllVegetables() {
     navigation.navigate('NewCategory', {item: {name: 'vegetables'}});
   }
@@ -60,7 +61,17 @@ const Home = props => {
   function showAllGrocery() {
     navigation.navigate('NewCategory', {item: {name: 'grocery'}});
   }
-
+ 
+ 
+  const handleBackPress = () => {
+    // Logic to exit the app
+    BackHandler.exitApp();
+    return true;
+  };
+  useEffect(()=>{
+    handleBackPress
+  },[])
+  
  
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
@@ -75,9 +86,9 @@ const Home = props => {
       {searchKeyWord == '' && !showSearchResults && (
         <View style={styles.bodyContainer}>
           
-          <ScrollView fadingEdgeLength={20}>
+          <ScrollView fadingEdgeLength={4}>
             <View>
-              <View >
+              <View  style={{heightPercentageToDP:20 }}>
                 <SingleSlider images={single_slider_images} showAllGrocery={showAllGrocery}></SingleSlider>
               </View>
               <View
@@ -85,7 +96,7 @@ const Home = props => {
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  marginVertical: 6,
+                  marginVertical: 3
                 }}>
                 <Text style={{fontSize: 18, fontWeight: 600, color: 'black'}}>
                   Vegetables
@@ -104,7 +115,7 @@ const Home = props => {
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  marginVertical: 5,
+                  marginVertical: 3,
                 }}>
                 <Text style={{fontSize: 18, fontWeight: 600, color: 'black'}}>
                   Fruits
@@ -123,7 +134,7 @@ const Home = props => {
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  marginVertical: 5,
+                  marginVertical: 3,
                 }}>
                 <Text style={{fontSize: 18, fontWeight: 600, color: 'black'}}>
                   Grocery
@@ -159,20 +170,20 @@ export default Home;
 
 const styles = StyleSheet.create({
   headerContainer: {
-    height:hp("19%"), //flex: 0.18,//borderWidth: 1,
+    height:hp("17%"), //flex: 0.18,//borderWidth: 1,
     backgroundColor: 'white',
 
   },
   bodyContainer: {
     //flex: 0.75,
-    height:hp("68%"),
+    height:hp("76%"),
     backgroundColor: 'white',
     paddingHorizontal: 20,
     //paddingVertical:38
   },
   footerContainer: {
     //flex: 0.07,
-    height:hp("13.5%"),
+    height:hp("7%"),
     backgroundColor: 'white',
   
   },
