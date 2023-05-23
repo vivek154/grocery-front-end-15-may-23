@@ -6,7 +6,7 @@ import SingleSlider from './HomeComponents/SingleSlider';
 import MultiSlider from './HomeComponents/MultiSlider';
 import SearchResults from '../SearchResults/SearchResults';
 import {getSearchResults} from '../../api/api';
-import { widthPercentageToDP as wp,heightPercentageToDP as hp, widthPercentageToDP, heightPercentageToDP } from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp,heightPercentageToDP as hp, } from 'react-native-responsive-screen';
 const single_slider_images = [
   {id: 1, url: require('../../images/Images-multi/img1.jpg')},
   {id: 2, url: require('../../images/Images-multi/img2.jpg')},
@@ -85,7 +85,7 @@ const Home = props => {
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  marginVertical: 5,
+                  marginVertical: 6,
                 }}>
                 <Text style={{fontSize: 18, fontWeight: 600, color: 'black'}}>
                   Vegetables
@@ -159,9 +159,7 @@ export default Home;
 
 const styles = StyleSheet.create({
   headerContainer: {
-    height:hp("20%"),
-    //flex: 0.18,
-    //borderWidth: 1,
+    height:hp("19%"), //flex: 0.18,//borderWidth: 1,
     backgroundColor: 'white',
 
   },
@@ -174,7 +172,8 @@ const styles = StyleSheet.create({
   },
   footerContainer: {
     //flex: 0.07,
-    height:hp("12%"),
+    height:hp("13.5%"),
     backgroundColor: 'white',
+  
   },
 });

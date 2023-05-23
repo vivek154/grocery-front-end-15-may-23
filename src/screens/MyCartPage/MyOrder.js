@@ -8,6 +8,9 @@ import {
   Modal,
   Button,
   ActivityIndicator,
+  Alert,
+  BackHandler,
+ 
 } from 'react-native';
 import PageHeader from '../PageHeader/PageHeader';
 import {
@@ -39,6 +42,20 @@ const MyOrder = ({navigation}) => {
   useEffect(()=>{
     fetchAllOrders()
   },[])
+
+  
+function handleBackButtonClick()
+{
+  navigation.navigate("Home");
+  return true;
+}
+useEffect(()=>{
+  BackHandler.addEventListener("hardwareBackPress",handleBackButtonClick);
+  return ()=>{
+    BackHandler.removeEventListener("hardwareBackPress",handleBackButtonClick);
+  };
+},[])
+
 
   return (
     <View>

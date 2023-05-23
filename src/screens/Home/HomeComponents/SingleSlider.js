@@ -16,39 +16,20 @@ const SingleSlider = ({images, showAllGrocery}) => {
     const _renderItem = ({ item, index }) => {
         return (
             <View key={index}
-                style={{
-                   /* flex: 1,
-                    justifyContent: 'center',
-                    backgroundColor:"white",
-                    //width:319,
-                    //height:300,
-                   
-                     height:heightPercentageToDP('70%'),
-                   
-                    borderRadius:10,
-                    marginTop:10,
-                    marginBottom:10,
-                    
-                    //borderWidth:1,
-                    elevation:4,
-                    height:80,*/
-    
+                style={{    
                  backgroundColor: 'white',
                  paddingHorizontal: 7,
                  paddingVertical: 7,
                  borderRadius: 12,
                  elevation: 2,
                  marginHorizontal: 6,
-                 marginVertical:4,
+                 marginVertical:0.2,
                  width:widthPercentageToDP("85.6%"),
                  height:heightPercentageToDP("19%"),
                 
                  justifyContent:'center',
                  
-        
-                    
-                    
-                    
+                   
                 }}>
                     
               <Pressable onPress={ showAllGrocery} >

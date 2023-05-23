@@ -1,5 +1,6 @@
 
-import {View,Text,FlatList,TouchableOpacity,Dimensions,Image,ScrollView,Pressable} from 'react-native';
+import {View,Text,FlatList,TouchableOpacity,Dimensions,Image,ScrollView,Pressable,} from 'react-native';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import React,{useState} from 'react';
 import SlidingComponent from './SlidingComponent';
 
@@ -56,7 +57,7 @@ const OnboardingPage=({onBoardingDone})=>
                  renderItem={({item,index})=>
                     {
                         return(
-                            <View key={index} style={{width:360,height:200}}>
+                            <View key={index} style={{width:360,height:200 }}>
                             <SlidingComponent key={index} item={item}></SlidingComponent>
                             </View>
                         )
@@ -76,7 +77,7 @@ const OnboardingPage=({onBoardingDone})=>
                 data.map((item,index)=>
                 {
                     return (
-                        <View key={index} style={{width:8,height:8,borderRadius:4,backgroundColor:currenIndex==index ? 'green': 'grey',marginLeft:5,}}></View>
+                        <View key={index} style={{width:8,height:8,borderRadius:4,backgroundColor:currenIndex==index ? 'green': 'grey',marginHorizontal:5,}}></View>
                     )
                 })
               
@@ -89,11 +90,11 @@ const OnboardingPage=({onBoardingDone})=>
           <Pressable style={{justifyContent:'center',alignItems:'center'}} onPress={()=>{onBoardingDone()}}>
             
             <Text style={{width:90,height:40,borderWidth:1,borderRadius:20,backgroundColor:'black',
-            color:'white',padding:10,paddingLeft:28}}>Next</Text>
+            color:'white',padding:10,paddingHorizontal:28}}>Next</Text>
             
             </Pressable>}
            
-           <Text style={{color:'black',fontWeight:'bold',alignItems:'center',marginTop:5}}
+           <Text style={{color:'black',fontWeight:'bold',alignItems:'center',marginVertical:5}}
            onPress={()=>{onBoardingDone()}}>Skip</Text>
           
           

@@ -1,3 +1,4 @@
+import { State } from 'react-native-gesture-handler';
 import { AUTH_TYPE } from '../action/authAction'
 
 
@@ -16,6 +17,7 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 showOnBoardingScreen: true
+                
             }
         }
         case AUTH_TYPE.RECEIVED_USER_DATA: {

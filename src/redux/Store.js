@@ -1,9 +1,9 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import createSagaMiddleware from 'redux-saga'
-import { persistStore, persistReducer } from 'redux-persist'
+import {createStore,applyMiddleware,compose} from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import { persistStore, persistReducer } from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import RootReducer from './reducer/RootReducer';
-import RootSaga from './saga/RootSaga'
+import RootSaga from './saga/RootSaga';
 
 
 const sagaMiddleware = createSagaMiddleware()
@@ -14,7 +14,6 @@ const persistConfig = {
 const initialState = {}
 const middlewares = [sagaMiddleware]
 let devtools = (x) => x
-
 if (
     process.env.NODE_ENV !== 'production' &&
     process.browser &&
