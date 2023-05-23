@@ -82,8 +82,8 @@ const AppRouter = () => {
       <Stack.Screen name='RatingReviews' component={RatingReviews}></Stack.Screen>
       <Stack.Screen name='CustomerService' component={CustomerService}></Stack.Screen>
       <Stack.Screen name="DeliveryCart" component={DeliveryCard}></Stack.Screen>
-      <Stack.Screen name="OrderDetails" component={OrderDetails}></Stack.Screen>
       <Stack.Screen name='LoginScreen1' component={LoginScreen}></Stack.Screen>
+      <Stack.Screen name='OrderDetails' component={OrderDetails}></Stack.Screen>
     </Stack.Navigator>
   );
 };

@@ -25,9 +25,9 @@ import {getAllOrders, getOrderDatails, getmycart} from '../../api/api';
 import {useSelector} from 'react-redux';
 import Mybutton from '../Mybutton';
 const MyOrder = ({navigation}) => {
-  //const myOrdersFromStore = useSelector(state => state.auth.myOrders);
+
   const userId=useSelector((state)=>state.auth.userData.id)
-  const [myOrders, setMyOrders] = useState([])//useState(myOrdersFromStore);
+  const [myOrders, setMyOrders] = useState([])
   const fetchAllOrders=async()=>{
     try{
       let response=await getAllOrders(userId)
@@ -68,7 +68,7 @@ useEffect(()=>{
       <View style={stylesMyOrder.bodyContainer}>
         <ScrollView>
           {myOrders.map((order, index) => {
-            return <OrderCard order={order} key={index}></OrderCard>;
+            return <OrderCard navigation={navigation} order={order} key={index}></OrderCard>;
           })}
         </ScrollView>
       </View>
@@ -157,27 +157,13 @@ const OrderDetails = props => {
   );
 };
 
-const OrderCard = ({order}) => {
+const OrderCard = ({order,navigation}) => {
   const {id,orderCode,totalPrice,deliveryAddress,orderDate,orderStatus} = order;
   const OrderId=id;
-  const[orders,setOrders]=useState([]);
-  const [showDetails, setShowDetails] = useState(false);
-  const [showLoader, setShowLoader] = useState(false);
-  const fetchOrderDetails=async()=>{
-    try{
-      let response= await getOrderDatails(OrderId)
-      if (response.data){
-        setOrders(response.data)
-        setShowLoader(false)
-      }
-    }
-    catch(error){
-      console.log(error)
-    }
-  }
+
   return (
     <View>
-      {!showDetails && (
+      
         <View
           style={{
             alignSelf: 'center',
@@ -199,35 +185,12 @@ const OrderCard = ({order}) => {
           <Text style={{color: 'black'}}>Order Status: {orderStatus}</Text>
           <Button
             onPress={() => {
-              setShowDetails(!showDetails)
-              fetchOrderDetails(OrderId)
+                navigation.navigate("OrderDetails",{orderId:OrderId})
               }}
             title="Show Details"
             color={'#000'}></Button>
         </View>
-      )}
-      <ScrollView style={{marginVertical: 10}}>
-        {showDetails && (
-          <View style={{width: wp('90%'), alignSelf: 'center'}}>
-            <Button
-              title="HIDE DETAILS"
-              onPress={() => {
-                setShowDetails(!showDetails)
-                setShowLoader(true)}}
-              color={'#000'}
-              style={{color: '#000'}}></Button>
-          </View>
-        )}
 
-        {showDetails && showLoader &&
-          <ActivityIndicator color={"#FF5403"}></ActivityIndicator>
-        }
-
-        {showDetails && !showLoader &&
-          orders.map((products, index) => {
-            return <OrderDetails key={index} item={products}></OrderDetails>;
-          })}
-      </ScrollView>
     </View>
   );
 };
