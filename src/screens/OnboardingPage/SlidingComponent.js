@@ -7,7 +7,7 @@ const SlidingComponent = (props) => {
   return (
     <View style={{justifyContent:"center",alignItems:"center",backgroundColor:'white',}}>
     <View style={{wp:'70%',height:270,/*marginBottom:25*/ marginVertical:20, }}>
-      <Image source={props.item.url} style={{resizeMode:'contain',width:width,height:height/2,backgroundColor:'white',alignSelf:'center'}}></Image>
+      <Image source={props.item.url} style={{resizeMode:'contain',width:width,height:height/3,backgroundColor:'white',alignSelf:'center'}}></Image>
       </View>
       <View style={{flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
         <Text style={{color:"black",fontSize:20}}>{props.item.title}</Text>
