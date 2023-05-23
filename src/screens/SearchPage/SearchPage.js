@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, TextInput, ScrollView,KeyboardAvoidingView} from 'react-native';
+import {View, Text, StyleSheet, TextInput, ScrollView,KeyboardAvoidingView, Pressable} from 'react-native';
 import { widthPercentageToDP as wp,heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import SearchIcon from '../../svg/SearchIcon.svg';
 import ArrowIcon from '../../svg/Arrow.svg';
@@ -7,30 +7,20 @@ import BrowseCategories from './BrowseCategories';
 import Mybutton from '../Mybutton';
 import BottomNavBar from '../BottomNavBar/BottomNavBar';
 import SearchResults from '../SearchResults/SearchResults';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getAllCategories, getSearchResults,getTopSearches } from '../../api/api';
 
 const buttonWidth=100;
 
 const SearchPage = (props) => {
+  const{navigation}=props
   const [matchedProducts,setMatchedProducts]=useState([]);
   const [searchKeyWord,setSearchKeyWord]=useState("")
   const [showSearchResults,setShowResults]=useState(false);
   const [topSearches,setTopSearches]=useState([]);
   const [allCategories,setAllCategories]=useState([]);
-  console.log("topSearches", topSearches)
-  const{navigation}=props
-  const browse = [
-    {id: 1, name: 'Vegetables',goto:"vegetablesPage"},
-    {id: 2, name: 'Fruits',goto:"FruitsPage"},
-    {id: 3, name: 'Milk',goto:"NewCategory"},
-    {id: 4, name: 'Drinks',goto:"NewCategory"},
-    {id: 5, name: 'Oil',goto:"NewCategory"},
-    {id: 6, name: 'Cake',goto:"NewCategory"},
-    {id: 7, name: 'Juice',goto:"NewCategory"},
-    {id: 8, name: 'Icecream',goto:"NewCategory"},
-  ];
-
+  
+  const searchInputRef=useRef(null)
   const makeApiRequest=async(keyword)=>{
         console.log("keyword",keyword)
         let response = await getSearchResults(keyword);
@@ -81,7 +71,8 @@ const SearchPage = (props) => {
             <ArrowIcon></ArrowIcon>
             <Text style={styles.text}>Search</Text>
           </View>
-          <View
+          <Pressable
+            onPress={()=>searchInputRef.current.focus()}
             style={{
               flexDirection: 'row',
               marginVertical:0,
@@ -96,13 +87,14 @@ const SearchPage = (props) => {
             }}>
             <SearchIcon></SearchIcon>
             <TextInput
+              ref={searchInputRef}
               placeholderTextColor="white"
               placeholder="Search Your Keyword"
               selectionColor={'white'}
               style={{color:"white"}}
               onChangeText={(newText)=>{handleChangeInput(newText)}}></TextInput>
               
-          </View>
+          </Pressable>
         </View>
 
         { !showSearchResults &&
