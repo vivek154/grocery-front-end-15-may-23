@@ -58,6 +58,19 @@ const MyCartPage = ({navigation}) => {
     dispatch({type: AUTH_TYPE.SET_TOTAL_PRICE, payload: totalPrice});
     getTotalPrice();
   }, [totalPrice]);
+
+  function handleBackButtonClick()
+{
+  navigation.navigate("Home");
+  return true;
+}
+useEffect(()=>{
+  BackHandler.addEventListener("hardwareBackPress",handleBackButtonClick);
+  return ()=>{
+    BackHandler.removeEventListener("hardwareBackPress",handleBackButtonClick);
+  };
+},[])
+
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <View style={{height: '13%'}}>
